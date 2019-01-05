@@ -1,11 +1,26 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "proyecto-ADSW",
-    "database": "proyecto-ADSW",
+    "username": "user2",
+    "password": "user2",
+    "database": "user2",
     "host": "localhost",
-    "port": "5432",
     "dialect": "postgres",
-    "operatorsAliases": false
+    "port": "5432"
+  },
+  "test": {
+    "username": "user2",
+    "password": "user2",
+    "database": "user2",
+    "host": "localhost",
+    "dialect": "postgres",
+    "port": "5432"
+  },
+  "production": {
+    "username": "user2",
+    "password": "user2",
+    "database": "user2",
+    "host": "localhost",
+    "dialect": "postgres",
+    "port": "5432"
   }
 }

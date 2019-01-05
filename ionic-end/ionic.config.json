@@ -1,6 +1,8 @@
 {
   "name": "ionic-end",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "3f83fb0c"
 }

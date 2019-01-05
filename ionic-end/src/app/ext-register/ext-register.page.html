@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registra un nuevo Extintor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form (submit)="extRegister($event)" name="extinguisher">
+    <ion-item>
+      <ion-label fixed>Serial</ion-label>
+      <ion-input type="text" value="" name="serial_num"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Marca</ion-label>
+      <ion-input type="text" value="" name="brand"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Cliente</ion-label>
+      <ion-input type="text" value="" name="client"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Planta</ion-label>
+      <ion-input type="text" value="" name="plant"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Dirección</ion-label>
+      <ion-input type="text" value="" name="address"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Comuna</ion-label>
+      <ion-input type="text" value="" name="state"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Telefono Planta</ion-label>
+      <ion-input type="text" value="" name="p_cellphone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Nombre Representante</ion-label>
+      <ion-input type="text" value="" name="r_name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Telefono Representante</ion-label>
+      <ion-input type="text" value="" name="r_cellphone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Nombre Contacto</ion-label>
+      <ion-input type="text" value="" name="c_name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Telefono Contacto</ion-label>
+      <ion-input type="text" value="" name="c_cellphone"></ion-input>
+    </ion-item>
+    <input type="submit" value="Enviar">
+  </form>
+
+</ion-content>
