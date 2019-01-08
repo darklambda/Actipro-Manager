@@ -3,6 +3,7 @@ import { Extinguisher } from "./extinguisher";
 import { ExtinguisherService} from "./extinguisher.service";
 import { Router } from "@angular/router";
 import { NavController } from "@ionic/angular";
+import { ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-ext-register',
@@ -11,11 +12,17 @@ import { NavController } from "@ionic/angular";
 })
 export class ExtRegisterPage implements OnInit {
 
+    serial = "";
+
   constructor(private extinguisherService: ExtinguisherService,
               private router: Router,
-              private navCtrl: NavController) { }
+              private navCtrl: NavController,
+              private route: ActivatedRoute) {
+
+  }
 
   ngOnInit() {
+      this.serial = this.route.snapshot.paramMap.get('serial');
   }
 
   extRegister(extinguisher){

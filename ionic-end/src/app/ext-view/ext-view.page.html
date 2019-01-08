@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Forma del Extingor {{Ext.serial_num}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid>
+
+    <ion-row>
+
+      <ion-col>
+
+        Nombre Cliente: {{Ext.client}}
+
+      </ion-col>
+
+      <ion-col>
+
+        Planta: {{Ext.plant}}
+
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col> Direccion </ion-col>
+      <ion-col> Comuna </ion-col>
+      <ion-col> Telefono </ion-col>
+      <ion-col> Direccion Electronica</ion-col>
+
+    </ion-row>
+    <ion-row>
+
+      <ion-col> {{Ext.address}} </ion-col>
+      <ion-col> {{Ext.state}} </ion-col>
+      <ion-col> {{Ext.p_cellphone}} </ion-col>
+      <ion-col> Falta agregar </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col> Nombre Representante Empresa </ion-col>
+      <ion-col> Telefono y Dirección Electronica </ion-col>
+
+    </ion-row>
+    <ion-row>
+
+      <ion-col> {{Ext.r_name}} </ion-col>
+      <ion-col> {{Ext.r_cellphone}} </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col> Nombre Contacto de la  Empresa </ion-col>
+      <ion-col> Telefono y Dirección Electronica </ion-col>
+
+    </ion-row>
+    <ion-row>
+
+      <ion-col> {{Ext.c_name}} </ion-col>
+      <ion-col> {{Ext.c_cellphone}} </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col>
+
+        Numero de Serie: {{Ext.serial_num}}
+
+      </ion-col>
+
+      <ion-col>
+
+        Marca del Extintor: {{Ext.brand}}
+
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

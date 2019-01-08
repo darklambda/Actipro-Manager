@@ -17,3 +17,7 @@ In console:
 Accesing the database:
 
 * psql -U user2 -d user2 -h localhost -W
+
+Viewing records from table:
+
+* SELECT * FROM "Extinguishers";

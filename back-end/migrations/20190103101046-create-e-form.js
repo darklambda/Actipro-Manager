@@ -32,6 +32,9 @@ module.exports = {
       latest: {
         type: Sequelize.BOOLEAN
       },
+        serial: {
+          type:Sequelize.STRING
+        },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
