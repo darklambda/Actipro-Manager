@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Forma del Extingor {{Ext.serial_num}}</ion-title>
+    <ion-title>Forma del Extintor {{Ext.serial_num}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -9,27 +9,37 @@
   <ion-grid>
 
     <ion-row>
-
       <ion-col>
-
-        Nombre Cliente: {{Ext.client}}
-
+        Nombre Cliente:
       </ion-col>
-
-      <ion-col>
-
-        Planta: {{Ext.plant}}
-
-      </ion-col>
-
     </ion-row>
 
     <ion-row>
 
-      <ion-col> Direccion </ion-col>
-      <ion-col> Comuna </ion-col>
-      <ion-col> Telefono </ion-col>
-      <ion-col> Direccion Electronica</ion-col>
+      <ion-col>
+        {{Ext.client}}
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        Planta:
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col>
+        {{Ext.plant}}
+      </ion-col>
+    </ion-row>
+
+    <ion-row >
+
+      <ion-col class="col"> Direccion </ion-col>
+      <ion-col class="col"> Comuna </ion-col>
+      <ion-col class="col"> Telefono </ion-col>
+      <ion-col class="col"> Direccion Electronica</ion-col>
 
     </ion-row>
     <ion-row>
