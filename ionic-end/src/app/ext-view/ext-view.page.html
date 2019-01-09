@@ -6,6 +6,8 @@
 
 <ion-content padding>
 
+  <div *ngIf="Ext">
+
   <ion-grid>
 
     <ion-row>
@@ -77,6 +79,8 @@
 
     </ion-row>
 
+
+
     <ion-row>
 
       <ion-col>
@@ -93,6 +97,120 @@
 
     </ion-row>
 
+    <div *ngIf="Forms">
+
+    <ion-row>
+      <ion-col>
+        Servicio realizado de:
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col> Insepccion</ion-col>
+      <ion-col> Mantenimiento</ion-col>
+      <ion-col> Recarga</ion-col>
+      <ion-col> Prueba Hidrostatica</ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <div *ngIf="Forms.service===1"> X </div>
+      </ion-col>
+      <ion-col>
+        <div *ngIf="Forms.service===2"> X </div>
+      </ion-col>
+      <ion-col>
+        <div *ngIf="Forms.service===3"> X </div>
+      </ion-col>
+      <ion-col>
+        <div *ngIf="Forms.service===4"> X </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        Observaciones realizadas:
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        {{Forms.observation}}
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        Conclusiones:
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        {{Forms.conclusions}}
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        El extintor de debe:
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col> Mantener</ion-col>
+      <ion-col> Retirar del Servicio</ion-col>
+      <ion-col> Ser dado de Baja</ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <div *ngIf="Forms.future===1"> X </div>
+      </ion-col>
+      <ion-col>
+        <div *ngIf="Forms.future===2"> X </div>
+      </ion-col>
+      <ion-col>
+        <div *ngIf="Forms.future===3"> X </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        Razones:
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        {{Forms.reasons}}
+      </ion-col>
+    </ion-row>
+
+      <ion-button (click)="registerForm()" >
+        Actualizar Forma
+      </ion-button>
+
+    </div>
+
+    <div *ngIf="!Forms">
+
+      Este extintor no presenta Formas registradas.
+
+      <ion-button (click)="registerForm()">
+        Agregar Forma
+      </ion-button>
+
+    </div>
+
   </ion-grid>
 
+  </div>
+
+  <div *ngIf="!Ext">
+    El extintr cuyo codigo qr fue escaneado no se encuentra registrado.
+
+    <ion-button (click)="registerExtinguisher()">
+      Registrar Extintor
+    </ion-button>
+  </div>
 </ion-content>

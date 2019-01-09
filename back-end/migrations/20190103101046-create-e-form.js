@@ -35,6 +35,9 @@ module.exports = {
         serial: {
           type:Sequelize.STRING
         },
+        ExtinguisherId: {
+            type:Sequelize.INTEGER
+        },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

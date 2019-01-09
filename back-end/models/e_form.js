@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     reasons: DataTypes.STRING,
     latest: DataTypes.BOOLEAN,
       serial: DataTypes.STRING,
+      ExtinguisherId: DataTypes.INTEGER
   }, {});
   E_Form.associate = function(models) {
     // associations can be defined here

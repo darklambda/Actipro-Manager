@@ -1,13 +1,21 @@
 "use strict";
-
 let { E_Form } = require('../models');
+let { Extinguisher} = require('../models');
+
 
 module.exports.post = function (req, res) {
+
+    let extId = null;
+
     E_Form.update(
         { latest: false },
         { where: { serial: req.body.serial } }
     ).then(() => {});
-    console.log("llegue aui");
+    Extinguisher.findOne({where: {serial_num: req.body.serial}}).then(data => {
+            extId = data.dataValues.id;
+            console.log("id del extintor"+data.dataValues.id);
+    });
+
     E_Form.create({
         service_date: req.body.service_date,
         s_name: req.body.s_name,
@@ -18,6 +26,7 @@ module.exports.post = function (req, res) {
         reasons: req.body.reasons,
         latest: req.body.latest,
         serial: req.body.serial,
+        ExtinguisherId: extId
     }).then(function (result) {
         res.json(result);
     }).catch(function (err) {
