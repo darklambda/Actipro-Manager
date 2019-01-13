@@ -1,6 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Forma del Extintor {{Ext.serial_num}}</ion-title>
+    <ion-title>Forma del Extintor
+    <div *ngIf="Ext">
+      {{Ext.serial_num}}
+    </div>
+
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -203,6 +208,19 @@
     </div>
 
   </ion-grid>
+
+    <h3 ion-text color="light">Comentarios</h3>
+
+    <form (submit)="registerComment($event)" name="extinguisher">
+      <ion-item>
+        <ion-label fixed>Agregar un Comentario sobre Extintor {{Ext.serial_num}}</ion-label>
+        <ion-textarea type="text" value="" name="comment"></ion-textarea>
+      </ion-item>
+      <ion-button type="submit">
+        Enviar Comentario
+      </ion-button>
+    </form>
+
 
   </div>
 

@@ -21,3 +21,6 @@ Accesing the database:
 Viewing records from table:
 
 * SELECT * FROM "Extinguishers";
+
+Observaciones:
+Borrar vista ADMIN REG luego de finalizado el proyecto.

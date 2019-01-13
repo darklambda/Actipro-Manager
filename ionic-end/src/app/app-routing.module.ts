@@ -6,7 +6,9 @@ const routes: Routes = [
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'ext-register/:serial', loadChildren: './ext-register/ext-register.module#ExtRegisterPageModule' },
   { path: 'ext-view/:serial', loadChildren: './ext-view/ext-view.module#ExtViewPageModule' },
-  { path: 'e-form-register/:serial', loadChildren: './e-form-register/e-form-register.module#EFormRegisterPageModule' }
+  { path: 'e-form-register/:serial', loadChildren: './e-form-register/e-form-register.module#EFormRegisterPageModule' },
+  { path: 'admin-reg', loadChildren: './admin-reg/admin-reg.module#AdminRegPageModule' },
+  { path: 'admin-login', loadChildren: './admin-login/admin-login.module#AdminLoginPageModule' }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

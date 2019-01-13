@@ -17,19 +17,36 @@ export class Tab3Page {
 
   }
 
-  async scanQr(){
+    async scanQr(){
 
-      try {
-          const options: BarcodeScannerOptions = {
-              prompt: "Escanee Codigo QR"
-          };
+        try {
+            const options: BarcodeScannerOptions = {
+                prompt: "Escanee Codigo QR"
+            };
 
-          this.result = await this.barcodeScanner.scan(options);
-          this.navCtrl.navigateForward('/ext-register/' + this.result.text);
-      }catch (error) {
-          console.error(error);
+            this.result = await this.barcodeScanner.scan(options);
+            this.navCtrl.navigateForward('/ext-register/' + this.result.text);
+        }catch (error) {
+            console.error(error);
 
-      }
-  }
+        }
+    }
+
+    async getQr(){
+
+        try {
+            const options: BarcodeScannerOptions = {
+                prompt: "Escanee Codigo QR"
+            };
+
+            this.result = await this.barcodeScanner.scan(options);
+            this.navCtrl.navigateForward('/ext-view/' + this.result.text);
+        }catch (error) {
+            console.error(error);
+
+        }
+    }
+
+
 
 }

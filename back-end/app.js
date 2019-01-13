@@ -5,12 +5,15 @@ let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
+let session = require('express-session');
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 let extinguisherRouter = require('./routes/Extinguisher');
 let eformRouter = require('./routes/EForm');
-
+let adminLoginRouter = require('./routes/adminLogin');
+let adminRegisterRouter = require('./routes/adminRegister');
+let sessionRouter = require('./routes/session');
 
 let app = express();
 
@@ -18,6 +21,12 @@ let app = express();
 let cors = require('cors');
 
 app.use(cors({origin: ["http://localhost:8100"], credentials: true}));
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true
+}));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,6 +42,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/extinguisher', extinguisherRouter);
 app.use('/eform', eformRouter);
+app.use('/adminlogin', adminLoginRouter);
+app.use('/adminregister', adminRegisterRouter);
+app.use('/session', sessionRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

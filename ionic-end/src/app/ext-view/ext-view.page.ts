@@ -27,7 +27,8 @@ export class ExtViewPage implements OnInit {
       this.extViewService.getExtinguisher(serial)
           .subscribe(
               res =>{
-                  this.Ext = res[0];});
+                  this.Ext = res[0];
+                  console.log(this.Ext);});
       this.extViewService.getForms(serial)
           .subscribe(
               res =>{
@@ -41,6 +42,10 @@ export class ExtViewPage implements OnInit {
 
   registerExtinguisher(){
       this.navCtrl.navigateForward('/ext-register/' + this.route.snapshot.paramMap.get('serial'));
+  }
+
+  registerComment(comment){
+      console.log("toy, aqii con el comentario "+comment.target.elements[0].value);
   }
 
 }
