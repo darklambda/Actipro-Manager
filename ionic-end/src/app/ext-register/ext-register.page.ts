@@ -25,11 +25,9 @@ export class ExtRegisterPage implements OnInit {
       this.serial = this.route.snapshot.paramMap.get('serial');
       this.extinguisherService.getSession().subscribe(session =>{
           // @ts-ignore
-          console.log(session);
           if ((session === null) ) {
-              this.navCtrl.navigateForward(['/admin-login']);
+              this.navCtrl.navigateForward(['/login']);
           } else {
-              console.log("niceeee");
           }
       });
   }

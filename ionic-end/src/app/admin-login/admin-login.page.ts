@@ -13,9 +13,13 @@ export class AdminLoginPage implements OnInit {
               private navCtrl: NavController) { }
 
   ngOnInit() {
+      this.adminloginService.getSession().subscribe(session =>{
+          // @ts-ignore
+          if ((session.access === "admin")) {
+              this.navCtrl.navigateForward(['/']);
+          }
+      });
   }
-
-
     loginAdmin(admin){
         admin.preventDefault();
         let email = admin.target.elements[0].value;

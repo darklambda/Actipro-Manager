@@ -16,12 +16,16 @@ export class Tab1Page {
             // @ts-ignore
             console.log(session);
             if ((session === null)) {
-                this.navCtrl.navigateForward(['/admin-login']);
-            } else {
-                console.log("niceeee");
+                this.navCtrl.navigateForward(['/login']);
             }
         });
 
+    }
+
+    logout(){
+        this.tab1Service.logout().subscribe( () => {
+            this.navCtrl.navigateForward("/login");
+        })
     }
 
 }

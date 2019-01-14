@@ -23,9 +23,7 @@ export class EFormRegisterPage implements OnInit {
           // @ts-ignore
           console.log(session);
           if ((session === null)) {
-              this.navCtrl.navigateForward(['/admin-login']);
-          } else {
-              console.log("niceeee");
+              this.navCtrl.navigateForward(['/login']);
           }
       });
   }

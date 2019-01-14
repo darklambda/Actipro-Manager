@@ -13,7 +13,10 @@ let extinguisherRouter = require('./routes/Extinguisher');
 let eformRouter = require('./routes/EForm');
 let adminLoginRouter = require('./routes/adminLogin');
 let adminRegisterRouter = require('./routes/adminRegister');
+let registerRouter = require('./routes/userRegister');
+let loginRouter = require('./routes/login');
 let sessionRouter = require('./routes/session');
+let logoutRouter = require('./routes/logout');
 
 let app = express();
 
@@ -44,7 +47,10 @@ app.use('/extinguisher', extinguisherRouter);
 app.use('/eform', eformRouter);
 app.use('/adminlogin', adminLoginRouter);
 app.use('/adminregister', adminRegisterRouter);
+app.use('/login', loginRouter);
+app.use('/register', registerRouter);
 app.use('/session', sessionRouter);
+app.use('/logout', logoutRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

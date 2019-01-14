@@ -22,11 +22,8 @@ export class ExtViewPage implements OnInit {
       this.getData(serial);
       this.extViewService.getSession().subscribe(session =>{
           // @ts-ignore
-          console.log(session);
-          if ((session === null) ) {
-              this.navCtrl.navigateForward(['/admin-login']);
-          } else {
-              console.log("niceeee");
+          if ((session === null)) {
+              this.navCtrl.navigateForward(['/login']);
           }
       });
 
