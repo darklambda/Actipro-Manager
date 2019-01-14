@@ -10,6 +10,7 @@ module.exports.post = function (req, res) {
         if (compare === true) {
             req.session.user = admin[0];
             req.session.access = 'admin';
+            console.log("AQUI TOY");
             res.json(admin[0]);
         } else {
             res.json('Wrong Password');

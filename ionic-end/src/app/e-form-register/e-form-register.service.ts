@@ -10,6 +10,10 @@ export class EFormRegisterService {
 
     postEForm(eform){
         console.log("eform service");
-        return this.http.post('http://localhost:3000/eform', eform);
+        return this.http.post('http://localhost:3000/eform', eform, {withCredentials: true});
+    }
+
+    getSession(){
+        return this.http.get('http://localhost:3000/session',{withCredentials: true})
     }
 }

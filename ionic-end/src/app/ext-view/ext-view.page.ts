@@ -20,6 +20,15 @@ export class ExtViewPage implements OnInit {
   ngOnInit() {
     let serial = this.route.snapshot.paramMap.get('serial');
       this.getData(serial);
+      this.extViewService.getSession().subscribe(session =>{
+          // @ts-ignore
+          console.log(session);
+          if ((session === null) ) {
+              this.navCtrl.navigateForward(['/admin-login']);
+          } else {
+              console.log("niceeee");
+          }
+      });
 
   }
 

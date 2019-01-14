@@ -10,6 +10,10 @@ export class ExtinguisherService {
 
   postExtinguisher(extinguisher){
     console.log("ext service");
-    return this.http.post('http://localhost:3000/extinguisher', extinguisher);
+    return this.http.post('http://localhost:3000/extinguisher', extinguisher, {withCredentials: true});
   }
+
+    getSession(){
+        return this.http.get('http://localhost:3000/session',{withCredentials: true})
+    }
 }

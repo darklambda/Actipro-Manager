@@ -23,6 +23,15 @@ export class ExtRegisterPage implements OnInit {
 
   ngOnInit() {
       this.serial = this.route.snapshot.paramMap.get('serial');
+      this.extinguisherService.getSession().subscribe(session =>{
+          // @ts-ignore
+          console.log(session);
+          if ((session === null) ) {
+              this.navCtrl.navigateForward(['/admin-login']);
+          } else {
+              console.log("niceeee");
+          }
+      });
   }
 
   extRegister(extinguisher){

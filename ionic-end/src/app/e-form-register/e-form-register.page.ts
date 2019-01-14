@@ -19,6 +19,15 @@ export class EFormRegisterPage implements OnInit {
 
   ngOnInit() {
       this.serial = this.route.snapshot.paramMap.get('serial');
+      this.eformService.getSession().subscribe(session =>{
+          // @ts-ignore
+          console.log(session);
+          if ((session === null)) {
+              this.navCtrl.navigateForward(['/admin-login']);
+          } else {
+              console.log("niceeee");
+          }
+      });
   }
 
   formRegister(forma){
