@@ -211,16 +211,47 @@
 
     <h3 ion-text color="light">Comentarios</h3>
 
-    <form (submit)="registerComment($event)" name="extinguisher">
-      <ion-item>
-        <ion-label fixed>Agregar un Comentario sobre Extintor {{Ext.serial_num}}</ion-label>
-        <ion-textarea type="text" value="" name="comment"></ion-textarea>
-      </ion-item>
-      <ion-button type="submit">
-        Enviar Comentario
-      </ion-button>
-    </form>
+    <div *ngIf="Comments">
 
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            Fecha
+          </ion-col>
+          <ion-col>
+            Nombre
+          </ion-col>
+          <ion-col>
+            Comentario
+          </ion-col>
+          <ion-col>
+            Contacto
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngFor="let comment of Comments">
+          <ion-col>
+            {{comment.date}}
+          </ion-col>
+          <ion-col>
+            {{comment.name}}
+          </ion-col>
+          <ion-col>
+            {{comment.comment}}
+          </ion-col>
+          <ion-col>
+            {{comment.email}}
+          </ion-col>
+        </ion-row>
+
+
+      </ion-grid>
+    </div>
+
+
+      <ion-button (click)="goComment()" >
+          Escribir Comentario
+      </ion-button>
 
   </div>
 

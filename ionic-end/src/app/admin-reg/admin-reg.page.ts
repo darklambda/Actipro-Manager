@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminRegService} from "./admin-reg.service";
 import { Admin} from "./admin";
 import { NavController} from "@ionic/angular";
+import { Platform } from "@ionic/angular";
 
 @Component({
   selector: 'app-admin-reg',
@@ -11,7 +12,8 @@ import { NavController} from "@ionic/angular";
 export class AdminRegPage implements OnInit {
 
   constructor(private registerService: AdminRegService,
-              private navCtrl: NavController) { }
+              private navCtrl: NavController,
+              public pltr: Platform) { }
 
   ngOnInit() {
   }
@@ -22,31 +24,29 @@ export class AdminRegPage implements OnInit {
         /*Registro invalido */
         let admin =new Admin(email, password);
                 /*Registrar Usuario */
-                this.registerService.postRegister(admin).subscribe(
-                    data=>{
-                        if (typeof data != "string"){
-                            console.log(data,'Usuario Enviado');
-                            this.navCtrl.navigateForward("/");
-                        } else {
-                            console.log(data,'error');
-                            alert(data)
-                        }
-                    });
-                /*
-                console.log('hoi');
-                let userr = new User(username,email,password,false,serial,true);
-                this.registerService.postRegister(userr).subscribe(
-                  data=>{
+        if (this.pltr.is('desktop')){
+            this.registerService.postRegister(admin).subscribe(
+                data=>{
                     if (typeof data != "string"){
-                      console.log(data,'Usuario Enviado');
-                      this.router.navigate(['/']);
+                        console.log(data,'Usuario Enviado');
+                        this.navCtrl.navigateForward("/");
                     } else {
-                      console.log(data,'error');
-                      alert(data)
+                        console.log(data,'error');
+                        alert(data)
                     }
                 });
-                 */
-
+        } else {
+            this.registerService.postRegister2(admin).then(
+                data=>{
+                    if (typeof data.data != "string"){
+                        console.log(data.data,'Usuario Enviado');
+                        this.navCtrl.navigateForward("/");
+                    } else {
+                        console.log(data.data,'error');
+                        alert(data.data)
+                    }
+                });
+        }
   }
 }
 

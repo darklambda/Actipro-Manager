@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>coment-reg</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form (ngSubmit)="registerComment($event)" name="comment">
+    <ion-item>
+      <ion-label fixed>Agregar un Comentario sobre Extintor {{serial}}</ion-label>
+      <ion-textarea type="text" value="" name="comment"></ion-textarea>
+    </ion-item>
+    <ion-button type="submit">
+      Enviar Comentario
+    </ion-button>
+  </form>
+
+</ion-content>

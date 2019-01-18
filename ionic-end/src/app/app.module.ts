@@ -33,6 +33,7 @@ const routes: Routes=[
       ExtinguisherService,
       BarcodeScanner,
       Camera,
+      HTTP,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

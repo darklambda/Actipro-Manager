@@ -8,6 +8,15 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+        date: {
+            type: Sequelize.DATE
+        },
+        name: {
+            type: Sequelize.STRING
+        },
+        email: {
+            type: Sequelize.STRING
+        },
       comment: {
         type: Sequelize.STRING
       },
@@ -18,6 +27,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
+        ExtinguisherId: {
+            type:Sequelize.INTEGER
+        },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE

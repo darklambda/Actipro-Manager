@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserRegService} from "./user-reg.service";
 import { NavController} from "@ionic/angular";
 import { User} from "./user";
+import { Platform} from "@ionic/angular";
 
 @Component({
   selector: 'app-user-reg',
@@ -11,15 +12,25 @@ import { User} from "./user";
 export class UserRegPage implements OnInit {
 
   constructor(private userService: UserRegService,
-              private navCtrl: NavController) { }
+              private navCtrl: NavController,
+              public pltr: Platform) { }
 
   ngOnInit() {
-      this.userService.getSession().subscribe(session =>{
-          // @ts-ignore
-          if ((session === null) || (session.access !== "admin")) {
-              this.navCtrl.navigateForward(['/']);
-          }
-      });
+      if (this.pltr.is('desktop')){
+          this.userService.getSession().subscribe(session =>{
+              // @ts-ignore
+              if ((session === null) || (session.access !== "admin")) {
+                  this.navCtrl.navigateForward(['/']);
+              }
+          });
+      } else {
+          this.userService.getSession2().then(session =>{
+              // @ts-ignore
+              if ((session.data === null) || (session.data.access !== "admin")) {
+                  this.navCtrl.navigateForward(['/']);
+              }
+          });
+      }
   }
 
     registerUser(user){
@@ -46,6 +57,7 @@ export class UserRegPage implements OnInit {
             alert('Invalid email')
         } else {
                 /*Registrar Usuario */
+            if (this.pltr.is('desktop')){
                 this.userService.postRegister(userp).subscribe(
                     data=>{
                         if (typeof data != "string"){
@@ -56,8 +68,18 @@ export class UserRegPage implements OnInit {
                             alert(data)
                         }
                     });
-
+            } else {
+                this.userService.postRegister2(userp).then(
+                    data=>{
+                        if (typeof data.data != "string"){
+                            console.log(data.data,'Usuario Enviado');
+                            this.navCtrl.navigateForward(['/tabs/tab1']);
+                        } else {
+                            console.log(data.data,'error');
+                            alert(data.data)
+                        }
+                    });
+            }
         }
     }
-
 }

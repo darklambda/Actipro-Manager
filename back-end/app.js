@@ -11,6 +11,7 @@ let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 let extinguisherRouter = require('./routes/Extinguisher');
 let eformRouter = require('./routes/EForm');
+let commentRouter = require('./routes/Comment');
 let adminLoginRouter = require('./routes/adminLogin');
 let adminRegisterRouter = require('./routes/adminRegister');
 let registerRouter = require('./routes/userRegister');
@@ -42,6 +43,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/comentario', commentRouter);
 app.use('/users', usersRouter);
 app.use('/extinguisher', extinguisherRouter);
 app.use('/eform', eformRouter);
@@ -51,6 +53,7 @@ app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/session', sessionRouter);
 app.use('/logout', logoutRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

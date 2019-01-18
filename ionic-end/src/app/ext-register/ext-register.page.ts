@@ -4,6 +4,7 @@ import { ExtinguisherService} from "./extinguisher.service";
 import { Router } from "@angular/router";
 import { NavController } from "@ionic/angular";
 import { ActivatedRoute} from "@angular/router";
+import { Platform} from "@ionic/angular";
 
 @Component({
   selector: 'app-ext-register',
@@ -17,19 +18,30 @@ export class ExtRegisterPage implements OnInit {
   constructor(private extinguisherService: ExtinguisherService,
               private router: Router,
               private navCtrl: NavController,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              public pltr: Platform) {
 
   }
 
   ngOnInit() {
       this.serial = this.route.snapshot.paramMap.get('serial');
-      this.extinguisherService.getSession().subscribe(session =>{
-          // @ts-ignore
-          if ((session === null) ) {
-              this.navCtrl.navigateForward(['/login']);
-          } else {
-          }
-      });
+      if (this.pltr.is('desktop')){
+          this.extinguisherService.getSession().subscribe(session =>{
+              // @ts-ignore
+              if ((session === null) ) {
+                  this.navCtrl.navigateForward(['/login']);
+              } else {
+              }
+          });
+      } else {
+          this.extinguisherService.getSession2().then(session =>{
+              // @ts-ignore
+              if ((session.data === null) ) {
+                  this.navCtrl.navigateForward(['/login']);
+              } else {
+              }
+          });
+      }
   }
 
   extRegister(extinguisher){
@@ -47,12 +59,17 @@ export class ExtRegisterPage implements OnInit {
       let modelo = new Extinguisher(serial,brand,client,plant,
           address,state,p_cellphone,r_name,r_cellphone,
           c_name,c_cellphone);
-      console.log(modelo);
-      this.extinguisherService.postExtinguisher(modelo).subscribe(
-          data => {
-              console.log(data, "objeto enviado");
-              alert('extintor registrado');
-          });
+      if (this.pltr.is('desktop')){
+          this.extinguisherService.postExtinguisher(modelo).subscribe(
+              data => {
+                  alert('Extintor Registrado');
+              });
+      } else {
+          this.extinguisherService.postExtinguisher2(modelo).then(
+              data => {
+                  alert('Extintor Registrado');
+              });
+      }
       this.navCtrl.navigateRoot('/');
   }
 

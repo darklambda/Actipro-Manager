@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: 'e-form-register/:serial', loadChildren: './e-form-register/e-form-register.module#EFormRegisterPageModule' },
   { path: 'admin-reg', loadChildren: './admin-reg/admin-reg.module#AdminRegPageModule' },
   { path: 'admin-login', loadChildren: './admin-login/admin-login.module#AdminLoginPageModule' },
-  { path: 'user-reg', loadChildren: './user-reg/user-reg.module#UserRegPageModule' }
+  { path: 'user-reg', loadChildren: './user-reg/user-reg.module#UserRegPageModule' },
+  { path: 'coment-reg/:serial', loadChildren: './coment-reg/coment-reg.module#ComentRegPageModule' }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

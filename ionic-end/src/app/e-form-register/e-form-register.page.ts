@@ -3,6 +3,7 @@ import { ActivatedRoute} from "@angular/router";
 import { EForm} from "./eform";
 import {EFormRegisterService} from "./e-form-register.service";
 import { NavController} from "@ionic/angular";
+import { Platform} from "@ionic/angular";
 
 @Component({
   selector: 'app-e-form-register',
@@ -15,17 +16,28 @@ export class EFormRegisterPage implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private eformService: EFormRegisterService,
-              private navCtrl: NavController) { }
+              private navCtrl: NavController,
+              public pltr: Platform) { }
 
   ngOnInit() {
       this.serial = this.route.snapshot.paramMap.get('serial');
-      this.eformService.getSession().subscribe(session =>{
-          // @ts-ignore
-          console.log(session);
-          if ((session === null)) {
-              this.navCtrl.navigateForward(['/login']);
-          }
-      });
+      if (this.pltr.is('desktop')){
+          this.eformService.getSession().subscribe(session =>{
+              // @ts-ignore
+              console.log(session);
+              if ((session === null)) {
+                  this.navCtrl.navigateForward(['/login']);
+              }
+          });
+      } else {
+          this.eformService.getSession2().then(session =>{
+              // @ts-ignore
+              console.log(session.data);
+              if ((session.data === null)) {
+                  this.navCtrl.navigateForward(['/login']);
+              }
+          });
+      }
   }
 
   formRegister(forma){
@@ -38,11 +50,19 @@ export class EFormRegisterPage implements OnInit {
       let reasons = forma.target.elements[6].value;
       let modelo = new EForm(service_date, s_name, service, observation,
           conclusions, future, reasons, true, this.serial);
-      this.eformService.postEForm(modelo).subscribe(
-          data => {
-              console.log(data, "objeto enviado");
-              alert('extintor registrado');
-          });
+      if (this.pltr.is('desktop')){
+          this.eformService.postEForm(modelo).subscribe(
+              data => {
+                  console.log(data, "objeto enviado");
+                  alert('Forma Actualizada');
+              });
+      } else {
+          this.eformService.postEForm2(modelo).then(
+              data => {
+                  console.log(data.data, "objeto enviado");
+                  alert('Forma Actualizada');
+              });
+      }
       this.navCtrl.navigateRoot('/');
 
   }

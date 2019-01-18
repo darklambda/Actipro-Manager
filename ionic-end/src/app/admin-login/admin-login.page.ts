@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminLoginService} from "./admin-login.service";
 import { NavController} from "@ionic/angular";
+import { Platform } from "@ionic/angular";
 
 @Component({
   selector: 'app-admin-login',
@@ -10,15 +11,25 @@ import { NavController} from "@ionic/angular";
 export class AdminLoginPage implements OnInit {
 
   constructor(private adminloginService: AdminLoginService,
-              private navCtrl: NavController) { }
+              private navCtrl: NavController,
+              public pltr: Platform) { }
 
   ngOnInit() {
-      this.adminloginService.getSession().subscribe(session =>{
-          // @ts-ignore
-          if ((session.access === "admin")) {
-              this.navCtrl.navigateForward(['/']);
-          }
-      });
+      if(this.pltr.is('desktop')){
+          this.adminloginService.getSession().subscribe(session =>{
+              // @ts-ignore
+              if ((session.access === "admin")) {
+                  this.navCtrl.navigateForward(['/']);
+              }
+          });
+      } else {
+          this.adminloginService.getSession2().then(session =>{
+              // @ts-ignore
+              if ((session.data.access === "admin")) {
+                  this.navCtrl.navigateForward(['/']);
+              }
+          });
+      }
   }
     loginAdmin(admin){
         admin.preventDefault();
@@ -26,13 +37,23 @@ export class AdminLoginPage implements OnInit {
         let password = admin.target.elements[1].value;
         let AdminObject = {email: email, password: password};
 
-        this.adminloginService.login(AdminObject).subscribe(response => {
-            if (typeof response != "string"){
-                this.navCtrl.navigateForward("/");
-            } else{ //Login Incorrecto
-                alert(response);
-            }
-        })
+        if(this.pltr.is('desktop')){
+            this.adminloginService.login(AdminObject).subscribe(response => {
+                if (typeof response != "string"){
+                    this.navCtrl.navigateForward("/");
+                } else{ //Login Incorrecto
+                    alert(response);
+                }
+            })
+        } else {
+            this.adminloginService.login2(AdminObject).then(response => {
+                if (typeof response.data != "string"){
+                    this.navCtrl.navigateForward("/");
+                } else{ //Login Incorrecto
+                    alert(response.data);
+                }
+            })
+        }
     }
 
 }

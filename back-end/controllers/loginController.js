@@ -10,6 +10,8 @@ module.exports.post = function (req, res) {
             if (compare === true) {
                 req.session.user = user[0];
                 req.session.access = "user";
+                req.session.name = user[0].name;
+                console.log(req.session);
                 res.json(user[0]);
             } else {
                 res.json('Wrong Password');
