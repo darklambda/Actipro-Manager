@@ -38,6 +38,7 @@ export class AdminRegPage implements OnInit {
         } else {
             this.registerService.postRegister2(admin).then(
                 data=>{
+
                     if (typeof data.data != "string"){
                         console.log(data.data,'Usuario Enviado');
                         this.navCtrl.navigateForward("/");

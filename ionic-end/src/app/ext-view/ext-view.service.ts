@@ -18,7 +18,6 @@ export class ExtViewService {
     }
 
     getExtinguisher2(serial){
-        this.http2.setDataSerializer('json');
         return this.http2.get('http://192.168.0.70:3000/extinguisher/'+serial, {}, {withCredentials: 'true'});
     }
 
@@ -27,7 +26,6 @@ export class ExtViewService {
     }
 
     getForms2(serial){
-        this.http2.setDataSerializer('json');
         return this.http2.get('http://192.168.0.70:3000/eform/'+serial, {}, {withCredentials: 'true'});
     }
 
@@ -36,7 +34,6 @@ export class ExtViewService {
     }
 
     getComments2(serial){
-        this.http2.setDataSerializer('json');
         return this.http2.get('http://192.168.0.70:3000/comentario/'+serial, {}, {withCredentials: 'true'});
     }
 
@@ -45,7 +42,6 @@ export class ExtViewService {
     }
 
     getSession2(){
-        this.http2.setDataSerializer('json');
         return this.http2.get('http://192.168.0.70:3000/session', {}, {withCredentials: 'true'})
     }
 }

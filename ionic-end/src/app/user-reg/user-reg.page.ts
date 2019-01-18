@@ -26,8 +26,13 @@ export class UserRegPage implements OnInit {
       } else {
           this.userService.getSession2().then(session =>{
               // @ts-ignore
-              if ((session.data === null) || (session.data.access !== "admin")) {
+              if (session.data === ''){
                   this.navCtrl.navigateForward(['/']);
+              } else {
+                  session.data = JSON.parse(session.data);
+                  if (session.data.access !== "admin"){
+                      this.navCtrl.navigateForward(['/']);
+                  }
               }
           });
       }
@@ -71,12 +76,10 @@ export class UserRegPage implements OnInit {
             } else {
                 this.userService.postRegister2(userp).then(
                     data=>{
-                        if (typeof data.data != "string"){
-                            console.log(data.data,'Usuario Enviado');
-                            this.navCtrl.navigateForward(['/tabs/tab1']);
-                        } else {
-                            console.log(data.data,'error');
+                        if (data.data === 'Email already in use'){
                             alert(data.data)
+                        } else {
+                            this.navCtrl.navigateForward(['/tabs/tab1']);
                         }
                     });
             }

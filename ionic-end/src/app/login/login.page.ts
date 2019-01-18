@@ -25,9 +25,11 @@ export class LoginPage implements OnInit {
       } else {
           this.loginService.getSession2().then(session =>{
               // @ts-ignore
-              console.log("this session, exists?"+ session.data);
-              if ((session.data.access == "user") || (session.data.access == "admin")) {
-                  this.navCtrl.navigateForward(['/']);
+              if (session.data !== ''){
+                  session.data = JSON.parse(session.data);
+                  if ((session.data.access == "user") || (session.data.access == "admin")) {
+                      this.navCtrl.navigateForward(['/']);
+                  }
               }
           });
       }
@@ -49,12 +51,12 @@ export class LoginPage implements OnInit {
             })
         } else {
             this.loginService.login2(UserObject).then(response => {
-                console.log("what is correct the login?");
+                if ((response.data !== 'Contraseña erronea') || (response.data !== 'Correo electronico invalido')){
+                    response.data = JSON.parse(response.data);
+                }
                 if (typeof response.data != "string"){
-
                     this.navCtrl.navigateForward("/");
                 } else { //Login Incorrecto
-                    console.log(response.data);
                     alert(response.data);
                 }
             })

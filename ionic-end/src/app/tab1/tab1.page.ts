@@ -22,11 +22,9 @@ export class Tab1Page implements OnInit {
                 }
             });
         } else {
-            console.log("this is me");
             this.tab1Service.getSession2().then(session =>{
                 // @ts-ignore
-                if ((session.data === null)) {
-                    console.log("i should be going...");
+                if ((session.data === '')) {
                     this.navCtrl.navigateForward(['/login']);
                 }
             });

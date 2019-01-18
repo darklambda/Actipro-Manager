@@ -37,14 +37,10 @@ export class ExtViewPage implements OnInit {
           });
       } else {
           this.extViewService.getSession2().then(session =>{
-
-              if ((session.data === null)) {
-                  console.log("session es null");
+              session.data = JSON.parse(session.data);
+              if ((session.data === '')) {
                   this.navCtrl.navigateForward(['/login']);
               } else {
-                  console.log("session no es null");
-                  console.log("data="+session.data);
-                  console.log("data.user.permisssion="+session.data.user.permission);
                   this.User = session.data;
                   this.level = this.User.user.permission;
               }
@@ -75,18 +71,18 @@ export class ExtViewPage implements OnInit {
           this.extViewService.getExtinguisher2(serial)
               .then(
                   res =>{
-                      console.log("what am i getting?");
-                      console.log("res.data = " + res.data);
-                      console.log("res.data[0] =" +res.data[0]);
+                      res.data = JSON.parse(res.data);
                       this.Ext = res.data[0];});
           this.extViewService.getForms2(serial)
               .then(
                   res =>{
+                      res.data = JSON.parse(res.data);
                       this.Forms = res.data[0];
                       console.log(this.Forms);});
           this.extViewService.getComments2(serial)
               .then(
                   res =>{
+                      res.data = JSON.parse(res.data);
                       this.Comments = res.data;
                       console.log(this.Comments)
                   }

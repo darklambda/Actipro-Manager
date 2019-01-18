@@ -25,8 +25,11 @@ export class AdminLoginPage implements OnInit {
       } else {
           this.adminloginService.getSession2().then(session =>{
               // @ts-ignore
-              if ((session.data.access === "admin")) {
-                  this.navCtrl.navigateForward(['/']);
+              if (session.data !== ''){
+                  session.data = JSON.parse(session.data);
+                  if ((session.data.access === "admin")) {
+                      this.navCtrl.navigateForward(['/']);
+                  }
               }
           });
       }
@@ -47,6 +50,7 @@ export class AdminLoginPage implements OnInit {
             })
         } else {
             this.adminloginService.login2(AdminObject).then(response => {
+
                 if (typeof response.data != "string"){
                     this.navCtrl.navigateForward("/");
                 } else{ //Login Incorrecto

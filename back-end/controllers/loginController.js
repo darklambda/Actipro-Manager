@@ -14,11 +14,11 @@ module.exports.post = function (req, res) {
                 console.log(req.session);
                 res.json(user[0]);
             } else {
-                res.json('Wrong Password');
+                res.json('Contraseña erronea');
             }
 
     }).catch(function (err) {
         console.log(err, 'error');
-        res.json('Email doesnt exists');
+        res.json('Correo electronico invalido');
     });
 };

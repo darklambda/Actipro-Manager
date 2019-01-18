@@ -25,7 +25,6 @@ export class UserRegService {
     }
 
     getSession2(){
-        this.http2.setDataSerializer('json');
         return this.http2.get('http://192.168.0.70:3000/session', {}, {withCredentials: 'true'})
     }
 }

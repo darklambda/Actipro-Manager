@@ -31,7 +31,7 @@ export class ComentRegPage implements OnInit {
       } if (this.pltr.is('android')){
           this.commentService.getSession2().then(session =>{
               // @ts-ignore
-              if ((session.data === null)) {
+              if (session.data === ''){
                   this.navCtrl.navigateForward(['/login']);
               }
           });
@@ -48,10 +48,9 @@ export class ComentRegPage implements OnInit {
                 data => {
                     console.log(data);
                 });
-        } if (this.pltr.is('android')){
+        } else {
             this.commentService.postComment2(modelo).then(
                 data => {
-                    console.log(data.data);
                 });
         }
         this.navCtrl.navigateForward('/ext-view/'+this.serial);

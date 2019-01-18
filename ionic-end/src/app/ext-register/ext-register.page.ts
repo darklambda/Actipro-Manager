@@ -36,9 +36,8 @@ export class ExtRegisterPage implements OnInit {
       } else {
           this.extinguisherService.getSession2().then(session =>{
               // @ts-ignore
-              if ((session.data === null) ) {
+              if ((session.data === '') ) {
                   this.navCtrl.navigateForward(['/login']);
-              } else {
               }
           });
       }

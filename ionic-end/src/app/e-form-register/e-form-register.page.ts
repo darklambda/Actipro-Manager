@@ -32,8 +32,7 @@ export class EFormRegisterPage implements OnInit {
       } else {
           this.eformService.getSession2().then(session =>{
               // @ts-ignore
-              console.log(session.data);
-              if ((session.data === null)) {
+              if ((session.data === '')) {
                   this.navCtrl.navigateForward(['/login']);
               }
           });
@@ -59,7 +58,6 @@ export class EFormRegisterPage implements OnInit {
       } else {
           this.eformService.postEForm2(modelo).then(
               data => {
-                  console.log(data.data, "objeto enviado");
                   alert('Forma Actualizada');
               });
       }
