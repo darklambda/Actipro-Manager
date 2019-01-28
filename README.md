@@ -23,4 +23,36 @@ Viewing records from table:
 * SELECT * FROM "Extinguishers";
 
 Observaciones:
-Borrar vista ADMIN REG luego de finalizado el proyecto.
+-Borrar vista ADMIN REG luego de finalizado el proyecto.
+
+-Agregar GetSession en tab3 y metodos Qr.
+
+-Agrupar información en fichas desplegables.
+ 
+ NOT YET
+
+-Cambiar nombre Forma por Ficha de Mantención.
+ 
+ DONE
+
+-Automatizar forma segun usuario.
+
+-Cambiar opciones de futuro del extintor a: 
+        Mantener
+        Nueva Prueba.
+        Dar de Baja.
+        
+        DONE
+        
+-Cambiar titulo de Mensajes de Alerta dependiendo de la situacion.
+
+NOT YET
+
+-Cambiar columnas de resultado por letras con simbología.
+
+-Colocar borde inferior a resultados importantes.
+
+-Dejar nombre de usuario actual al registrar formas. DONE
+
+-Por empresa 
+        

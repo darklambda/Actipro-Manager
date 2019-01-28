@@ -11,7 +11,7 @@ module.exports.post = function (req, res) {
                 req.session.user = user[0];
                 req.session.access = "user";
                 req.session.name = user[0].name;
-                console.log(req.session);
+                console.log("i logged correctly");
                 res.json(user[0]);
             } else {
                 res.json('Contraseña erronea');

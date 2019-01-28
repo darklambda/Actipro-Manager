@@ -14,6 +14,8 @@ import { Platform} from "@ionic/angular";
 export class ExtRegisterPage implements OnInit {
 
     serial = "";
+    public User: any;
+    public name: any;
 
   constructor(private extinguisherService: ExtinguisherService,
               private router: Router,
@@ -31,6 +33,8 @@ export class ExtRegisterPage implements OnInit {
               if ((session === null) ) {
                   this.navCtrl.navigateForward(['/login']);
               } else {
+                  this.User = session;
+                  this.name = this.User.user.name;
               }
           });
       } else {
@@ -38,6 +42,9 @@ export class ExtRegisterPage implements OnInit {
               // @ts-ignore
               if ((session.data === '') ) {
                   this.navCtrl.navigateForward(['/login']);
+              } else {
+                  this.User = session.data;
+                  this.name = this.User.user.name;
               }
           });
       }

@@ -39,7 +39,13 @@ export class Tab3Page {
                 prompt: "Escanee Codigo QR"
             };
 
-            this.result = await this.barcodeScanner.scan(options);
+            await this.barcodeScanner.scan(options).then( data => {
+                if (data.cancelled){
+                    this.navCtrl.navigateForward('/tabs/tab1');
+                } else {
+                    this.result = data
+                }
+            });
             this.navCtrl.navigateForward('/ext-view/' + this.result.text);
         }catch (error) {
             console.error(error);

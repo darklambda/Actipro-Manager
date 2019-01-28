@@ -12,7 +12,7 @@ import { Platform} from "@ionic/angular";
 export class ExtViewPage implements OnInit {
 
     public Ext =  Object;
-    public Forms =  Object;
+    public Forms:  any;
     public Comments: any;
     public User: any;
     public level: number;
@@ -32,7 +32,11 @@ export class ExtViewPage implements OnInit {
                   this.navCtrl.navigateForward(['/login']);
               } else {
                   this.User = session;
-                  this.level = this.User.user.permission;
+                  if (this.User.access == "admin"){
+                      this.level = 4;
+                  } else {
+                      this.level = this.User.user.permission;
+                  }
               }
           });
       } else {
@@ -42,7 +46,11 @@ export class ExtViewPage implements OnInit {
                   this.navCtrl.navigateForward(['/login']);
               } else {
                   this.User = session.data;
-                  this.level = this.User.user.permission;
+                  if (this.User.access == "admin"){
+                      this.level = 4;
+                  } else {
+                      this.level = this.User.user.permission;
+                  }
               }
           });
       }
@@ -92,6 +100,10 @@ export class ExtViewPage implements OnInit {
 
   registerForm(){
       this.navCtrl.navigateForward('/e-form-register/' + this.route.snapshot.paramMap.get('serial'));
+  }
+
+  listForms(){
+      this.navCtrl.navigateForward('/form-list/' + this.route.snapshot.paramMap.get('serial'));
   }
 
   registerExtinguisher(){

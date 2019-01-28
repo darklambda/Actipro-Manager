@@ -9,7 +9,7 @@ module.exports.post = function (req, res) {
 
     E_Form.update(
         { latest: false },
-        { where: { serial: req.body.serial } }
+        { where: { serial: req.body.serial }}
     ).then(() => {});
     Extinguisher.findOne({where: {serial_num: req.body.serial}}).then(data => {
             extId = data.dataValues.id;

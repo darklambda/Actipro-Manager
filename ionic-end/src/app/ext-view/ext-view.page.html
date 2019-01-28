@@ -10,9 +10,8 @@
 </ion-header>
 
 <ion-content padding>
-
+  
   <div *ngIf="Ext">
-
   <ion-grid>
 
     <ion-row>
@@ -41,21 +40,53 @@
       </ion-col>
     </ion-row>
 
-    <ion-row >
-
-      <ion-col class="col"> Direccion </ion-col>
-      <ion-col class="col"> Comuna </ion-col>
-      <ion-col class="col"> Telefono </ion-col>
-      <ion-col class="col"> Direccion Electronica</ion-col>
-
+    <ion-row>
+      <ion-col>
+        Direccion:
+      </ion-col>
     </ion-row>
+
     <ion-row>
 
-      <ion-col> {{Ext.address}} </ion-col>
-      <ion-col> {{Ext.state}} </ion-col>
-      <ion-col> {{Ext.p_cellphone}} </ion-col>
-      <ion-col> Falta agregar </ion-col>
+      <ion-col>
+        {{Ext.address}}
+      </ion-col>
+    </ion-row>
 
+    <ion-row>
+      <ion-col>
+        Comuna:
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        {{Ext.state}}
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        Telefono:
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        {{Ext.p_cellphone}}
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        Dirección Electronica:
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        CORREO AQUI PROX
+      </ion-col>
     </ion-row>
 
     <ion-row>
@@ -103,34 +134,30 @@
     </ion-row>
 
     <div *ngIf="Forms">
+        <ion-row>
+            <ion-col>
+                Nombre de mantenedor:
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                {{Forms.s_name}}
+            </ion-col>
+        </ion-row>
 
     <ion-row>
-      <ion-col>
+      <ion-col class="res-col">
         Servicio realizado de:
       </ion-col>
+      <ion-col class="res-col">
+        <div *ngIf="Forms.service===1"> Insepcción </div>
+        <div *ngIf="Forms.service===2"> Mantenimiento </div>
+        <div *ngIf="Forms.service===3"> Recarga </div>
+        <div *ngIf="Forms.service===4"> Prueba Hidrostatica </div>
+      </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col> Insepccion</ion-col>
-      <ion-col> Mantenimiento</ion-col>
-      <ion-col> Recarga</ion-col>
-      <ion-col> Prueba Hidrostatica</ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <div *ngIf="Forms.service===1"> X </div>
-      </ion-col>
-      <ion-col>
-        <div *ngIf="Forms.service===2"> X </div>
-      </ion-col>
-      <ion-col>
-        <div *ngIf="Forms.service===3"> X </div>
-      </ion-col>
-      <ion-col>
-        <div *ngIf="Forms.service===4"> X </div>
-      </ion-col>
-    </ion-row>
     <ion-row>
       <ion-col>
         Observaciones realizadas:
@@ -156,27 +183,18 @@
     </ion-row>
 
     <ion-row>
-      <ion-col>
-        El extintor de debe:
+      <ion-col class="res-col">
+        El extintor se debe:
       </ion-col>
-    </ion-row>
 
-    <ion-row>
-      <ion-col> Mantener</ion-col>
-      <ion-col> Retirar del Servicio</ion-col>
-      <ion-col> Ser dado de Baja</ion-col>
-    </ion-row>
+      <ion-col class="res-col">
+        <div *ngIf="Forms.future===1"> Mantener </div>
 
-    <ion-row>
-      <ion-col>
-        <div *ngIf="Forms.future===1"> X </div>
+        <div *ngIf="Forms.future===2"> Nueva Prueba </div>
+
+        <div *ngIf="Forms.future===3"> Dar de Baja</div>
       </ion-col>
-      <ion-col>
-        <div *ngIf="Forms.future===2"> X </div>
-      </ion-col>
-      <ion-col>
-        <div *ngIf="Forms.future===3"> X </div>
-      </ion-col>
+
     </ion-row>
 
     <ion-row>
@@ -191,75 +209,117 @@
       </ion-col>
     </ion-row>
 
-      <ion-button (click)="registerForm()" >
-        Actualizar Forma
-      </ion-button>
+      <div *ngIf="level>2">
+        <ion-button (click)="registerForm()">
+          Actualizar Ficha
+        </ion-button>
 
+
+      </div>
+      <div>
+          <ion-button (click)="listForms()">
+              Ver Fichas Anteriores
+          </ion-button>
+      </div>
     </div>
 
     <div *ngIf="!Forms">
 
-      Este extintor no presenta Formas registradas.
+      Este extintor no presenta Fichas de Mantenimiento registradas.
 
-      <ion-button (click)="registerForm()">
-        Agregar Forma
-      </ion-button>
+      <div *ngIf="level>2">
+        <ion-button (click)="registerForm()">
+          Agregar Ficha
+        </ion-button>
+      </div>
 
     </div>
 
   </ion-grid>
 
-    <h3 ion-text color="light">Comentarios</h3>
+    <h3 ion-text color="light"> Solicitudes </h3>
 
     <div *ngIf="Comments">
 
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            Fecha
-          </ion-col>
-          <ion-col>
-            Nombre
-          </ion-col>
-          <ion-col>
-            Comentario
-          </ion-col>
-          <ion-col>
-            Contacto
-          </ion-col>
-        </ion-row>
 
-        <ion-row *ngFor="let comment of Comments">
-          <ion-col>
-            {{comment.date}}
-          </ion-col>
-          <ion-col>
-            {{comment.name}}
-          </ion-col>
-          <ion-col>
-            {{comment.comment}}
-          </ion-col>
-          <ion-col>
-            {{comment.email}}
-          </ion-col>
-        </ion-row>
+        <div class="res-col" *ngFor="let comment of Comments">
+          <ion-grid>
 
+            <ion-row>
+              <ion-col>
+                Fecha
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                {{comment.date}}
+              </ion-col>
+            </ion-row>
 
-      </ion-grid>
+            <ion-row>
+              <ion-col>
+                Nombre
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                {{comment.name}}
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col>
+                Solicitud
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                {{comment.comment}}
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col>
+                Email
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                {{comment.email}}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
     </div>
 
-
-      <ion-button (click)="goComment()" >
-          Escribir Comentario
+      <ion-button style="text-align: right" (click)="goComment()" >
+          Realizar Solicitud
       </ion-button>
 
   </div>
 
   <div *ngIf="!Ext">
-    El extintr cuyo codigo qr fue escaneado no se encuentra registrado.
 
-    <ion-button (click)="registerExtinguisher()">
-      Registrar Extintor
-    </ion-button>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          El extintor cuyo codigo qr fue escaneado no se encuentra registrado.
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button  (click)="registerExtinguisher()">
+            Registrar Extintor
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+
+
   </div>
+
+
 </ion-content>

@@ -19,6 +19,7 @@ export class LoginPage implements OnInit {
           this.loginService.getSession().subscribe(session =>{
               // @ts-ignore
               if ((session.access == "user") || (session.access == "admin")) {
+                  console.log("tengo user");
                   this.navCtrl.navigateForward(['/']);
               }
           });
@@ -43,6 +44,7 @@ export class LoginPage implements OnInit {
         if (this.pltr.is('desktop')){
             this.loginService.login(UserObject).subscribe(response => {
                 console.log(response != "string");
+                console.log(response);
                 if (typeof response != "string"){
                     this.navCtrl.navigateForward("/");
                 } else{ //Login Incorrecto

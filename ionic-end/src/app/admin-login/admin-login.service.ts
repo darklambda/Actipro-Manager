@@ -18,7 +18,7 @@ export class AdminLoginService {
     }
 
     login2(admin){
-            return this.http2.post('http://192.168.0.70:3000/adminlogin', admin, {withCredentials: 'true'});
+            return this.http2.post('http://192.168.0.13:3000/adminlogin', admin, {withCredentials: 'true'});
     }
 
     getSession(){
@@ -27,7 +27,7 @@ export class AdminLoginService {
     }
 
     getSession2(){
-        return this.http2.get('http://192.168.0.70:3000/session', {},{withCredentials: 'true'});
+        return this.http2.get('http://192.168.0.13:3000/session', {},{withCredentials: 'true'});
 
     }
 }

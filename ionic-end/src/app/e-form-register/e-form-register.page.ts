@@ -13,6 +13,8 @@ import { Platform} from "@ionic/angular";
 export class EFormRegisterPage implements OnInit {
 
   serial = "";
+    public User: any;
+    public name: any;
 
   constructor(private route: ActivatedRoute,
               private eformService: EFormRegisterService,
@@ -27,6 +29,13 @@ export class EFormRegisterPage implements OnInit {
               console.log(session);
               if ((session === null)) {
                   this.navCtrl.navigateForward(['/login']);
+              } else {
+                  this.User = session;
+                  if (this.User.access == "admin"){
+                      this.name = "Administrador";
+                  } else {
+                      this.name = this.User.user.name;
+                  }
               }
           });
       } else {
@@ -34,6 +43,13 @@ export class EFormRegisterPage implements OnInit {
               // @ts-ignore
               if ((session.data === '')) {
                   this.navCtrl.navigateForward(['/login']);
+              } else {
+                  this.User = session.data;
+                  if (this.User.access == "admin"){
+                      this.name = "Administrador";
+                  } else {
+                      this.name = this.User.user.name;
+                  }
               }
           });
       }

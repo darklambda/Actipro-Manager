@@ -17,6 +17,7 @@ export class Tab1Page implements OnInit {
         if (this.pltr.is('desktop')){
             this.tab1Service.getSession().subscribe(session =>{
                 // @ts-ignore
+                console.log(session);
                 if ((session === null)) {
                     this.navCtrl.navigateForward(['/login']);
                 }

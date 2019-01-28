@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Historial de Fichas </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+
+    <div *ngIf="Forms">
+
+      <div *ngFor="let forms of Forms">
+
+        <ion-grid class="res-col">
+          <ion-row>
+            <ion-col>
+              Nombre de mantenedor:
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              {{forms.s_name}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="res-col">
+              Servicio realizado de:
+            </ion-col>
+            <ion-col class="res-col">
+              <div *ngIf="forms.service===1"> Insepcción </div>
+              <div *ngIf="forms.service===2"> Mantenimiento </div>
+              <div *ngIf="forms.service===3"> Recarga </div>
+              <div *ngIf="forms.service===4"> Prueba Hidrostatica </div>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              Observaciones realizadas:
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              {{forms.observation}}
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              Conclusiones:
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              {{forms.conclusions}}
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col class="res-col">
+              El extintor se debe:
+            </ion-col>
+
+            <ion-col class="res-col">
+              <div *ngIf="forms.future===1"> Mantener </div>
+
+              <div *ngIf="forms.future===2"> Nueva Prueba </div>
+
+              <div *ngIf="forms.future===3"> Dar de Baja</div>
+            </ion-col>
+
+          </ion-row>
+
+        </ion-grid>
+
+
+
+
+      </div>
+    </div>
+
+  <ion-button (click)="goBack()">
+    Volver al Extintor
+  </ion-button>
+
+</ion-content>

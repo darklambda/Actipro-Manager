@@ -2,6 +2,7 @@
 
 let { Comment } = require('../models');
 let { Extinguisher } = require('../models');
+let mailer = require('nodemailer');
 
 module.exports.post = function (req, res) {
     let extId = null;
@@ -12,6 +13,28 @@ module.exports.post = function (req, res) {
     });
 
     if(req.session.user.name) {
+
+        let transporter = mailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'usergonzalo@gmail.com',
+                pass: 'thek1p2p'
+            }
+        });
+
+        const mailOptions = {
+            from: 'usergonzalo@gmail.com', // sender address
+            to: 'gonzalo.oberreuter@sansano.usm.cl', // list of receivers
+            subject: 'Nueva Solicitud en Extintor '+req.body.serial_num, // Subject line
+            html: '<p>Esta fue una solicitud</p>'// plain text body
+        };
+
+        transporter.sendMail(mailOptions, function (err, info) {
+            if(err)
+                console.log(err);
+            else
+                console.log(info);
+        });
 
         Comment.create({
             date: Date(),
@@ -26,5 +49,6 @@ module.exports.post = function (req, res) {
             console.log(err);
             res.json('Something Occurred');
         });
+
     }
 };

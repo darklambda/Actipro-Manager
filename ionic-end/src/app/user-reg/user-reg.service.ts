@@ -17,7 +17,7 @@ export class UserRegService {
     }
 
     postRegister2(user){
-        return this.http2.post('http://192.168.0.70:3000/register', user, {withCredentials: 'true'})
+        return this.http2.post('http://192.168.0.13:3000/register', user, {withCredentials: 'true'})
     }
 
     getSession(){
@@ -25,6 +25,6 @@ export class UserRegService {
     }
 
     getSession2(){
-        return this.http2.get('http://192.168.0.70:3000/session', {}, {withCredentials: 'true'})
+        return this.http2.get('http://192.168.0.13:3000/session', {}, {withCredentials: 'true'})
     }
 }
