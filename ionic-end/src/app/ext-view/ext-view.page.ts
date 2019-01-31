@@ -98,6 +98,21 @@ export class ExtViewPage implements OnInit {
       }
   }
 
+  deleteExtinguisher(){
+      let serial = this.route.snapshot.paramMap.get('serial');
+      if (this.pltr.is('desktop')){
+          this.extViewService.deleteExtinguisher(serial)
+              .subscribe( res => {
+                  this.navCtrl.navigateForward(['/']);
+              })
+      } else {
+          this.extViewService.deleteExtinguisher2(serial)
+              .then( res => {
+                  this.navCtrl.navigateForward(['/']);
+              })
+      }
+  }
+
   registerForm(){
       this.navCtrl.navigateForward('/e-form-register/' + this.route.snapshot.paramMap.get('serial'));
   }

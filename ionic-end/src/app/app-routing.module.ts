@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: 'admin-login', loadChildren: './admin-login/admin-login.module#AdminLoginPageModule' },
   { path: 'user-reg', loadChildren: './user-reg/user-reg.module#UserRegPageModule' },
   { path: 'coment-reg/:serial', loadChildren: './coment-reg/coment-reg.module#ComentRegPageModule' },
-  { path: 'form-list/:serial', loadChildren: './form-list/form-list.module#FormListPageModule' }
+  { path: 'form-list/:serial', loadChildren: './form-list/form-list.module#FormListPageModule' },
+  { path: 'eform-edit/:id', loadChildren: './eform-edit/eform-edit.module#EFormEditPageModule' }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

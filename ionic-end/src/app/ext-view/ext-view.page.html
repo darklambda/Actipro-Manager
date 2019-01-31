@@ -209,6 +209,13 @@
       </ion-col>
     </ion-row>
 
+      <ion-row *ngIf="level===4">
+        <ion-button (click)="deleteExtinguisher()">
+          Eliminar Extintor
+        </ion-button>
+
+      </ion-row>
+
       <div *ngIf="level>2">
         <ion-button (click)="registerForm()">
           Actualizar Ficha
@@ -216,7 +223,7 @@
 
 
       </div>
-      <div>
+      <div *ngIf="level>2">
           <ion-button (click)="listForms()">
               Ver Fichas Anteriores
           </ion-button>

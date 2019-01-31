@@ -1,18 +1,14 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import { Platform} from "@ionic/angular";
+import { HttpClient} from "@angular/common/http";
 import { HTTP} from "@ionic-native/http/ngx";
 
 @Injectable({
   providedIn: 'root'
 })
-export class Tab1Service {
+export class EFormEditService {
 
   constructor(private http: HttpClient,
-              public pltr: Platform,
               private http2: HTTP) { }
-
-
 
     getSession(){
         return this.http.get('http://localhost:3000/session',{withCredentials: true})
@@ -20,13 +16,5 @@ export class Tab1Service {
 
     getSession2(){
         return this.http2.get('http://192.168.0.13:3000/session', {}, {withCredentials: 'true'})
-    }
-
-    logout(){
-        return this.http.get('http://localhost:3000/logout',{withCredentials: true})
-    }
-
-    logout2(){
-        return this.http2.get('http://192.168.0.13:3000/logout', {},{withCredentials: 'true'})
     }
 }

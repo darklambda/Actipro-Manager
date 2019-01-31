@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Edición de Forma</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form (submit)="formEdit($event)" name="extinguisher">
+    <ion-item>
+      <ion-label fixed>Fecha del Servicio</ion-label>
+      <ion-input type="date" value="" name="service_date"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Persona que realiza el Servicio</ion-label>
+      <ion-input [disabled]="true"  type="text" value="{{name}}" name="s_name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Servicio realizado de:</ion-label>
+      <ion-select name="service">
+        <ion-select-option type="number" value="1" >Inspeccion</ion-select-option>
+        <ion-select-option type="number" value="2" >Mantencion</ion-select-option>
+        <ion-select-option type="number" value="3" >Recarga</ion-select-option>
+        <ion-select-option type="number" value="4" >Prueba Hidrostatica</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Observaciones Realizadas</ion-label>
+      <ion-textarea type="text" value="" name="observation"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Conclusiones</ion-label>
+      <ion-textarea type="text" value="" name="conclusions"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>El extintor debe:</ion-label>
+      <ion-select name="future">
+        <ion-select-option type="number" value="1" >Mantener</ion-select-option>
+        <ion-select-option type="number" value="2" >Prueba</ion-select-option>
+        <ion-select-option type="number" value="3" >Retiro</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Razones</ion-label>
+      <ion-textarea type="text" value="" name="reasons"></ion-textarea>
+    </ion-item>
+    <input type="submit" value="Enviar">
+  </form>
+
+</ion-content>

@@ -13,6 +13,14 @@ export class ExtViewService {
               private http2: HTTP) { }
 
 
+    deleteExtinguisher(serial){
+        return this.http.delete('http://localhost:3000/extinguisher/delete/'+serial, {withCredentials: true});
+    }
+
+    deleteExtinguisher2(serial){
+        return this.http2.delete('http://localhost:3000/extinguisher/delete/'+serial, {},  {withCredentials: 'true'});
+    }
+
     getExtinguisher(serial){
         return this.http.get('http://localhost:3000/extinguisher/'+serial, {withCredentials: true});
     }

@@ -10,6 +10,14 @@ export class FormListService {
   constructor(private http: HttpClient,
               private http2: HTTP) { }
 
+    deleteForm(id){
+      return this.http.delete('http://localhost:3000/eform/delete/'+id,{withCredentials: true} )
+    }
+
+    deleteForm2(id){
+      return this.http2.delete('http://192.168.0.13:3000/eform/delete/'+id, {}, {withCredentials: 'true'});
+    }
+
     getForms(serial){
         return this.http.get('http://localhost:3000/eform/'+serial, {withCredentials: true});
     }

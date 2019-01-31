@@ -78,4 +78,19 @@ export class FormListPage implements OnInit {
         this.navCtrl.navigateForward(['/ext-view/'+serial]);
     }
 
+    deleteForm(id){
+        if (this.pltr.is('desktop')){
+            this.formlistService.deleteForm(id)
+                .subscribe(
+                    res =>{});
+        } else {
+            this.formlistService.deleteForm2(2)
+                .then(
+                    res =>{});
+        }
+        let serial = this.route.snapshot.paramMap.get('serial');
+        this.navCtrl.navigateForward(['/ext-view/'+serial]);
+    }
+
+
 }
