@@ -5,6 +5,7 @@ import { Router } from "@angular/router";
 import { NavController } from "@ionic/angular";
 import { ActivatedRoute} from "@angular/router";
 import { Platform} from "@ionic/angular";
+import { AlertController} from "@ionic/angular";
 
 @Component({
   selector: 'app-ext-register',
@@ -21,7 +22,8 @@ export class ExtRegisterPage implements OnInit {
               private router: Router,
               private navCtrl: NavController,
               private route: ActivatedRoute,
-              public pltr: Platform) {
+              public pltr: Platform,
+              private alertController: AlertController) {
 
   }
 
@@ -50,6 +52,16 @@ export class ExtRegisterPage implements OnInit {
       }
   }
 
+    async presentAlert() {
+        const alert = await this.alertController.create({
+            header: 'Extintor',
+            message: 'El Extintor ha sido registrado.',
+            buttons: ['OK']
+        });
+
+        await alert.present();
+    }
+
   extRegister(extinguisher){
       let serial = extinguisher.target.elements[0].value;
       let brand = extinguisher.target.elements[1].value;
@@ -73,7 +85,7 @@ export class ExtRegisterPage implements OnInit {
       } else {
           this.extinguisherService.postExtinguisher2(modelo).then(
               data => {
-                  alert('Extintor Registrado');
+                  this.presentAlert()
               });
       }
       this.navCtrl.navigateRoot('/');

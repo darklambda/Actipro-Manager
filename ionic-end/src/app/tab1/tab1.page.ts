@@ -13,23 +13,45 @@ export class Tab1Page implements OnInit {
                 private tab1Service: Tab1Service,
                 public pltr: Platform) {}
 
+    public User: any;
+    public level: any;
+
     ngOnInit() {
-        if (this.pltr.is('desktop')){
+        if (this.pltr.is('desktop')) {
             this.tab1Service.getSession().subscribe(session =>{
                 // @ts-ignore
-                console.log(session);
                 if ((session === null)) {
                     this.navCtrl.navigateForward(['/login']);
+                } else {
+                    this.User = session;
+                    if (this.User.access == "admin"){
+                        this.level = 4;
+                    } else {
+                        this.level = this.User.user.permission;
+                        this.navCtrl.navigateForward('/');
+                    }
                 }
             });
         } else {
             this.tab1Service.getSession2().then(session =>{
-                // @ts-ignore
+                session.data = JSON.parse(session.data);
                 if ((session.data === '')) {
                     this.navCtrl.navigateForward(['/login']);
+                } else {
+                    this.User = session.data;
+                    if (this.User.access == "admin"){
+                        this.level = 4;
+                    } else {
+                        this.level = this.User.user.permission;
+                        this.navCtrl.navigateForward('/');
+                    }
                 }
             });
         }
+    }
+
+    goToListExtinguisher(){
+        this.navCtrl.navigateForward('/ext-list');
     }
 
     logout(){

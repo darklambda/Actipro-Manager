@@ -1,220 +1,197 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Forma del Extintor
-    <div *ngIf="Ext">
-      {{Ext.serial_num}}
-    </div>
+    <ion-title style="text-align: center" >Forma del Extintor <div *ngIf="Ext"> {{Ext.serial_num}} </div>
 
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  
+<ion-content color="light" padding>
+
+
+  <ion-refresher #refresherRef slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+            pullingIcon="arrow-dropdown"
+            pullingText="Desliza para Actualizar"
+            refreshingSpinner="circles"
+            refreshingText="Actualizando..."></ion-refresher-content>
+  </ion-refresher>
+
+
   <div *ngIf="Ext">
-  <ion-grid>
+  <ion-card>
+  <ion-list>
+      <ion-item class="item-stable"
+                (click)="toggleCollapsible()"
+                [ngClass]="{active: isShown()}">
+        <ion-icon name="arrow-forward" *ngIf="collapsible.show===true"></ion-icon>
+        <ion-icon name="arrow-down" *ngIf="collapsible.show===false"></ion-icon>
+        &nbsp;
+        Información del Extintor
+      </ion-item>
+      <div class="item-accordion"
+           [hidden]="isShown()">
 
-    <ion-row>
-      <ion-col>
-        Nombre Cliente:
-      </ion-col>
-    </ion-row>
+        <ion-item>
+          Nombre Cliente
+        </ion-item>
+        <ion-item>
+          {{Ext.client}}
+        </ion-item>
 
-    <ion-row>
+        <ion-item>
+          Planta
+        </ion-item>
+        <ion-item>
+          {{Ext.plant}}
+        </ion-item>
 
-      <ion-col>
-        {{Ext.client}}
-      </ion-col>
-    </ion-row>
+        <ion-item>
+          Dirección:
+        </ion-item>
+        <ion-item>
+          {{Ext.address}}
+        </ion-item>
 
-    <ion-row>
-      <ion-col>
-        Planta:
-      </ion-col>
-    </ion-row>
+        <ion-item>
+          Comuna:
+        </ion-item>
+        <ion-item>
+          {{Ext.state}}
+        </ion-item>
 
-    <ion-row>
+        <ion-item>
+          Telefono:
+        </ion-item>
+        <ion-item>
+          {{Ext.p_cellphone}}
+        </ion-item>
 
-      <ion-col>
-        {{Ext.plant}}
-      </ion-col>
-    </ion-row>
+        <ion-item>
+          Dirección Electronica:
+        </ion-item>
+        <ion-item>
+          correo@correo.com
+        </ion-item>
 
-    <ion-row>
-      <ion-col>
-        Direccion:
-      </ion-col>
-    </ion-row>
+        <ion-item>
+          Dirección Electronica:
+        </ion-item>
+        <ion-item>
+          correo@correo.com
+        </ion-item>
 
-    <ion-row>
+        <ion-item>
+          Nombre Representante Empresa:
+        </ion-item>
+        <ion-item>
+          {{Ext.r_name}}
+        </ion-item>
 
-      <ion-col>
-        {{Ext.address}}
-      </ion-col>
-    </ion-row>
+        <ion-item>
+          Telefono y Dirección Electronica:
+        </ion-item>
+        <ion-item>
+          {{Ext.r_cellphone}}
+        </ion-item>
 
-    <ion-row>
-      <ion-col>
-        Comuna:
-      </ion-col>
-    </ion-row>
+        <ion-item>
+          Nombre Contacto de la  Empresa:
+        </ion-item>
+        <ion-item>
+          {{Ext.c_name}}
+        </ion-item>
 
-    <ion-row>
-      <ion-col>
-        {{Ext.state}}
-      </ion-col>
-    </ion-row>
+        <ion-item>
+          Telefono y Dirección Electronica:
+        </ion-item>
+        <ion-item>
+          {{Ext.c_cellphone}}
+        </ion-item>
 
-    <ion-row>
-      <ion-col>
-        Telefono:
-      </ion-col>
-    </ion-row>
+        <ion-item>
+          Numero de Serie:
+        </ion-item>
+        <ion-item>
+          {{Ext.serial_num}}
+        </ion-item>
 
-    <ion-row>
-      <ion-col>
-        {{Ext.p_cellphone}}
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        Dirección Electronica:
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        CORREO AQUI PROX
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-
-      <ion-col> Nombre Representante Empresa </ion-col>
-      <ion-col> Telefono y Dirección Electronica </ion-col>
-
-    </ion-row>
-    <ion-row>
-
-      <ion-col> {{Ext.r_name}} </ion-col>
-      <ion-col> {{Ext.r_cellphone}} </ion-col>
-
-    </ion-row>
-
-    <ion-row>
-
-      <ion-col> Nombre Contacto de la  Empresa </ion-col>
-      <ion-col> Telefono y Dirección Electronica </ion-col>
-
-    </ion-row>
-    <ion-row>
-
-      <ion-col> {{Ext.c_name}} </ion-col>
-      <ion-col> {{Ext.c_cellphone}} </ion-col>
-
-    </ion-row>
+        <ion-item>
+          Marca del Extintor:
+        </ion-item>
+        <ion-item>
+          {{Ext.brand}}
+        </ion-item>
 
 
+      </div>
 
-    <ion-row>
+  </ion-list>
+    </ion-card>
 
-      <ion-col>
+    <h3 ion-text color="light" style="text-align: center"> Ficha de Mantenimiento </h3>
 
-        Numero de Serie: {{Ext.serial_num}}
+    <ion-card class="ficha">
 
-      </ion-col>
-
-      <ion-col>
-
-        Marca del Extintor: {{Ext.brand}}
-
-      </ion-col>
-
-    </ion-row>
+    <ion-list>
 
     <div *ngIf="Forms">
-        <ion-row>
-            <ion-col>
-                Nombre de mantenedor:
-            </ion-col>
-        </ion-row>
 
-        <ion-row>
-            <ion-col>
-                {{Forms.s_name}}
-            </ion-col>
-        </ion-row>
+      <ion-item>
+        Nombre de mantenedor:
+      </ion-item>
 
-    <ion-row>
-      <ion-col class="res-col">
+      <ion-item>
+        {{Forms.s_name}}
+      </ion-item>
+
+      <ion-item>
         Servicio realizado de:
-      </ion-col>
-      <ion-col class="res-col">
         <div *ngIf="Forms.service===1"> Insepcción </div>
         <div *ngIf="Forms.service===2"> Mantenimiento </div>
         <div *ngIf="Forms.service===3"> Recarga </div>
         <div *ngIf="Forms.service===4"> Prueba Hidrostatica </div>
-      </ion-col>
-    </ion-row>
 
-    <ion-row>
-      <ion-col>
+      </ion-item>
+
+      <ion-item>
         Observaciones realizadas:
-      </ion-col>
-    </ion-row>
+      </ion-item>
 
-    <ion-row>
-      <ion-col>
+      <ion-item>
         {{Forms.observation}}
-      </ion-col>
-    </ion-row>
+      </ion-item>
 
-    <ion-row>
-      <ion-col>
+      <ion-item>
         Conclusiones:
-      </ion-col>
-    </ion-row>
+      </ion-item>
 
-    <ion-row>
-      <ion-col>
+      <ion-item>
         {{Forms.conclusions}}
-      </ion-col>
-    </ion-row>
+      </ion-item>
 
-    <ion-row>
-      <ion-col class="res-col">
+      <ion-item>
         El extintor se debe:
-      </ion-col>
-
-      <ion-col class="res-col">
         <div *ngIf="Forms.future===1"> Mantener </div>
-
         <div *ngIf="Forms.future===2"> Nueva Prueba </div>
-
         <div *ngIf="Forms.future===3"> Dar de Baja</div>
-      </ion-col>
+      </ion-item>
 
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
+      <ion-item>
         Razones:
-      </ion-col>
-    </ion-row>
+      </ion-item>
 
-    <ion-row>
-      <ion-col>
+      <ion-item>
         {{Forms.reasons}}
-      </ion-col>
-    </ion-row>
+      </ion-item>
 
-      <ion-row *ngIf="level===4">
+      <div style="text-align: center">
+      <div *ngIf="level===4">
+
         <ion-button (click)="deleteExtinguisher()">
           Eliminar Extintor
         </ion-button>
-
-      </ion-row>
+      </div>
 
       <div *ngIf="level>2">
         <ion-button (click)="registerForm()">
@@ -228,6 +205,9 @@
               Ver Fichas Anteriores
           </ion-button>
       </div>
+
+      </div>
+
     </div>
 
     <div *ngIf="!Forms">
@@ -242,9 +222,12 @@
 
     </div>
 
-  </ion-grid>
 
-    <h3 ion-text color="light"> Solicitudes </h3>
+  </ion-list>
+    </ion-card>
+
+
+    <h3 ion-text color="light" style="text-align: center"> Solicitudes </h3>
 
     <div *ngIf="Comments">
 
@@ -259,7 +242,7 @@
             </ion-row>
             <ion-row>
               <ion-col>
-                {{comment.date}}
+                {{comment.date.substring(0,10)}}
               </ion-col>
             </ion-row>
 
@@ -295,13 +278,23 @@
                 {{comment.email}}
               </ion-col>
             </ion-row>
+            <ion-row *ngIf="level===4">
+              <ion-col>
+                <ion-button style="text-align: right" (click)="deleteComment(comment.id)" >
+                  Eliminar Solicitud
+                </ion-button>
+              </ion-col>
+            </ion-row>
           </ion-grid>
         </div>
     </div>
-
-      <ion-button style="text-align: right" (click)="goComment()" >
-          Realizar Solicitud
+    <div style="text-align: center">
+      <ion-button (click)="goComment()" >
+        Realizar Solicitud
       </ion-button>
+    </div>
+
+
 
   </div>
 

@@ -10,11 +10,28 @@ export class EFormEditService {
   constructor(private http: HttpClient,
               private http2: HTTP) { }
 
+
+    putEForm(form,id){
+        return this.http.put('http://localhost:3000/eform/edit/'+id, form, {withCredentials: true})
+    }
+
+    putEForm2(form,id){
+        return this.http2.put('http://192.168.0.54:3000/eform/edit/'+id, form, {withCredentials: 'true'})
+    }
+
+    getFormId(id){
+        return this.http.get('http://localhost:3000/eform/id/'+id,{withCredentials: true})
+    }
+
+    getFormId2(id){
+        return this.http2.get('http://192.168.0.54:3000/eform/id/'+id, {}, {withCredentials: 'true'})
+    }
+
     getSession(){
         return this.http.get('http://localhost:3000/session',{withCredentials: true})
     }
 
     getSession2(){
-        return this.http2.get('http://192.168.0.13:3000/session', {}, {withCredentials: 'true'})
+        return this.http2.get('http://192.168.0.54:3000/session', {}, {withCredentials: 'true'})
     }
 }

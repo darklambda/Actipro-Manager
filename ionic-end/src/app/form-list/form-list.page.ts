@@ -3,6 +3,7 @@ import { Platform} from "@ionic/angular";
 import { FormListService} from "./form-list.service";
 import { NavController} from "@ionic/angular";
 import { ActivatedRoute} from "@angular/router";
+import { AlertController} from "@ionic/angular";
 
 // @ts-ignore
 @Component({
@@ -19,7 +20,8 @@ export class FormListPage implements OnInit {
   constructor(public pltr: Platform,
               private formlistService: FormListService,
               private navCtrl: NavController,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private alertController: AlertController) { }
 
   ngOnInit() {
       let serial = this.route.snapshot.paramMap.get('serial');
@@ -55,20 +57,29 @@ export class FormListPage implements OnInit {
       }
   }
 
+    async presentAlert() {
+        const alert = await this.alertController.create({
+            header: 'Ficha',
+            message: 'La Ficha de Mantenimiento ha sido eliminada.',
+            buttons: ['OK']
+        });
+
+        await alert.present();
+    }
+
     getData(serial){
         if (this.pltr.is('desktop')){
             this.formlistService.getForms(serial)
                 .subscribe(
                     res =>{
                         this.Forms = res;
-                        console.log("hola");
                         console.log(this.Forms);});
         } else {
             this.formlistService.getForms2(serial)
                 .then(
                     res =>{
                         res.data = JSON.parse(res.data);
-                        this.Forms = res.data[0];
+                        this.Forms = res.data;
                         console.log(this.Forms);});
         }
     }
@@ -82,14 +93,22 @@ export class FormListPage implements OnInit {
         if (this.pltr.is('desktop')){
             this.formlistService.deleteForm(id)
                 .subscribe(
-                    res =>{});
+                    res =>{
+                        alert("Ficha Eliminada");
+                    });
         } else {
             this.formlistService.deleteForm2(2)
                 .then(
-                    res =>{});
+                    res =>{
+                        this.presentAlert();
+                    });
         }
         let serial = this.route.snapshot.paramMap.get('serial');
         this.navCtrl.navigateForward(['/ext-view/'+serial]);
+    }
+
+    editForm(id){
+        this.navCtrl.navigateForward(['eform-edit/'+id]);
     }
 
 

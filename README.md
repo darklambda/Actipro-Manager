@@ -99,12 +99,14 @@ enter one of the views that are not "login", the app will redirect to this view.
         
         DONE
         
--Cambiar titulo de Mensajes de Alerta dependiendo de la situacion.
-
-NOT YET
+-Cambiar titulo de Mensajes de Alerta dependiendo de la situacion. DONE
 
 -Cambiar columnas de resultado por letras con simbología.
 
 -Colocar borde inferior a resultados importantes. DONE?
 
 -Dejar nombre de usuario actual al registrar formas. DONE
+
+-Mostrar numero y nombre de empresa por extintor, serial es numero oculto.
+
+-Nuevo usuario comite prioritario, solo ve ficha, no envia reporte.

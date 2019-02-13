@@ -17,7 +17,7 @@ export class ExtinguisherService {
     }
 
     postExtinguisher2(extinguisher){
-        return this.http2.post('http://192.168.0.13:3000/extinguisher', extinguisher, {withCredentials: 'true'});
+        return this.http2.post('http://192.168.0.54:3000/extinguisher', extinguisher, {withCredentials: 'true'});
     }
 
     getSession(){
@@ -25,6 +25,6 @@ export class ExtinguisherService {
     }
 
     getSession2(){
-        return this.http2.get('http://192.168.0.13:3000/session', {},{withCredentials: 'true'})
+        return this.http2.get('http://192.168.0.54:3000/session', {},{withCredentials: 'true'})
     }
 }

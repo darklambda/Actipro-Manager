@@ -15,7 +15,7 @@ export class FormListService {
     }
 
     deleteForm2(id){
-      return this.http2.delete('http://192.168.0.13:3000/eform/delete/'+id, {}, {withCredentials: 'true'});
+      return this.http2.delete('http://192.168.0.54:3000/eform/delete/'+id, {}, {withCredentials: 'true'});
     }
 
     getForms(serial){
@@ -23,7 +23,7 @@ export class FormListService {
     }
 
     getForms2(serial){
-        return this.http2.get('http://192.168.0.13:3000/eform/'+serial, {}, {withCredentials: 'true'});
+        return this.http2.get('http://192.168.0.54:3000/eform/'+serial, {}, {withCredentials: 'true'});
     }
 
     getSession(){
@@ -31,6 +31,6 @@ export class FormListService {
     }
 
     getSession2(){
-        return this.http2.get('http://192.168.0.13:3000/session', {}, {withCredentials: 'true'})
+        return this.http2.get('http://192.168.0.54:3000/session', {}, {withCredentials: 'true'})
     }
 }

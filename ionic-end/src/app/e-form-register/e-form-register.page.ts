@@ -4,6 +4,7 @@ import { EForm} from "./eform";
 import {EFormRegisterService} from "./e-form-register.service";
 import { NavController} from "@ionic/angular";
 import { Platform} from "@ionic/angular";
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-e-form-register',
@@ -19,7 +20,8 @@ export class EFormRegisterPage implements OnInit {
   constructor(private route: ActivatedRoute,
               private eformService: EFormRegisterService,
               private navCtrl: NavController,
-              public pltr: Platform) { }
+              public pltr: Platform,
+              public alertController: AlertController) { }
 
   ngOnInit() {
       this.serial = this.route.snapshot.paramMap.get('serial');
@@ -55,6 +57,16 @@ export class EFormRegisterPage implements OnInit {
       }
   }
 
+    async presentAlert() {
+        const alert = await this.alertController.create({
+            header: 'Ficha',
+            message: 'La Ficha de Mantenimiento ha sido registrada.',
+            buttons: ['OK']
+        });
+
+        await alert.present();
+    }
+
   formRegister(forma){
       let service_date = forma.target.elements[0].value;
       let s_name = forma.target.elements[1].value;
@@ -74,10 +86,10 @@ export class EFormRegisterPage implements OnInit {
       } else {
           this.eformService.postEForm2(modelo).then(
               data => {
-                  alert('Forma Actualizada');
+                  this.presentAlert()
               });
       }
-      this.navCtrl.navigateRoot('/');
+      this.navCtrl.navigateRoot('/ext-view/'+this.serial);
 
   }
 

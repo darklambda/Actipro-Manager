@@ -12,7 +12,9 @@ const routes: Routes = [
   { path: 'user-reg', loadChildren: './user-reg/user-reg.module#UserRegPageModule' },
   { path: 'coment-reg/:serial', loadChildren: './coment-reg/coment-reg.module#ComentRegPageModule' },
   { path: 'form-list/:serial', loadChildren: './form-list/form-list.module#FormListPageModule' },
-  { path: 'eform-edit/:id', loadChildren: './eform-edit/eform-edit.module#EFormEditPageModule' }
+  { path: 'eform-edit/:id', loadChildren: './eform-edit/eform-edit.module#EFormEditPageModule' },
+  { path: 'ext-list', loadChildren: './ext-list/ext-list.module#ExtListPageModule' },
+  { path: 'user-list', loadChildren: './user-list/user-list.module#UserListPageModule' }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -3,6 +3,7 @@ import { ExtViewService} from "./ext-view.service";
 import { ActivatedRoute} from "@angular/router";
 import { NavController} from "@ionic/angular";
 import { Platform} from "@ionic/angular";
+import { ViewChild} from "@angular/core";
 
 @Component({
   selector: 'app-ext-view',
@@ -16,6 +17,7 @@ export class ExtViewPage implements OnInit {
     public Comments: any;
     public User: any;
     public level: number;
+    public collapsible = {show: true};
 
   constructor(private extViewService: ExtViewService,
               private route: ActivatedRoute,
@@ -127,6 +129,35 @@ export class ExtViewPage implements OnInit {
 
   goComment(){
       this.navCtrl.navigateForward('/coment-reg/' + this.route.snapshot.paramMap.get('serial'))
+  }
+
+  deleteComment(id){
+      if (this.pltr.is('desktop')){
+          this.extViewService.deleteComment(id)
+              .subscribe( res => {
+                  alert("Solicitud Eliminada");
+              });
+      } else {
+          this.extViewService.deleteComment2(id)
+              .then( res => {
+                  this.navCtrl.navigateForward(['/']);
+              });
+      }
+  }
+
+
+  async doRefresh(refresher){
+      let serial = this.route.snapshot.paramMap.get('serial');
+      await this.getData(serial);
+      refresher.target.complete();
+  }
+
+  toggleCollapsible() {
+      this.collapsible.show = !this.collapsible.show;
+  }
+
+  isShown() {
+     return this.collapsible.show;
   }
 
 }

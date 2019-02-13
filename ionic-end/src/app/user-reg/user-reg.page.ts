@@ -44,8 +44,9 @@ export class UserRegPage implements OnInit {
         let password = user.target.elements[2].value;
         let cpassword = user.target.elements[3].value;
         let permission = user.target.elements[4].value;
+        let enterprise = user.target.elements[5].value;
         /*Registro invalido */
-        let userp=new User(name,email,password,permission);
+        let userp=new User(name,email,password,permission, enterprise);
         if(password != cpassword){
             alert('Passwords dont match');
         } else if(name == ""){

@@ -74,11 +74,19 @@
 
           </ion-row>
 
-          <ion-row *ngIf="level===4">
+          <ion-row>
 
-            <ion-button (click)="deleteForm(forms.id)">
-              Eliminar Ficha
-            </ion-button>
+            <ion-col *ngIf="level===4">
+              <ion-button (click)="deleteForm(forms.id)">
+                Eliminar Ficha
+              </ion-button>
+            </ion-col>
+
+            <ion-col *ngIf="level===4">
+              <ion-button (click)="editForm(forms.id)">
+                Editar Ficha
+              </ion-button>
+            </ion-col>
 
 
           </ion-row>

@@ -18,7 +18,13 @@
       </ion-card-content>
     </ion-card>
 
-  <ion-content align="center" style="background: none transparent;">
+  <div style="text-align: center" *ngIf="level===4">
+    <ion-button (click)="goToListExtinguisher()" >
+      Lista de Extintores
+    </ion-button>
+  </div>
+
+  <ion-content style="text-align: center">
     <ion-button (click)="logout()" >
       Desconectarse
     </ion-button>

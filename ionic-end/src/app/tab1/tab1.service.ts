@@ -19,7 +19,7 @@ export class Tab1Service {
     }
 
     getSession2(){
-        return this.http2.get('http://192.168.0.13:3000/session', {}, {withCredentials: 'true'})
+        return this.http2.get('http://192.168.0.54:3000/session', {}, {withCredentials: 'true'})
     }
 
     logout(){
@@ -27,6 +27,6 @@ export class Tab1Service {
     }
 
     logout2(){
-        return this.http2.get('http://192.168.0.13:3000/logout', {},{withCredentials: 'true'})
+        return this.http2.get('http://192.168.0.54:3000/logout', {},{withCredentials: 'true'})
     }
 }

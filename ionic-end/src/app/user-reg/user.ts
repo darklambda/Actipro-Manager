@@ -4,5 +4,6 @@ export class User {
         public email: string,
         public password: number,
         public permission: string,
+        public enterprise: string
     ){ }
 }

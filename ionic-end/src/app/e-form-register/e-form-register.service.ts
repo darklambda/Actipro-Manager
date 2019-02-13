@@ -17,7 +17,7 @@ export class EFormRegisterService {
     }
 
     postEForm2(eform){
-        return this.http2.post('http://192.168.0.13:3000/eform', eform, {withCredentials: 'true'});
+        return this.http2.post('http://192.168.0.54:3000/eform', eform, {withCredentials: 'true'});
     }
 
     getSession(){
@@ -25,7 +25,6 @@ export class EFormRegisterService {
     }
 
     getSession2(){
-        this.http2.setDataSerializer('json');
-        return this.http2.get('http://192.168.0.13:3000/session', {}, {withCredentials: 'true'})
+        return this.http2.get('http://192.168.0.54:3000/session', {}, {withCredentials: 'true'})
     }
 }

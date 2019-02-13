@@ -1,0 +1,40 @@
+<ion-header style="text-align: center">
+  <ion-toolbar>
+    <ion-title>Lista de Extintores</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+<div *ngIf="Extinguishers">
+
+  <ion-grid>
+    <ion-row>
+      <ion-col> Cliente </ion-col>
+      <ion-col> Numero de Serie </ion-col>
+      <ion-col> Marca </ion-col>
+      <ion-col> Fecha de Registro</ion-col>
+      <ion-col> </ion-col>
+      <ion-col> </ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let ext of Extinguishers">
+      <ion-col> {{ext.client}} </ion-col>
+      <ion-col> {{ext.serial_num}} </ion-col>
+      <ion-col> {{ext.brand}} </ion-col>
+      <ion-col> {{ext.createdAt}}</ion-col>
+      <ion-col>
+        <ion-button (click)="goToExt(ext.serial_num)" >
+          Ver
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="deleteExtinguisher(ext.serial_num)" >
+          Eliminar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+
+  </ion-grid>
+</div>
+</ion-content>

@@ -13,12 +13,20 @@ export class ExtViewService {
               private http2: HTTP) { }
 
 
+    deleteComment(id){
+        return this.http.delete('http://localhost:3000/comentario/delete/'+id, {withCredentials: true});
+    }
+
+    deleteComment2(id){
+        return this.http2.delete('http://192.168.0.54:3000/comentario/delete/'+id, {}, {withCredentials: 'true'});
+    }
+
     deleteExtinguisher(serial){
         return this.http.delete('http://localhost:3000/extinguisher/delete/'+serial, {withCredentials: true});
     }
 
     deleteExtinguisher2(serial){
-        return this.http2.delete('http://localhost:3000/extinguisher/delete/'+serial, {},  {withCredentials: 'true'});
+        return this.http2.delete('http://192.168.0.54:3000/extinguisher/delete/'+serial, {},  {withCredentials: 'true'});
     }
 
     getExtinguisher(serial){
@@ -26,7 +34,7 @@ export class ExtViewService {
     }
 
     getExtinguisher2(serial){
-        return this.http2.get('http://192.168.0.13:3000/extinguisher/'+serial, {}, {withCredentials: 'true'});
+        return this.http2.get('http://192.168.0.54:3000/extinguisher/'+serial, {}, {withCredentials: 'true'});
     }
 
     getForms(serial){
@@ -34,7 +42,7 @@ export class ExtViewService {
     }
 
     getForms2(serial){
-        return this.http2.get('http://192.168.0.13:3000/eform/'+serial, {}, {withCredentials: 'true'});
+        return this.http2.get('http://192.168.0.54:3000/eform/'+serial, {}, {withCredentials: 'true'});
     }
 
     getComments(serial){
@@ -42,7 +50,7 @@ export class ExtViewService {
     }
 
     getComments2(serial){
-        return this.http2.get('http://192.168.0.13:3000/comentario/'+serial, {}, {withCredentials: 'true'});
+        return this.http2.get('http://192.168.0.54:3000/comentario/'+serial, {}, {withCredentials: 'true'});
     }
 
     getSession(){
@@ -50,6 +58,6 @@ export class ExtViewService {
     }
 
     getSession2(){
-        return this.http2.get('http://192.168.0.13:3000/session', {}, {withCredentials: 'true'})
+        return this.http2.get('http://192.168.0.54:3000/session', {}, {withCredentials: 'true'})
     }
 }
