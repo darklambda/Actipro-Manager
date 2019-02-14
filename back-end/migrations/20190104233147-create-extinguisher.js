@@ -12,8 +12,14 @@ module.exports = {
         type: Sequelize.STRING,
           unique: true
       },
-      brand: {
+      ext_num: {
+        type: Sequelize.STRING,
+      },
+      typeExt: {
         type: Sequelize.STRING
+      },
+      weight: {
+        type: Sequelize.FLOAT
       },
       client: {
         type: Sequelize.STRING
@@ -24,22 +30,13 @@ module.exports = {
       address: {
         type: Sequelize.STRING
       },
-      state: {
+      con_name: {
         type: Sequelize.STRING
       },
-      p_cellphone: {
+      con_email: {
         type: Sequelize.STRING
       },
-      r_name: {
-        type: Sequelize.STRING
-      },
-      r_cellphone: {
-        type: Sequelize.STRING
-      },
-      c_name: {
-        type: Sequelize.STRING
-      },
-      c_cellphone: {
+      con_tel: {
         type: Sequelize.STRING
       },
       createdAt: {

@@ -7,10 +7,6 @@ module.exports.post = function (req, res) {
 
     let extId = null;
 
-    E_Form.update(
-        { latest: false },
-        { where: { serial: req.body.serial }}
-    ).then(() => {});
     Extinguisher.findOne({where: {serial_num: req.body.serial}}).then(data => {
             extId = data.dataValues.id;
             console.log("id del extintor"+data.dataValues.id);
@@ -18,13 +14,11 @@ module.exports.post = function (req, res) {
 
     E_Form.create({
         service_date: req.body.service_date,
-        s_name: req.body.s_name,
         service: req.body.service,
+        s_name: req.body.s_name,
         observation: req.body.observation,
-        conclusions: req.body.conclusions,
+        description: req.body.description,
         future: req.body.future,
-        reasons: req.body.reasons,
-        latest: req.body.latest,
         serial: req.body.serial,
         ExtinguisherId: extId
     }).then(function (result) {

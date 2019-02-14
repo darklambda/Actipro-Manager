@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title align="left">
+      Inicio
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card class="welcome-card">
+    <ion-img src="/assets/logo.png" class="responsive"></ion-img>
+  </ion-card>
+  <ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col style="text-align: center">
+          <ion-button shape="round" expand="full" >
+            Escanear
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col style="text-align: center">
+          <ion-button shape="round" expand="full" >
+            Contacto
+          </ion-button>
+        </ion-col>
+
+        <ion-col style="text-align: center">
+          <ion-button shape="round" expand="full" >
+            Ayuda
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </ion-card>
+
+  <ion-card>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col class="sesion">
+          Sesión Iniciada como
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="name">
+          {{User.name}}
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="title">
+          <p class="title" *ngIf="level===1">   Trabajador de Mantencion </p>
+          <p class="title" *ngIf="level===2">   Prevencionista de Riesgos </p>
+          <p class="title" *ngIf="level===3">   Supervisor </p>
+          <p class="title" *ngIf="level===4">   Administrador </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <ion-item>
+    Servicio proporcionado por Actipro Productos y Servicios.
+  </ion-item>
+
+  
+</ion-content>

@@ -30,7 +30,7 @@ export class EFormRegisterPage implements OnInit {
               // @ts-ignore
               console.log(session);
               if ((session === null)) {
-                  this.navCtrl.navigateForward(['/login']);
+                  this.navCtrl.navigateForward(['/menu/login']);
               } else {
                   this.User = session;
                   if (this.User.access == "admin"){
@@ -44,7 +44,7 @@ export class EFormRegisterPage implements OnInit {
           this.eformService.getSession2().then(session =>{
               // @ts-ignore
               if ((session.data === '')) {
-                  this.navCtrl.navigateForward(['/login']);
+                  this.navCtrl.navigateForward(['/menu/login']);
               } else {
                   this.User = session.data;
                   if (this.User.access == "admin"){
@@ -69,14 +69,13 @@ export class EFormRegisterPage implements OnInit {
 
   formRegister(forma){
       let service_date = forma.target.elements[0].value;
-      let s_name = forma.target.elements[1].value;
-      let service = forma.target.elements[2].value;
+      let service = forma.target.elements[1].value;
+      let s_name = forma.target.elements[2].value;
       let observation = forma.target.elements[3].value;
-      let conclusions = forma.target.elements[4].value;
+      let description = forma.target.elements[4].value;
       let future = forma.target.elements[5].value;
-      let reasons = forma.target.elements[6].value;
-      let modelo = new EForm(service_date, s_name, service, observation,
-          conclusions, future, reasons, true, this.serial);
+      let modelo = new EForm(service_date, service, s_name, observation,
+          description, future, this.serial);
       if (this.pltr.is('desktop')){
           this.eformService.postEForm(modelo).subscribe(
               data => {
@@ -89,7 +88,7 @@ export class EFormRegisterPage implements OnInit {
                   this.presentAlert()
               });
       }
-      this.navCtrl.navigateRoot('/ext-view/'+this.serial);
+      this.navCtrl.navigateRoot('/menu/ext-view/'+this.serial);
 
   }
 

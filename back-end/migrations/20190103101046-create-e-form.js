@@ -11,30 +11,24 @@ module.exports = {
       service_date: {
         type: Sequelize.DATE
       },
-      s_name: {
-        type: Sequelize.STRING
-      },
       service: {
         type: Sequelize.INTEGER
+      },
+      s_name: {
+        type: Sequelize.STRING
       },
       observation: {
         type: Sequelize.STRING
       },
-      conclusions: {
+      description: {
         type: Sequelize.STRING
       },
       future: {
         type: Sequelize.INTEGER
       },
-      reasons: {
-        type: Sequelize.STRING
+      serial: {
+        type:Sequelize.STRING
       },
-      latest: {
-        type: Sequelize.BOOLEAN
-      },
-        serial: {
-          type:Sequelize.STRING
-        },
         ExtinguisherId: {
             type:Sequelize.INTEGER
         },

@@ -33,7 +33,7 @@ export class ExtRegisterPage implements OnInit {
           this.extinguisherService.getSession().subscribe(session =>{
               // @ts-ignore
               if ((session === null) ) {
-                  this.navCtrl.navigateForward(['/login']);
+                  this.navCtrl.navigateForward(['/menu/login']);
               } else {
                   this.User = session;
                   this.name = this.User.user.name;
@@ -43,7 +43,7 @@ export class ExtRegisterPage implements OnInit {
           this.extinguisherService.getSession2().then(session =>{
               // @ts-ignore
               if ((session.data === '') ) {
-                  this.navCtrl.navigateForward(['/login']);
+                  this.navCtrl.navigateForward(['/menu/login']);
               } else {
                   this.User = session.data;
                   this.name = this.User.user.name;
@@ -64,25 +64,27 @@ export class ExtRegisterPage implements OnInit {
 
   extRegister(extinguisher){
       let serial = extinguisher.target.elements[0].value;
-      let brand = extinguisher.target.elements[1].value;
-      let client = extinguisher.target.elements[2].value;
-      let plant = extinguisher.target.elements[3].value;
-      let address = extinguisher.target.elements[4].value;
-      let state = extinguisher.target.elements[5].value;
-      let p_cellphone = extinguisher.target.elements[6].value;
-      let r_name = extinguisher.target.elements[7].value;
-      let r_cellphone = extinguisher.target.elements[8].value;
-      let c_name = extinguisher.target.elements[9].value;
-      let c_cellphone = extinguisher.target.elements[10].value;
-      let modelo = new Extinguisher(serial,brand,client,plant,
-          address,state,p_cellphone,r_name,r_cellphone,
-          c_name,c_cellphone);
+      let ext_num = extinguisher.target.elements[1].value;
+      let typeExt = extinguisher.target.elements[2].value;
+      let weight = extinguisher.target.elements[3].value;
+      let client = extinguisher.target.elements[4].value;
+      let plant = extinguisher.target.elements[5].value;
+      let address = extinguisher.target.elements[6].value;
+      let con_name = extinguisher.target.elements[7].value;
+      let con_email = extinguisher.target.elements[8].value;
+      let con_tel = extinguisher.target.elements[9].value;
+      let modelo = new Extinguisher(serial,ext_num,typeExt,weight,
+          client,plant,address,con_name,con_email,
+          con_tel);
+      console.log(modelo);
       if (this.pltr.is('desktop')){
+          console.log("hola?");
           this.extinguisherService.postExtinguisher(modelo).subscribe(
               data => {
                   alert('Extintor Registrado');
               });
       } else {
+          console.log("hola!");
           this.extinguisherService.postExtinguisher2(modelo).then(
               data => {
                   this.presentAlert()

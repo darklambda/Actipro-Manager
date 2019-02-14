@@ -2,13 +2,11 @@
 module.exports = (sequelize, DataTypes) => {
   const E_Form = sequelize.define('E_Form', {
     service_date: DataTypes.DATE,
-    s_name: DataTypes.STRING,
     service: DataTypes.INTEGER,
+    s_name: DataTypes.STRING,
     observation: DataTypes.STRING,
-    conclusions: DataTypes.STRING,
+    description: DataTypes.STRING,
     future: DataTypes.INTEGER,
-    reasons: DataTypes.STRING,
-    latest: DataTypes.BOOLEAN,
       serial: DataTypes.STRING,
       ExtinguisherId: DataTypes.INTEGER
   }, {});

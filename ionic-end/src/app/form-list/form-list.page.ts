@@ -30,7 +30,7 @@ export class FormListPage implements OnInit {
           this.formlistService.getSession().subscribe(session =>{
               // @ts-ignore
               if ((session === null)) {
-                  this.navCtrl.navigateForward(['/login']);
+                  this.navCtrl.navigateForward(['/menu/login']);
               } else {
                   this.User = session;
                   if (this.User.access == "admin"){
@@ -44,7 +44,7 @@ export class FormListPage implements OnInit {
           this.formlistService.getSession2().then(session =>{
               session.data = JSON.parse(session.data);
               if ((session.data === '')) {
-                  this.navCtrl.navigateForward(['/login']);
+                  this.navCtrl.navigateForward(['/menu/login']);
               } else {
                   this.User = session.data;
                   if (this.User.access == "admin"){
@@ -86,7 +86,7 @@ export class FormListPage implements OnInit {
 
     goBack(){
         let serial = this.route.snapshot.paramMap.get('serial');
-        this.navCtrl.navigateForward(['/ext-view/'+serial]);
+        this.navCtrl.navigateForward(['/menu/ext-view/'+serial]);
     }
 
     deleteForm(id){
@@ -104,11 +104,11 @@ export class FormListPage implements OnInit {
                     });
         }
         let serial = this.route.snapshot.paramMap.get('serial');
-        this.navCtrl.navigateForward(['/ext-view/'+serial]);
+        this.navCtrl.navigateForward(['/menu/ext-view/'+serial]);
     }
 
     editForm(id){
-        this.navCtrl.navigateForward(['eform-edit/'+id]);
+        this.navCtrl.navigateForward(['/menu/eform-edit/'+id]);
     }
 
 

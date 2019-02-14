@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from "@ionic/angular";
 import {Tab1Service} from "./tab1.service";
 import { Platform} from "@ionic/angular";
+import { MenuController} from "@ionic/angular";
 
 @Component({
   selector: 'app-tab1',
@@ -11,7 +12,8 @@ import { Platform} from "@ionic/angular";
 export class Tab1Page implements OnInit {
     constructor(private navCtrl: NavController,
                 private tab1Service: Tab1Service,
-                public pltr: Platform) {}
+                public pltr: Platform,
+                private menu: MenuController) {}
 
     public User: any;
     public level: any;
@@ -25,6 +27,7 @@ export class Tab1Page implements OnInit {
                 } else {
                     this.User = session;
                     if (this.User.access == "admin"){
+                        this.User = "Administrador";
                         this.level = 4;
                     } else {
                         this.level = this.User.user.permission;
@@ -40,6 +43,7 @@ export class Tab1Page implements OnInit {
                 } else {
                     this.User = session.data;
                     if (this.User.access == "admin"){
+                        this.User = "Administrador";
                         this.level = 4;
                     } else {
                         this.level = this.User.user.permission;
@@ -52,6 +56,11 @@ export class Tab1Page implements OnInit {
 
     goToListExtinguisher(){
         this.navCtrl.navigateForward('/ext-list');
+    }
+
+    openFirst() {
+        this.menu.enable(true, 'first');
+        this.menu.open('first');
     }
 
     logout(){

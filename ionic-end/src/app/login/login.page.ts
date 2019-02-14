@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService} from "./login.service";
 import { NavController} from "@ionic/angular";
 import { Platform} from "@ionic/angular";
+import { MenuController} from "@ionic/angular";
+import { MenuPage} from "../menu/menu.page";
 
 @Component({
   selector: 'app-login',
@@ -12,15 +14,17 @@ export class LoginPage implements OnInit {
 
   constructor(private loginService: LoginService,
               private navCtrl: NavController,
-              public pltr: Platform) { }
+              public pltr: Platform,
+              private menu: MenuController,
+              private menuP: MenuPage) { }
 
   ngOnInit() {
+      this.menu.enable(false,"content");
       if (this.pltr.is('desktop')){
           this.loginService.getSession().subscribe(session =>{
               // @ts-ignore
               if ((session.access == "user") || (session.access == "admin")) {
-                  console.log("tengo user");
-                  this.navCtrl.navigateForward(['/']);
+                  this.navCtrl.navigateForward(['/menu/home']);
               }
           });
       } else {
@@ -29,7 +33,7 @@ export class LoginPage implements OnInit {
               if (session.data !== ''){
                   session.data = JSON.parse(session.data);
                   if ((session.data.access == "user") || (session.data.access == "admin")) {
-                      this.navCtrl.navigateForward(['/']);
+                      this.navCtrl.navigateForward(['/menu/home']);
                   }
               }
           });
@@ -43,10 +47,11 @@ export class LoginPage implements OnInit {
         let UserObject = {email: email, password: password};
         if (this.pltr.is('desktop')){
             this.loginService.login(UserObject).subscribe(response => {
-                console.log(response != "string");
-                console.log(response);
+
                 if (typeof response != "string"){
-                    this.navCtrl.navigateForward("/");
+                    this.menu.enable(true,"content");
+                    this.menuP.menuPer = false;
+                    this.navCtrl.navigateForward("/menu/home");
                 } else{ //Login Incorrecto
                     alert(response);
                 }
@@ -57,7 +62,9 @@ export class LoginPage implements OnInit {
                     response.data = JSON.parse(response.data);
                 }
                 if (typeof response.data != "string"){
-                    this.navCtrl.navigateForward("/");
+                    this.menu.enable(true,"content");
+                    this.menuP.menuPer = false;
+                    this.navCtrl.navigateForward("/menu/home");
                 } else { //Login Incorrecto
                     alert(response.data);
                 }

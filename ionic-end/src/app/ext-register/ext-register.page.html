@@ -9,11 +9,25 @@
   <form (submit)="extRegister($event)" name="extinguisher">
     <ion-item>
       <ion-label fixed>Serial</ion-label>
-      <ion-input type="text" value="{{serial}}" name="serial_num"></ion-input>
+      <ion-input disabled="true" type="text" value="{{serial}}" name="serial_num"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label fixed>Marca</ion-label>
-      <ion-input type="text" value="" name="brand"></ion-input>
+      <ion-label fixed>Numero del Extintor</ion-label>
+      <ion-input type="text" value="" name="ext_num"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Extintor Tipo</ion-label>
+      <ion-select name="service">
+        <ion-select-option type="text" value="PQS" >PQS</ion-select-option>
+        <ion-select-option type="text" value="AGUA" >AGUA</ion-select-option>
+        <ion-select-option type="text" value="CO2" >CO2</ion-select-option>
+        <ion-select-option type="text" value="SODA" >SODA</ion-select-option>
+        <ion-select-option type="text" value="ACETATO DE POTASIO" >ACETATO DE POTASIO</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Peso (Kg)</ion-label>
+      <ion-input type="number" value="" name="weight"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label fixed>Cliente</ion-label>
@@ -28,30 +42,23 @@
       <ion-input type="text" value="" name="address"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label fixed>Comuna</ion-label>
-      <ion-input type="text" value="" name="state"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label fixed>Telefono Planta</ion-label>
-      <ion-input type="text" value="" name="p_cellphone"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label fixed>Nombre Representante</ion-label>
-      <ion-input type="text" value="" name="r_name"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label fixed>Telefono Representante</ion-label>
-      <ion-input type="text" value="" name="r_cellphone"></ion-input>
-    </ion-item>
-    <ion-item>
       <ion-label fixed>Nombre Contacto</ion-label>
-      <ion-input type="text" value="" name="c_name"></ion-input>
+      <ion-input type="text" value="" name="con_name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Email Contacto</ion-label>
+      <ion-input type="email" value="" name="con_email"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label fixed>Telefono Contacto</ion-label>
-      <ion-input type="text" value="" name="c_cellphone"></ion-input>
+      <ion-input type="text" value="" name="con_tel"></ion-input>
     </ion-item>
-    <input type="submit" value="Enviar">
+    <div style="text-align: center;">
+    <ion-button type="submit">
+      Enviar
+    </ion-button>
+    </div>
+
   </form>
 
 </ion-content>

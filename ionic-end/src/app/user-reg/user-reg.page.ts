@@ -68,7 +68,7 @@ export class UserRegPage implements OnInit {
                     data=>{
                         if (typeof data != "string"){
                             console.log(data,'Usuario Enviado');
-                            this.navCtrl.navigateForward(['/tabs/tab1']);
+                            this.navCtrl.navigateForward(['/']);
                         } else {
                             console.log(data,'error');
                             alert(data)
@@ -80,7 +80,7 @@ export class UserRegPage implements OnInit {
                         if (data.data === 'Email already in use'){
                             alert(data.data)
                         } else {
-                            this.navCtrl.navigateForward(['/tabs/tab1']);
+                            this.navCtrl.navigateForward(['/']);
                         }
                     });
             }

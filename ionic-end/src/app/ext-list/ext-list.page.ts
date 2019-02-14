@@ -25,7 +25,7 @@ export class ExtListPage implements OnInit {
           this.extListService.getSession().subscribe(session =>{
               // @ts-ignore
               if ((session === null)) {
-                  this.navCtrl.navigateForward(['/login']);
+                  this.navCtrl.navigateForward(['/menu/login']);
               } else {
                   this.User = session;
                   if (this.User.access == "admin"){
@@ -40,7 +40,7 @@ export class ExtListPage implements OnInit {
           this.extListService.getSession2().then(session =>{
               session.data = JSON.parse(session.data);
               if ((session.data === '')) {
-                  this.navCtrl.navigateForward(['/login']);
+                  this.navCtrl.navigateForward(['/menu/login']);
               } else {
                   this.User = session.data;
                   if (this.User.access == "admin"){
@@ -69,7 +69,7 @@ export class ExtListPage implements OnInit {
   }
 
   goToExt(serial){
-      this.navCtrl.navigateForward('/ext-view/'+serial);
+      this.navCtrl.navigateForward('/menu/ext-view/'+serial);
   }
 
     deleteExtinguisher(serial){

@@ -6,16 +6,15 @@ module.exports.post = function (req, res) {
     console.log(req.body);
     Extinguisher.create({
         serial_num: req.body.serial_num,
-        brand: req.body.brand,
+        ext_num: req.body.ext_num,
+        typeExt: req.body.typeExt,
+        weight: req.body.weight,
         client: req.body.client,
         plant: req.body.plant,
         address: req.body.address,
-        state: req.body.state,
-        p_cellphone: req.body.p_cellphone,
-        r_name: req.body.r_name,
-        r_cellphone: req.body.r_cellphone,
-        c_name: req.body.c_name,
-        c_cellphone: req.body.c_cellphone,
+        con_name: req.body.con_name,
+        con_email: req.body.con_email,
+        con_tel: req.body.con_tel,
     }).then(function (result) {
         res.json(result);
     }).catch(function (err) {

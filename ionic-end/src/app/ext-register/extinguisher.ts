@@ -1,15 +1,14 @@
 export class Extinguisher {
     constructor(
         public serial_num: string,
-        public brand: string,
+        public ext_num: string,
+        public typeExt: string,
+        public weight: number,
         public client: string,
         public plant: string,
         public address: string,
-        public state: string,
-        public p_cellphone: string,
-        public r_name: string,
-        public r_cellphone: string,
-        public c_name: string,
-        public c_cellphone: string
+        public con_name: string,
+        public con_email: string,
+        public con_tel: string,
     ){ }
 }

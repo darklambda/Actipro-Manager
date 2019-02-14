@@ -2,16 +2,15 @@
 module.exports = (sequelize, DataTypes) => {
   const Extinguisher = sequelize.define('Extinguisher', {
     serial_num: DataTypes.STRING,
-    brand: DataTypes.STRING,
+    ext_num: DataTypes.STRING,
+    typeExt: DataTypes.STRING,
+    weight: DataTypes.FLOAT,
     client: DataTypes.STRING,
     plant: DataTypes.STRING,
     address: DataTypes.STRING,
-    state: DataTypes.STRING,
-    p_cellphone: DataTypes.STRING,
-    r_name: DataTypes.STRING,
-    r_cellphone: DataTypes.STRING,
-    c_name: DataTypes.STRING,
-    c_cellphone: DataTypes.STRING
+    con_name: DataTypes.STRING,
+    con_email: DataTypes.STRING,
+    con_tel: DataTypes.STRING
   }, {});
   Extinguisher.associate = function(models) {
     // associations can be defined here

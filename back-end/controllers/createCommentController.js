@@ -50,5 +50,19 @@ module.exports.post = function (req, res) {
             res.json('Something Occurred');
         });
 
+    } else {
+        Comment.create({
+            date: Date(),
+            name: "Administrador",
+            email: req.session.user.email,
+            comment: req.body.comment,
+            serial_num: req.body.serial_num,
+            ExtinguisherId: extId
+        }).then(function (result) {
+            res.json(result);
+        }).catch(function (err) {
+            console.log(err);
+            res.json('Something Occurred');
+        });
     }
 };

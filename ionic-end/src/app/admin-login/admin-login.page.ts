@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AdminLoginService} from "./admin-login.service";
 import { NavController} from "@ionic/angular";
 import { Platform } from "@ionic/angular";
+import { MenuController} from "@ionic/angular";
+import { MenuPage} from "../menu/menu.page";
 
 @Component({
   selector: 'app-admin-login',
@@ -12,9 +14,12 @@ export class AdminLoginPage implements OnInit {
 
   constructor(private adminloginService: AdminLoginService,
               private navCtrl: NavController,
-              public pltr: Platform) { }
+              public pltr: Platform,
+              private menu: MenuController,
+              private menuP: MenuPage) { }
 
   ngOnInit() {
+      this.menu.enable(false,"content");
       if(this.pltr.is('desktop')){
           this.adminloginService.getSession().subscribe(session =>{
               // @ts-ignore
@@ -43,6 +48,8 @@ export class AdminLoginPage implements OnInit {
         if(this.pltr.is('desktop')){
             this.adminloginService.login(AdminObject).subscribe(response => {
                 if (typeof response != "string"){
+                    this.menu.enable(true,"content");
+                    this.menuP.menuPer = true;
                     this.navCtrl.navigateForward("/");
                 } else{ //Login Incorrecto
                     alert(response);
@@ -52,6 +59,8 @@ export class AdminLoginPage implements OnInit {
             this.adminloginService.login2(AdminObject).then(response => {
 
                 if (typeof response.data != "string"){
+                    this.menu.enable(true,"content");
+                    this.menuP.menuPer = true;
                     this.navCtrl.navigateForward("/");
                 } else{ //Login Incorrecto
                     alert(response.data);
