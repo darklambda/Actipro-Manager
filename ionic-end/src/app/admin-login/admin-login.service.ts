@@ -13,21 +13,21 @@ export class AdminLoginService {
               private http2: HTTP) { }
 
     login(admin){
-          return this.http.post('http://localhost:3000/adminlogin', admin, {withCredentials: true});
+          return this.http.post('http://168.232.165.150:3000/adminlogin', admin, {withCredentials: true});
 
     }
 
     login2(admin){
-            return this.http2.post('http://192.168.0.54:3000/adminlogin', admin, {withCredentials: 'true'});
+            return this.http2.post('http://168.232.165.150:3000/adminlogin', admin, {withCredentials: 'true'});
     }
 
     getSession(){
-        return this.http.get('http://localhost:3000/session',{withCredentials: true});
+        return this.http.get('http://168.232.165.150:3000/session',{withCredentials: true});
 
     }
 
     getSession2(){
-        return this.http2.get('http://192.168.0.54:3000/session', {},{withCredentials: 'true'});
+        return this.http2.get('http://168.232.165.150:3000/session', {},{withCredentials: 'true'});
 
     }
 }

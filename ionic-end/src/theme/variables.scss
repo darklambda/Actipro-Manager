@@ -76,3 +76,51 @@
   --ion-color-light-tint: #f5f6f9;
 
 }
+
+.ion-color-btn1 {
+  --ion-color-base: #1361cb;
+  --ion-color-base-rgb: 255,255,0;
+  --ion-color-contrast: #ffffff;
+  --ion-color-contrast-rgb: 0,0,0;
+  --ion-color-shade: #1361cb;
+  --ion-color-tint: #1361cb;
+}
+
+.ion-color-btn2 {
+  --ion-color-base: #6dae3b;
+  --ion-color-base-rgb: 255,255,0;
+  --ion-color-contrast: #ffffff;
+  --ion-color-contrast-rgb: 0,0,0;
+  --ion-color-shade: #6dae3b;
+  --ion-color-tint: #6dae3b;
+}
+
+.ion-color-btn3 {
+  --ion-color-base: #ba6f32;
+  --ion-color-base-rgb: 255,255,0;
+  --ion-color-contrast: #ffffff;
+  --ion-color-contrast-rgb: 0,0,0;
+  --ion-color-shade: #ba6f32;
+  --ion-color-tint: #ba6f32;
+}
+
+@font-face {
+  font-family: 'ExoRegular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../assets/fonts/Exo2-Regular.otf');
+}
+
+@font-face {
+  font-family: 'ExoMedium';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../assets/fonts/Exo2-Medium.otf');
+}
+
+@font-face {
+  font-family: 'ExoLight';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../assets/fonts/Exo2-Light.otf');
+}

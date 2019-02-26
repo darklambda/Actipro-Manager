@@ -16,21 +16,23 @@
           <div>
             <ion-grid>
             <ion-row>
-              <ion-col style="text-align: left">
+              <ion-col style="text-align: left; font-family: ExoMedium; color: #4c4c4c" >
                 {{User.name}}
               </ion-col>
             </ion-row>
 
             <ion-row>
-              <ion-col>
-                <p  *ngIf="level===1">   Trabajador de Mantencion </p>
-                <p  *ngIf="level===2">   Prevencionista de Riesgos </p>
-                <p  *ngIf="level===3">   Supervisor </p>
+              <ion-col style="font-family: ExoLight; color: #4c4c4c">
                 <p  *ngIf="level===4">   Administrador </p>
+                <p  *ngIf="level===3">   Trabajador de Mantencion </p>
+                <p  *ngIf="level===2">   Prevencionista de Riesgos </p>
+                <p  *ngIf="level===1">   Supervisor </p>
               </ion-col>
             </ion-row>
           </ion-grid>
           </div>
+
+          <div style="font-family: ExoMedium; color: #4c4c4c">
 
           <ion-item [class.active-item]="" (click)="goHome()">
             <ion-icon name="flame"></ion-icon>
@@ -65,7 +67,7 @@
               Cerrar Session
             </ion-label>
           </ion-item>
-
+          </div>
         </ion-menu-toggle>
       </ion-list>
     </ion-content>

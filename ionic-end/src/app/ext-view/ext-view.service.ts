@@ -14,50 +14,50 @@ export class ExtViewService {
 
 
     deleteComment(id){
-        return this.http.delete('http://localhost:3000/comentario/delete/'+id, {withCredentials: true});
+        return this.http.delete('http://168.232.165.150:3000/comentario/delete/'+id, {withCredentials: true});
     }
 
     deleteComment2(id){
-        return this.http2.delete('http://192.168.0.54:3000/comentario/delete/'+id, {}, {withCredentials: 'true'});
+        return this.http2.delete('http://168.232.165.150:3000/comentario/delete/'+id, {}, {withCredentials: 'true'});
     }
 
     deleteExtinguisher(serial){
-        return this.http.delete('http://localhost:3000/extinguisher/delete/'+serial, {withCredentials: true});
+        return this.http.delete('http://168.232.165.150:3000/extinguisher/delete/'+serial, {withCredentials: true});
     }
 
     deleteExtinguisher2(serial){
-        return this.http2.delete('http://192.168.0.54:3000/extinguisher/delete/'+serial, {},  {withCredentials: 'true'});
+        return this.http2.delete('http://168.232.165.150:3000/extinguisher/delete/'+serial, {},  {withCredentials: 'true'});
     }
 
     getExtinguisher(serial){
-        return this.http.get('http://localhost:3000/extinguisher/'+serial, {withCredentials: true});
+        return this.http.get('http://168.232.165.150:3000/extinguisher/'+serial, {withCredentials: true});
     }
 
     getExtinguisher2(serial){
-        return this.http2.get('http://192.168.0.54:3000/extinguisher/'+serial, {}, {withCredentials: 'true'});
+        return this.http2.get('http://168.232.165.150:3000/extinguisher/'+serial, {}, {withCredentials: 'true'});
     }
 
     getForms(serial){
-        return this.http.get('http://localhost:3000/eform/'+serial, {withCredentials: true});
+        return this.http.get('http://168.232.165.150:3000/eform/'+serial, {withCredentials: true});
     }
 
     getForms2(serial){
-        return this.http2.get('http://192.168.0.54:3000/eform/'+serial, {}, {withCredentials: 'true'});
+        return this.http2.get('http://168.232.165.150:3000/eform/'+serial, {}, {withCredentials: 'true'});
     }
 
     getComments(serial){
-        return this.http.get('http://localhost:3000/comentario/'+serial, {withCredentials: true});
+        return this.http.get('http://168.232.165.150:3000/comentario/'+serial, {withCredentials: true});
     }
 
     getComments2(serial){
-        return this.http2.get('http://192.168.0.54:3000/comentario/'+serial, {}, {withCredentials: 'true'});
+        return this.http2.get('http://168.232.165.150:3000/comentario/'+serial, {}, {withCredentials: 'true'});
     }
 
     getSession(){
-        return this.http.get('http://localhost:3000/session',{withCredentials: true})
+        return this.http.get('http://168.232.165.150:3000/session',{withCredentials: true})
     }
 
     getSession2(){
-        return this.http2.get('http://192.168.0.54:3000/session', {}, {withCredentials: 'true'})
+        return this.http2.get('http://168.232.165.150:3000/session', {}, {withCredentials: 'true'})
     }
 }

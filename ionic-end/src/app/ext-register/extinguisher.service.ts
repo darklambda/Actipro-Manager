@@ -13,18 +13,18 @@ export class ExtinguisherService {
               private http2: HTTP) { }
 
     postExtinguisher(extinguisher){
-        return this.http.post('http://localhost:3000/extinguisher', extinguisher, {withCredentials: true});
+        return this.http.post('http://168.232.165.150:3000/extinguisher', extinguisher, {withCredentials: true});
     }
 
     postExtinguisher2(extinguisher){
-        return this.http2.post('http://192.168.0.54:3000/extinguisher', extinguisher, {withCredentials: 'true'});
+        return this.http2.post('http://168.232.165.150:3000/extinguisher', extinguisher, {withCredentials: 'true'});
     }
 
     getSession(){
-        return this.http.get('http://localhost:3000/session',{withCredentials: true})
+        return this.http.get('http://168.232.165.150:3000/session',{withCredentials: true})
     }
 
     getSession2(){
-        return this.http2.get('http://192.168.0.54:3000/session', {},{withCredentials: 'true'})
+        return this.http2.get('http://168.232.165.150:3000/session', {},{withCredentials: 'true'})
     }
 }

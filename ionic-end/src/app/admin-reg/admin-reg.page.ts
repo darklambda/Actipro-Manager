@@ -19,12 +19,14 @@ export class AdminRegPage implements OnInit {
   }
 
     registerUser(user){
+        console.log("1");
         let email = user.target.elements[0].value;
         let password = user.target.elements[1].value;
         /*Registro invalido */
         let admin =new Admin(email, password);
                 /*Registrar Usuario */
         if (this.pltr.is('desktop')){
+            console.log("2");
             this.registerService.postRegister(admin).subscribe(
                 data=>{
                     if (typeof data != "string"){
@@ -36,6 +38,7 @@ export class AdminRegPage implements OnInit {
                     }
                 });
         } else {
+            console.log("3");
             this.registerService.postRegister2(admin).then(
                 data=>{
 

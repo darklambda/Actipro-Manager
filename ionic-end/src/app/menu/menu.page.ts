@@ -56,21 +56,6 @@ export class MenuPage implements OnInit {
       }
   }
 
-    async scanQr(){
-
-        try {
-            const options: BarcodeScannerOptions = {
-                prompt: "Escanee Codigo QR"
-            };
-
-            this.result = await this.barcodeScanner.scan(options);
-            this.navCtrl.navigateForward('/menu/ext-register/' + this.result.text);
-        }catch (error) {
-            console.error(error);
-
-        }
-    }
-
     async getQr(){
 
         try {

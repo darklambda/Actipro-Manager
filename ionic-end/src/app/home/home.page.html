@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title align="left">
+    <ion-title align="left" style="font-family: ExoRegular">
       Inicio
     </ion-title>
   </ion-toolbar>
@@ -18,7 +18,7 @@
     <ion-grid>
       <ion-row>
         <ion-col style="text-align: center">
-          <ion-button shape="round" expand="full" >
+          <ion-button shape="round" expand="full" style="font-family: ExoRegular" color="btn1" (click)="getQr()">
             Escanear
           </ion-button>
         </ion-col>
@@ -26,13 +26,13 @@
 
       <ion-row>
         <ion-col style="text-align: center">
-          <ion-button shape="round" expand="full" >
+          <ion-button shape="round" expand="full" style="font-family: ExoRegular" color="btn2">
             Contacto
           </ion-button>
         </ion-col>
 
         <ion-col style="text-align: center">
-          <ion-button shape="round" expand="full" >
+          <ion-button shape="round" expand="full" style="font-family: ExoRegular" color="btn3">
             Ayuda
           </ion-button>
         </ion-col>
@@ -45,19 +45,19 @@
 
     <ion-grid>
       <ion-row>
-        <ion-col class="sesion">
+        <ion-col class="sesion" style="font-family: ExoMedium">
           Sesión Iniciada como
         </ion-col>
       </ion-row>
 
       <ion-row>
-        <ion-col class="name">
+        <ion-col class="name" style="font-family: ExoMedium">
           {{User.name}}
         </ion-col>
       </ion-row>
 
       <ion-row>
-        <ion-col class="title">
+        <ion-col class="title" style="font-family: ExoLight">
           <p class="title" *ngIf="level===1">   Trabajador de Mantencion </p>
           <p class="title" *ngIf="level===2">   Prevencionista de Riesgos </p>
           <p class="title" *ngIf="level===3">   Supervisor </p>
