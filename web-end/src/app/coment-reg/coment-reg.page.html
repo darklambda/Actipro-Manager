@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="text-align: center">Nueva Solicitud</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form (ngSubmit)="registerComment($event)" name="comment">
+    <ion-label fixed> Solicitud sobre Extintor {{serial}}</ion-label>
+    <ion-item>
+      <ion-textarea type="text" value="" name="comment"></ion-textarea>
+    </ion-item>
+    <div style="text-align: center">
+      <ion-button type="submit">
+        Enviar
+      </ion-button>
+    </div>
+
+  </form>
+
+</ion-content>

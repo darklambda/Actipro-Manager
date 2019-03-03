@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       email: DataTypes.STRING,
     comment: DataTypes.STRING,
     serial_num: DataTypes.STRING,
+      check: DataTypes.BOOLEAN,
       ExtinguisherId: DataTypes.INTEGER
   }, {});
   Comment.associate = function(models) {

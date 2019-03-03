@@ -23,6 +23,9 @@ module.exports = {
       serial_num: {
         type: Sequelize.STRING
       },
+      check: {
+        type: Sequelize.BOOLEAN
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

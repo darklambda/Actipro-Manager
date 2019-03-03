@@ -29,7 +29,7 @@ const routes: Routes = [
   },
     {
         path: '',
-        redirectTo: '/menu/login'
+        redirectTo: '/menu/home'
     }
 ];
 

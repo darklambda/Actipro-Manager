@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Registro de Ficha de Mantenimiento {{serial}} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form (submit)="formRegister($event)" name="extinguisher">
+      <ion-grid>
+        <ion-row>
+          <ion-col style="text-align: left">
+            Fecha del Servicio:
+          </ion-col>
+          <ion-col style="font-family: ExoRegular; text-align: right" class="borde">
+            <ion-input type="date" value="" name="service_date"></ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col style="text-align: left">
+            Servicio realizado de:
+          </ion-col>
+          <ion-col style="font-family: ExoRegular; text-align: right">
+            <ion-select name="service"  style="font-family: ExoRegular">
+              <ion-select-option type="number" value="1" >Inspeccion</ion-select-option>
+              <ion-select-option type="number" value="2" >Mantencion</ion-select-option>
+              <ion-select-option type="number" value="3" >Recarga</ion-select-option>
+              <ion-select-option type="number" value="4" >Prueba Hidrostatica</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col style="text-align: left">
+            Persona que realiza el Servicio:
+          </ion-col>
+          <ion-col style="font-family: ExoRegular; text-align: right">
+            <ion-input [disabled]="true"style="font-family: ExoRegular" type="text" value="{{name}}" name="s_name"></ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col style="text-align: left">
+            Observaciones Realizadas:
+          </ion-col>
+          <ion-col style="font-family: ExoRegular; text-align: right">
+            <ion-textarea type="text" value="" name="observation"  style="font-family: ExoRegular"></ion-textarea>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col style="text-align: left">
+            Descripción del Trabajo:
+          </ion-col>
+          <ion-col style="font-family: ExoRegular; text-align: right">
+            <ion-textarea type="text" value="" name="description"  style="font-family: ExoRegular"></ion-textarea>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col style="text-align: left">
+            El extintor debe:
+          </ion-col>
+          <ion-col style="font-family: ExoRegular; text-align: right">
+            <ion-select name="future"  style="font-family: ExoRegular">
+              <ion-select-option type="number" value="1" >Mantener</ion-select-option>
+              <ion-select-option type="number" value="2" >Prueba</ion-select-option>
+              <ion-select-option type="number" value="3" >Retiro</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    <div style="text-align: center;">
+      <ion-button type="submit">
+        Enviar
+      </ion-button>
+    </div>
+  </form>
+
+</ion-content>

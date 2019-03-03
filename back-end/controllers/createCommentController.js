@@ -42,6 +42,7 @@ module.exports.post = function (req, res) {
             email: req.session.user.email,
             comment: req.body.comment,
             serial_num: req.body.serial_num,
+            check: false,
             ExtinguisherId: extId
         }).then(function (result) {
             res.json(result);
@@ -56,6 +57,7 @@ module.exports.post = function (req, res) {
             name: "Administrador",
             email: req.session.user.email,
             comment: req.body.comment,
+            check: false,
             serial_num: req.body.serial_num,
             ExtinguisherId: extId
         }).then(function (result) {

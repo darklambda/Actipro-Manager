@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro de Usuarios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form (submit)="registerUser($event)" >
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+
+          <ion-item>
+            <ion-input type="text" placeholder="Nombre" name="name" value="" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="email" placeholder="Email" name="email" value0="" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="password" placeholder="Contraseña" name="password" value="" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="password" placeholder=" Repita Contraseña" name="password" value="" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-select  placeholder="Tipo de Usuario" name="future">
+              <ion-select-option type="number" value="3" >Trabajador de Mantencion</ion-select-option>
+              <ion-select-option type="number" value="2" >Prevencionista de Riesgo</ion-select-option>
+              <ion-select-option type="number" value="1" >Supervisor</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" placeholder="Empresa" name="enterprise" value0="" required></ion-input>
+          </ion-item>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="signup-col">
+        <div class="input">
+          <input type="submit" value="Registrar usuario">
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </form>
+</ion-content>

@@ -1,0 +1,63 @@
+<ion-split-pane>
+  <ion-menu contentId="content" menuId="content" >
+    <ion-header>
+    </ion-header>
+
+    <ion-content color="menu2">
+      <ion-list>
+
+        <ion-menu-toggle auto-hide="false">
+
+          <ion-img src="/assets/logo2.png" class="responsive"></ion-img>
+
+          <ion-item (click)="goHome()">
+          <ion-label>
+            Inicio
+          </ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-label (click)="goRequests()">
+              Solicitudes Recibidas
+            </ion-label>
+          </ion-item>
+
+          <ion-item class="item-stable"
+                    (click)="toggleCollapsible()"
+                    [ngClass]="{active: isShown()}">
+            Administrar
+
+          </ion-item>
+
+          <div class="item-accordion"
+               [hidden]="isShown()">
+
+              <ion-item (click)="goToListExtinguisher()">
+                <ion-label>
+                  Productos
+                </ion-label>
+              </ion-item>
+
+              <ion-item> Empresas </ion-item>
+
+              <ion-item> Usuarios </ion-item>
+
+          </div>
+
+
+
+          <ion-item (click)="goMaintenance()">
+            <ion-label>
+              Mantencion de Extintores
+            </ion-label>
+          </ion-item>
+
+          <ion-item> Estadisticas </ion-item>
+
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="content" main></ion-router-outlet>
+</ion-split-pane>

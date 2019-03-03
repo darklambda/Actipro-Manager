@@ -78,35 +78,16 @@ enter one of the views that are not "login", the app will redirect to this view.
 
 ### Observaciones:
 
--Borrar vista ADMIN REG luego de finalizado el proyecto.
+Agregar Empresa a Solicitudes. Agregar Boton de DONE.
 
--Agregar GetSession en tab3 y metodos Qr.
+Pagina de Edicion y Eliminacion de Usuarios.
 
--Agrupar información en fichas desplegables.
- 
- NOT YET
+Creacion de Empresas.
 
--Cambiar nombre Forma por Ficha de Mantención.
- 
- DONE
+Pagina de Edicion y Eliminacion de Empresas.
 
--Automatizar forma segun usuario.
+Agrear a Eform, Empresa y Planta, calcular proxima renovacon y tiempo restante.
 
--Cambiar opciones de futuro del extintor a: 
-        Mantener
-        Nueva Prueba.
-        Dar de Baja.
-        
-        DONE
-        
--Cambiar titulo de Mensajes de Alerta dependiendo de la situacion. DONE
+Estetica.
 
--Cambiar columnas de resultado por letras con simbología.
-
--Colocar borde inferior a resultados importantes. DONE?
-
--Dejar nombre de usuario actual al registrar formas. DONE
-
--Mostrar numero y nombre de empresa por extintor, serial es numero oculto.
-
--Nuevo usuario comite prioritario, solo ve ficha, no envia reporte.
+Montaje.

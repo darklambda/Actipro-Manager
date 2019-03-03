@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-grid>
+      <ion-row>
+
+        <ion-col style="text-align: left">
+          <ion-title>
+            Sistena de Gestión Actipro
+          </ion-title>
+        </ion-col>
+        <ion-col style="text-align: right">
+          <div (click)="logout()"> Cerrar Sesión</div>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-title> Mantenciones Realizadas </ion-title>
+
+  <div *ngIf="forms">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          Fecha
+        </ion-col>
+        <ion-col>
+          Empresa
+        </ion-col>
+        <ion-col>
+          Planta
+        </ion-col>
+        <ion-col>
+          Encargado
+        </ion-col>
+        <ion-col>
+          Proxima Renovación
+        </ion-col>
+        <ion-col>
+          Tiempo Restante
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngFor="let form of forms">
+        <ion-col>
+          {{form.createdAt}}
+        </ion-col>
+        <ion-col>
+          Empresa
+        </ion-col>
+        <ion-col>
+          Planta
+        </ion-col>
+        <ion-col>
+          {{form.s_name}}
+        </ion-col>
+        <ion-col>
+          prox ren
+        </ion-col>
+        <ion-col>
+          tiempo restante
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+
+  <div *ngIf="!forms">
+
+    No se presentan matenciones recientes.
+
+  </div>
+
+</ion-content>
