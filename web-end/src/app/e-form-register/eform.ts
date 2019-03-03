@@ -6,6 +6,6 @@ export class EForm {
         public observation: string,
         public description: string,
         public future: number,
-        public serial: string,
+        public serial: string
     ){ }
 }

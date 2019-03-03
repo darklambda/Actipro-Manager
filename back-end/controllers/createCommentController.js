@@ -35,6 +35,7 @@ module.exports.post = function (req, res) {
             else
                 console.log(info);
         });
+        console.log(req.session);
 
         Comment.create({
             date: Date(),
@@ -43,6 +44,7 @@ module.exports.post = function (req, res) {
             comment: req.body.comment,
             serial_num: req.body.serial_num,
             check: false,
+            enterprise: req.session.user.enterprise,
             ExtinguisherId: extId
         }).then(function (result) {
             res.json(result);
@@ -59,6 +61,7 @@ module.exports.post = function (req, res) {
             comment: req.body.comment,
             check: false,
             serial_num: req.body.serial_num,
+            enterprise: req.session.user.enterprise,
             ExtinguisherId: extId
         }).then(function (result) {
             res.json(result);

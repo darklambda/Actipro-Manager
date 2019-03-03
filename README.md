@@ -78,7 +78,7 @@ enter one of the views that are not "login", the app will redirect to this view.
 
 ### Observaciones:
 
-Agregar Empresa a Solicitudes. Agregar Boton de DONE.
+Agregar Boton de DONE.
 
 Pagina de Edicion y Eliminacion de Usuarios.
 
@@ -86,7 +86,7 @@ Creacion de Empresas.
 
 Pagina de Edicion y Eliminacion de Empresas.
 
-Agrear a Eform, Empresa y Planta, calcular proxima renovacon y tiempo restante.
+Agrear a Eform, calcular proxima renovacon y tiempo restante.
 
 Estetica.
 

@@ -40,13 +40,14 @@ export class UserRegPage implements OnInit {
 
     registerUser(user){
         let name = user.target.elements[0].value;
-        let email = user.target.elements[1].value;
-        let password = user.target.elements[2].value;
-        let cpassword = user.target.elements[3].value;
-        let permission = user.target.elements[4].value;
-        let enterprise = user.target.elements[5].value;
+        let rut = user.target.elements[1].value;
+        let email = user.target.elements[2].value;
+        let password = user.target.elements[3].value;
+        let cpassword = user.target.elements[4].value;
+        let permission = user.target.elements[5].value;
+        let enterprise = user.target.elements[6].value;
         /*Registro invalido */
-        let userp=new User(name,email,password,permission, enterprise);
+        let userp=new User(name,email,password,permission, enterprise, rut);
         if(password != cpassword){
             alert('Passwords dont match');
         } else if(name == ""){

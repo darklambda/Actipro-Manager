@@ -7,8 +7,10 @@ module.exports = (sequelize, DataTypes) => {
     observation: DataTypes.STRING,
     description: DataTypes.STRING,
     future: DataTypes.INTEGER,
-      serial: DataTypes.STRING,
-      ExtinguisherId: DataTypes.INTEGER
+    serial: DataTypes.STRING,
+    enterprise: DataTypes.STRING,
+    plant: DataTypes.STRING,
+    ExtinguisherId: DataTypes.INTEGER
   }, {});
   E_Form.associate = function(models) {
     // associations can be defined here

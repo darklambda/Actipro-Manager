@@ -46,6 +46,12 @@
         <ion-col>
           Tiempo Restante
         </ion-col>
+        <ion-col>
+
+        </ion-col>
+        <ion-col>
+
+        </ion-col>
       </ion-row>
 
       <ion-row *ngFor="let form of forms">
@@ -53,10 +59,10 @@
           {{form.createdAt}}
         </ion-col>
         <ion-col>
-          Empresa
+          {{form.enterprise}}
         </ion-col>
         <ion-col>
-          Planta
+          {{form.plant}}
         </ion-col>
         <ion-col>
           {{form.s_name}}
@@ -66,6 +72,16 @@
         </ion-col>
         <ion-col>
           tiempo restante
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="editForm(form.id)">
+            Editar Ficha
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="deleteForm(form.id)">
+            Eliminar Ficha
+          </ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>

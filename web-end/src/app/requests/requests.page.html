@@ -56,7 +56,8 @@
           {{req.name}}
         </ion-col>
         <ion-col>
-          {{req.enterprise}}
+          <div *ngIf="req.enterprise">{{req.enterprise}}</div>
+          <div *ngIf="!req.enterprise">Administrador</div>
         </ion-col>
         <ion-col>
           {{req.date}}

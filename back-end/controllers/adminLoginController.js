@@ -9,6 +9,7 @@ module.exports.post = function (req, res) {
         let compare = bcrypt.compareSync(req.body.password, admin[0].dataValues.password);
         if (compare === true) {
             req.session.user = admin[0];
+            req.session.user.enterprise = "Actipro";
             req.session.access = 'admin';
             console.log("AQUI TOY");
             res.json(admin[0]);

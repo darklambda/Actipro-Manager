@@ -18,6 +18,7 @@ let registerRouter = require('./routes/userRegister');
 let loginRouter = require('./routes/login');
 let sessionRouter = require('./routes/session');
 let logoutRouter = require('./routes/logout');
+let enterpriseRouter = require('./routes/Enterprise');
 
 let app = express();
 
@@ -53,6 +54,7 @@ app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/session', sessionRouter);
 app.use('/logout', logoutRouter);
+app.use('/enterprise', enterpriseRouter);
 
 
 // catch 404 and forward to error handler

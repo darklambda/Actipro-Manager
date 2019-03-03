@@ -33,4 +33,12 @@ export class MaintenanceService {
     logout2(){
         return this.http2.get('http://168.232.165.150:3000/logout', {},{withCredentials: 'true'})
     }
+
+    deleteForm(id){
+        return this.http.delete('http://localhost:3000/eform/delete/'+id,{withCredentials: true} )
+    }
+
+    deleteForm2(id){
+        return this.http2.delete('http://168.232.165.150:3000/eform/delete/'+id, {}, {withCredentials: 'true'});
+    }
 }

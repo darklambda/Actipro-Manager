@@ -29,6 +29,12 @@ module.exports = {
       serial: {
         type:Sequelize.STRING
       },
+        enterprise: {
+            type:Sequelize.STRING
+        },
+        plant: {
+            type: Sequelize.STRING
+        },
         ExtinguisherId: {
             type:Sequelize.INTEGER
         },

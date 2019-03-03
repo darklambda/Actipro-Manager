@@ -21,6 +21,9 @@ module.exports = {
         permission: {
             type: Sequelize.INTEGER
         },
+        rut: {
+            type: Sequelize.STRING
+        },
         enterprise: {
             type: Sequelize.STRING
         },

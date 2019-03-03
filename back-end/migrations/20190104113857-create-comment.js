@@ -26,6 +26,9 @@ module.exports = {
       check: {
         type: Sequelize.BOOLEAN
       },
+      enterprise: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

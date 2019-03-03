@@ -29,7 +29,8 @@
     <ion-item-divider></ion-item-divider>
 
     <ion-item>
-      {{requests.length}} Soliticitud(es) sin Leer
+      <div *ngIf="requests">{{requests.length}} Soliticitud(es) sin Leer</div>
+      <div *ngIf="!requests"> 0 Soliticitud(es) sin Leer</div>
     </ion-item>
 
     <ion-item-divider></ion-item-divider>

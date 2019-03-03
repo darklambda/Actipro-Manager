@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MaintenanceService} from "./maintenance.service";
-import {NavController, Platform} from "@ionic/angular";
+import {AlertController, NavController, Platform} from "@ionic/angular";
 
 @Component({
   selector: 'app-maintenance',
@@ -15,7 +15,8 @@ export class MaintenancePage implements OnInit {
 
   constructor(private maintenanceService: MaintenanceService,
               public pltr: Platform,
-              private navCtrl: NavController) { }
+              private navCtrl: NavController,
+              public alertController: AlertController) { }
 
   ngOnInit() {
       this.getForms();
@@ -67,6 +68,37 @@ export class MaintenancePage implements OnInit {
                 this.forms = data;
             } )
         }
+    }
+
+    async presentAlert() {
+        const alert = await this.alertController.create({
+            header: 'Ficha',
+            message: 'La Ficha de Mantenimiento ha sido eliminada.',
+            buttons: ['OK']
+        });
+
+        await alert.present();
+    }
+
+    deleteForm(id){
+        if (this.pltr.is('desktop')){
+            this.maintenanceService.deleteForm(id)
+                .subscribe(
+                    res =>{
+                        alert("Ficha Eliminada");
+                    });
+        } else {
+            this.maintenanceService.deleteForm2(2)
+                .then(
+                    res =>{
+                        this.presentAlert();
+                    });
+        }
+        this.getForms();
+    }
+
+    editForm(id){
+        this.navCtrl.navigateForward(['/menu/eform-edit/'+id]);
     }
 
     logout(){

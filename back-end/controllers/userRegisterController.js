@@ -11,7 +11,8 @@ module.exports.post = function (req, res) {
         email: req.body.email,
         password: hashedPassword,
         permission: req.body.permission,
-        enterprise: req.body.enterprise
+        enterprise: req.body.enterprise,
+        rut: req.body.rut
     }).then(function (result) {
         res.json(result);
     }).catch(function (err) {
