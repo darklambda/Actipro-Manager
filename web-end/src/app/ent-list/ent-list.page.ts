@@ -1,28 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { Platform} from "@ionic/angular";
-import { ExtListService} from "./ext-list.service";
-import { NavController} from "@ionic/angular";
+import {NavController, Platform} from "@ionic/angular";
+import {EntListService} from "./ent-list.service";
 
 @Component({
-  selector: 'app-ext-list',
-  templateUrl: './ext-list.page.html',
-  styleUrls: ['./ext-list.page.scss'],
+  selector: 'app-ent-list',
+  templateUrl: './ent-list.page.html',
+  styleUrls: ['./ent-list.page.scss'],
 })
-export class ExtListPage implements OnInit {
+export class EntListPage implements OnInit {
 
     public User: any;
     public level: any;
-    public Extinguishers: any;
+    public Enterprises: any;
 
   constructor(private pltr: Platform,
-              private extListService: ExtListService,
+              private entListService: EntListService,
               private navCtrl: NavController) { }
 
   ngOnInit() {
-    this.getExtinguishers();
-    console.log(this.Extinguishers);
+      this.getEnterprises();
       if (this.pltr.is('desktop')) {
-          this.extListService.getSession().subscribe(session =>{
+          this.entListService.getSession().subscribe(session =>{
               // @ts-ignore
               if ((session === null)) {
                   this.navCtrl.navigateForward(['/menu/login']);
@@ -37,7 +35,7 @@ export class ExtListPage implements OnInit {
               }
           });
       } else {
-          this.extListService.getSession2().then(session =>{
+          this.entListService.getSession2().then(session =>{
               session.data = JSON.parse(session.data);
               if ((session.data === '')) {
                   this.navCtrl.navigateForward(['/menu/login']);
@@ -52,40 +50,38 @@ export class ExtListPage implements OnInit {
               }
           });
       }
+
   }
 
-  getExtinguishers(){
-      if (this.pltr.is('desktop')) {
-        this.extListService.getExtinguishersAll1().subscribe( data => {
-          this.Extinguishers = data;
-          console.log(data);
-        })
-      } else {
-          this.extListService.getExtinguishersAll2().then( data => {
-              data.data = JSON.parse(data.data);
-              this.Extinguishers = data.data;
-          })
-      }
-  }
+    getEnterprises(){
+        if (this.pltr.is('desktop')) {
+            this.entListService.getEnterpriseAll().subscribe( data => {
+                this.Enterprises = data;
+                console.log(data);
+            })
+        } else {
+            this.entListService.getEnterpriseAll2().then( data => {
+                data.data = JSON.parse(data.data);
+                this.Enterprises = data.data;
+            })
+        }
+    }
 
-  regExt(serial){
-      this.navCtrl.navigateForward('/menu/ext-register/'+serial.target.elements[0].value);
-  }
+    goRegEnt(){
+      console.log("?");
+        this.navCtrl.navigateForward('/menu/ent-reg');
+    }
 
-  goToExt(serial){
-      this.navCtrl.navigateForward('/menu/ext-view/'+serial);
-  }
-
-    deleteExtinguisher(serial){
+    deleteEnterprise(id){
         if (this.pltr.is('desktop')){
-            this.extListService.deleteExtinguisher(serial)
+            this.entListService.deleteEnterprise(id)
                 .subscribe( res => {
-                    this.getExtinguishers();
+                    this.getEnterprises();
                 })
         } else {
-            this.extListService.deleteExtinguisher2(serial)
+            this.entListService.deleteEnterprise2(id)
                 .then( res => {
-                    this.getExtinguishers();
+                    this.getEnterprises();
                 })
         }
     }

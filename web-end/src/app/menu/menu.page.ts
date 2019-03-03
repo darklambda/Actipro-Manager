@@ -94,12 +94,12 @@ export class MenuPage implements OnInit {
         this.navCtrl.navigateForward('/menu/user-list');
     }
 
-    goMaintenance(){
-        this.navCtrl.navigateForward('/menu/maintenance');
+    goEnterprise(){
+      this.navCtrl.navigateForward('/menu/ent-list');
     }
 
-    goToRegUser(){
-        this.navCtrl.navigateForward('/menu/user-reg');
+    goMaintenance(){
+        this.navCtrl.navigateForward('/menu/maintenance');
     }
 
     logout(){

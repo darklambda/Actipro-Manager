@@ -15,6 +15,6 @@ module.exports.post = function (req, res) {
         res.json(result);
     }).catch(function (err) {
         console.log(err);
-        res.json('E Form already registered');
+        res.json('Enterprise already registered');
     });
 };

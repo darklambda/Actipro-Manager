@@ -1,9 +1,65 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>ent-reg</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-grid>
+      <ion-row>
+
+        <ion-col style="text-align: left">
+          <ion-title>
+            Sistena de Gestión Actipro
+          </ion-title>
+        </ion-col>
+        <ion-col style="text-align: right">
+          <div (click)="logout()"> Cerrar Sesión</div>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+
+  <form (submit)="regEnterprise($event)" >
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+
+          <ion-item>
+            <ion-input type="text" placeholder="Rut" name="rut" value="" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="text" placeholder="Nombre" name="name" value="" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="email" placeholder="Email" name="email" value0="" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="text" placeholder="Dirección" name="address" value="" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" placeholder=" Telefono" name="phone" value="" required></ion-input>
+          </ion-item>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="signup-col">
+        <div style="text-align: center">
+          <ion-button type="submit">
+            Registrar Empresa
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </form>
 
 </ion-content>

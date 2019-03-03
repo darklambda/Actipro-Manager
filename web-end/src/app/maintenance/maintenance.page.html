@@ -26,6 +26,14 @@
 
   <div *ngIf="forms">
 
+    <div *ngIf="!forms.length">
+
+      No se presentan matenciones recientes.
+
+    </div>
+
+    <div *ngIf="forms.length">
+
     <ion-grid>
       <ion-row>
         <ion-col>
@@ -85,13 +93,7 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-
-  </div>
-
-  <div *ngIf="!forms">
-
-    No se presentan matenciones recientes.
-
+    </div>
   </div>
 
 </ion-content>

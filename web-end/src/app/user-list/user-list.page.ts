@@ -72,6 +72,7 @@ export class UserListPage implements OnInit {
         this.navCtrl.navigateBack("/menu/user-reg");
     }
 
+
     logout(){
         if (this.pltr.is('desktop')){
             this.userlistService.logout().subscribe( () => {

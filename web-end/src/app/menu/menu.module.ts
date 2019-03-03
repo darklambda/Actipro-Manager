@@ -26,7 +26,9 @@ const routes: Routes = [
         { path: 'home', loadChildren: '../home/home.module#HomePageModule' },
         { path: 'login', loadChildren: '../login/login.module#LoginPageModule' },
         { path: 'requests', loadChildren: '../requests/requests.module#RequestsPageModule' },
-        { path: 'maintenance', loadChildren: '../maintenance/maintenance.module#MaintenancePageModule' }
+        { path: 'maintenance', loadChildren: '../maintenance/maintenance.module#MaintenancePageModule' },
+        { path: 'ent-reg', loadChildren: '../ent-reg/ent-reg.module#EntRegPageModule' },
+        { path: 'ent-list', loadChildren: '../ent-list/ent-list.module#EntListPageModule' }
     ]
   },
     {
