@@ -1,5 +1,5 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header color="header">
+  <ion-toolbar color="header">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -7,12 +7,16 @@
       <ion-row>
 
         <ion-col style="text-align: left">
-          <ion-title>
-            Sistena de Gestión Actipro
+          <ion-title class="subtitle">
+            Sistema de Gestión Actipro
           </ion-title>
         </ion-col>
         <ion-col style="text-align: right">
-          <div (click)="logout()"> Cerrar Sesión</div>
+          <div (click)="logout()" class="subtitle">
+            <ion-title class="subtitle">
+              Cerrar Sesión
+            </ion-title>
+          </div>
         </ion-col>
 
       </ion-row>
@@ -66,9 +70,9 @@
 
       <ion-row>
         <ion-col class="title" style="font-family: ExoLight">
-          <p class="title" *ngIf="level===1">   Trabajador de Mantencion </p>
+          <p class="title" *ngIf="level===3">   Trabajador de Mantencion </p>
           <p class="title" *ngIf="level===2">   Prevencionista de Riesgos </p>
-          <p class="title" *ngIf="level===3">   Supervisor </p>
+          <p class="title" *ngIf="level===1">   Supervisor </p>
           <p class="title" *ngIf="level===4">   Administrador </p>
         </ion-col>
       </ion-row>

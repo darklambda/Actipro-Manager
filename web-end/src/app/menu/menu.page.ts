@@ -15,6 +15,7 @@ export class MenuPage implements OnInit {
     public result: BarcodeScanResult;
     public menuPer: any;
     public collapsible = {show: true};
+    selectedPath = '';
 
   constructor(private menuService: MenuService,
               public pltr: Platform,
@@ -22,6 +23,8 @@ export class MenuPage implements OnInit {
               private menu: MenuController,
               private barcodeScanner: BarcodeScanner) {
   }
+
+
 
 
   ngOnInit() {
@@ -76,30 +79,6 @@ export class MenuPage implements OnInit {
             console.error(error);
 
         }
-    }
-
-    goToListExtinguisher(){
-        this.navCtrl.navigateForward('/menu/ext-list');
-    }
-
-    goHome(){
-        this.navCtrl.navigateForward('/menu/home');
-    }
-
-    goRequests(){
-        this.navCtrl.navigateForward('/menu/requests');
-    }
-
-    goUsers(){
-        this.navCtrl.navigateForward('/menu/user-list');
-    }
-
-    goEnterprise(){
-      this.navCtrl.navigateForward('/menu/ent-list');
-    }
-
-    goMaintenance(){
-        this.navCtrl.navigateForward('/menu/maintenance');
     }
 
     logout(){

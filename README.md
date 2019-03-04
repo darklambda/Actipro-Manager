@@ -78,6 +78,14 @@ enter one of the views that are not "login", the app will redirect to this view.
 
 ### Observaciones:
 
+Niveles
+
+    4 Administrador
+    3 Trabajador de Mantenimiento
+    2 Prevencionista de Riesgo
+    1 Supervisor
+    0 
+
 Agregar Boton de DONE.
 
 Pagina de Edicion y Eliminacion de Usuarios.

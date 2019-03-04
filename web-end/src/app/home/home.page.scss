@@ -19,3 +19,11 @@
   max-width: 100%;
   height: auto;
 }
+
+.subtitle{
+  color: #373737;
+}
+
+ion-header::after {
+  background-image: none;
+}

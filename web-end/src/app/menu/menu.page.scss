@@ -1,5 +1,5 @@
 .active-item {
-  border-left: 8px solid var(--ion-color-primary);
+  border-bottom: 8px solid var(--ion-color-btn2);
 }
 
 .responsive {
@@ -8,8 +8,12 @@
   background-color: #3b3b3b;
 }
 
-.title{
+.title-menu{
   background-color: #3b3b3b;
   color: white;
   border-bottom: #6dae3b;
+}
+
+.subtitle{
+  left: 60px;
 }

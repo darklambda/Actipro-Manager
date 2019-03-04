@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="header">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -7,12 +7,16 @@
       <ion-row>
 
         <ion-col style="text-align: left">
-          <ion-title>
-            Sistena de Gestión Actipro
+          <ion-title class="subtitle">
+            Sistema de Gestión Actipro
           </ion-title>
         </ion-col>
         <ion-col style="text-align: right">
-          <div (click)="logout()"> Cerrar Sesión</div>
+          <div (click)="logout()" class="subtitle">
+            <ion-title class="subtitle">
+              Cerrar Sesión
+            </ion-title>
+          </div>
         </ion-col>
 
       </ion-row>
@@ -22,16 +26,18 @@
 
 <ion-content padding>
 
-  <h3> Lista de Extintores </h3>
+  <h3>  Administrar Extintores </h3>
 
-<div *ngIf="Extinguishers">
 
-  <ion-grid>
+
+  <div *ngIf="Extinguishers">
+
+  <ion-grid class="table">
     <ion-row>
       <ion-col> Codigo QR </ion-col>
-      <ion-col> Número </ion-col>
+      <ion-col [size]="1"> Número </ion-col>
+      <ion-col [size]="1"> Kilogramos</ion-col>
       <ion-col> Tipo </ion-col>
-      <ion-col> Kilogramos</ion-col>
       <ion-col> Empresa </ion-col>
       <ion-col> Planta</ion-col>
       <ion-col> </ion-col>
@@ -39,19 +45,19 @@
     </ion-row>
 
     <ion-row *ngFor="let ext of Extinguishers">
-      <ion-col> {{ext.serial_num}} </ion-col>
-      <ion-col> {{ext.ext_num}} </ion-col>
-      <ion-col> {{ext.typeExt}} </ion-col>
-      <ion-col> {{ext.weight}}</ion-col>
-      <ion-col> {{ext.client}} </ion-col>
-      <ion-col> {{ext.plant}}</ion-col>
-      <ion-col>
+      <ion-col class="border" > {{ext.serial_num}} </ion-col>
+      <ion-col class="border" [size]="1"> {{ext.ext_num}} </ion-col>
+      <ion-col class="border" [size]="1"> {{ext.weight}}</ion-col>
+      <ion-col class="border"> {{ext.typeExt}} </ion-col>
+      <ion-col class="border"> {{ext.client}} </ion-col>
+      <ion-col class="border"> {{ext.plant}}</ion-col>
+      <ion-col class="border">
         <ion-button (click)="goToExt(ext.serial_num)" >
           Ver
         </ion-button>
       </ion-col>
-      <ion-col>
-        <ion-button (click)="deleteExtinguisher(ext.serial_num)" >
+      <ion-col class="border">
+        <ion-button (click)="deleteExtinguisher(ext.serial_num)" color="danger">
           Eliminar
         </ion-button>
       </ion-col>
@@ -63,8 +69,7 @@
 
   <div style="text-align: center">
     <form (submit)="regExt($event)">
-      <ion-input type="text" value="" name="serial">
-        <ion-label>Serial</ion-label>
+      <ion-input type="text" value="" name="serial" placeholder="Serial" style="border: #1e2023 1px" required>
       </ion-input>
         <ion-button type="submit">
           Regstrar Extintor

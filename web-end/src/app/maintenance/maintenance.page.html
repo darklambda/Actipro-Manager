@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="header">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -7,12 +7,12 @@
       <ion-row>
 
         <ion-col style="text-align: left">
-          <ion-title>
-            Sistena de Gestión Actipro
+          <ion-title class="subtitle">
+            Sistema de Gestión Actipro
           </ion-title>
         </ion-col>
         <ion-col style="text-align: right">
-          <div (click)="logout()"> Cerrar Sesión</div>
+          <div (click)="logout()" class="subtitle"> Cerrar Sesión</div>
         </ion-col>
 
       </ion-row>
@@ -22,7 +22,9 @@
 
 <ion-content padding>
 
-  <ion-title> Mantenciones Realizadas </ion-title>
+  <h3>  Mantenciones Realizadas </h3>
+
+
 
   <div *ngIf="forms">
 
@@ -34,7 +36,7 @@
 
     <div *ngIf="forms.length">
 
-    <ion-grid>
+    <ion-grid class="table">
       <ion-row>
         <ion-col>
           Fecha
@@ -63,31 +65,31 @@
       </ion-row>
 
       <ion-row *ngFor="let form of forms">
-        <ion-col>
-          {{form.createdAt}}
+        <ion-col class="border">
+          {{form.createdAt.substring(8,10)}}/{{form.createdAt.substring(5,7)}}/{{form.createdAt.substring(0,4)}}
         </ion-col>
-        <ion-col>
+        <ion-col class="border">
           {{form.enterprise}}
         </ion-col>
-        <ion-col>
+        <ion-col class="border">
           {{form.plant}}
         </ion-col>
-        <ion-col>
+        <ion-col class="border">
           {{form.s_name}}
         </ion-col>
-        <ion-col>
+        <ion-col class="border">
           prox ren
         </ion-col>
-        <ion-col>
+        <ion-col class="border">
           tiempo restante
         </ion-col>
-        <ion-col>
+        <ion-col class="border">
           <ion-button (click)="editForm(form.id)">
             Editar Ficha
           </ion-button>
         </ion-col>
-        <ion-col>
-          <ion-button (click)="deleteForm(form.id)">
+        <ion-col class="border">
+          <ion-button (click)="deleteForm(form.id)" color="danger">
             Eliminar Ficha
           </ion-button>
         </ion-col>

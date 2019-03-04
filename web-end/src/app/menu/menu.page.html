@@ -1,28 +1,26 @@
-<ion-split-pane>
-  <ion-menu contentId="content" menuId="content" >
-    <ion-header>
-    </ion-header>
-
+<ion-split-pane color="menu2">
+  <ion-menu contentId="content" menuId="content" color="menu2">
     <ion-content color="menu2">
-      <ion-list>
+        <ion-menu-toggle auto-hide="false" color="header">
 
-        <ion-menu-toggle auto-hide="false">
 
           <ion-img src="/assets/logo2.png" class="responsive"></ion-img>
 
-          <ion-item (click)="goHome()">
+          <ion-item color="menu2" [routerLink]="'/menu/home'" routerDirection="root"
+                    [class.active-item]="selectedPath === '/menu/home'">
           <ion-label>
             Inicio
           </ion-label>
           </ion-item>
 
-          <ion-item>
-            <ion-label (click)="goRequests()">
+          <ion-item color="menu2" [routerLink]="'/menu/requests'" routerDirection="root"
+                    [class.active-item]="selectedPath === '/menu/requests'">
+            <ion-label>
               Solicitudes Recibidas
             </ion-label>
           </ion-item>
 
-          <ion-item class="item-stable"
+          <ion-item class="item-stable" color="menu2"
                     (click)="toggleCollapsible()"
                     [ngClass]="{active: isShown()}">
             Administrar
@@ -32,19 +30,22 @@
           <div class="item-accordion"
                [hidden]="isShown()">
 
-              <ion-item (click)="goToListExtinguisher()">
+              <ion-item class="subtitle" color="menu2" [routerLink]="'/menu/ext-list'" routerDirection="root"
+                        [class.active-item]="selectedPath === '/menu/ext-list'">
                 <ion-label>
                   Productos
                 </ion-label>
               </ion-item>
 
-              <ion-item (click)="goEnterprise()">
+              <ion-item class="subtitle" color="menu2" [routerLink]="'/menu/ent-list'" routerDirection="root"
+                        [class.active-item]="selectedPath === '/menu/ent-list'">
                 <ion-label>
                   Empresas
                 </ion-label>
               </ion-item>
 
-              <ion-item (click)="goUsers()">
+              <ion-item class="subtitle" color="menu2" [routerLink]="'/menu/user-list'" routerDirection="root"
+                        [class.active-item]="selectedPath === '/menu/user-list'">
               <ion-label>
                 Usuarios
               </ion-label>
@@ -54,16 +55,20 @@
 
 
 
-          <ion-item (click)="goMaintenance()">
+          <ion-item color="menu2" [routerLink]="'/menu/maintenance'" routerDirection="root"
+                    [class.active-item]="selectedPath === '/menu/maintenance'">
             <ion-label>
               Mantencion de Extintores
             </ion-label>
           </ion-item>
 
-          <ion-item> Estadisticas </ion-item>
-
+          <ion-item  color="menu2">
+            <ion-label>
+              Estadisticas
+            </ion-label>
+          </ion-item>
         </ion-menu-toggle>
-      </ion-list>
+
     </ion-content>
   </ion-menu>
 

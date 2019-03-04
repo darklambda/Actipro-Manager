@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="header">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -7,12 +7,16 @@
       <ion-row>
 
         <ion-col style="text-align: left">
-          <ion-title>
-            Sistena de Gestión Actipro
+          <ion-title class="subtitle">
+            Sistema de Gestión Actipro
           </ion-title>
         </ion-col>
         <ion-col style="text-align: right">
-          <div (click)="logout()"> Cerrar Sesión</div>
+          <div (click)="logout()" class="subtitle">
+            <ion-title class="subtitle">
+              Cerrar Sesión
+            </ion-title>
+          </div>
         </ion-col>
 
       </ion-row>
@@ -22,7 +26,7 @@
 
 <ion-content padding>
 
-  <h3> Lista de Empresas </h3>
+  <h3>  Administrar Empresas </h3>
 
 
 
@@ -36,7 +40,7 @@
 
     <div *ngIf="Enterprises.length">
 
-    <ion-grid>
+    <ion-grid class="table">
       <ion-row>
         <ion-col> Rut </ion-col>
         <ion-col> Nombre </ion-col>
@@ -47,13 +51,13 @@
       </ion-row>
 
       <ion-row *ngFor="let ent of Enterprises">
-        <ion-col> {{ent.rut}} </ion-col>
-        <ion-col> {{ent.name}} </ion-col>
-        <ion-col> {{ent.email}} </ion-col>
-        <ion-col> {{ent.address}}</ion-col>
-        <ion-col> {{ent.phone}} </ion-col>
-        <ion-col>
-          <ion-button (click)="deleteEnterprise(ent.id)" >
+        <ion-col class="border"> {{ent.rut}} </ion-col>
+        <ion-col class="border"> {{ent.name}} </ion-col>
+        <ion-col class="border"> {{ent.email}} </ion-col>
+        <ion-col class="border"> {{ent.address}}</ion-col>
+        <ion-col class="border"> {{ent.phone}} </ion-col>
+        <ion-col class="border">
+          <ion-button color="danger" (click)="deleteEnterprise(ent.id)" >
             Eliminar
           </ion-button>
         </ion-col>
