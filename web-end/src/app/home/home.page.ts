@@ -16,6 +16,8 @@ export class HomePage implements OnInit {
     public level: any;
     public result: BarcodeScanResult;
     public requests: any;
+    public forms: any;
+    public formNum: any;
 
   constructor(private navCtrl: NavController,
               private tab1Service: HomeService,
@@ -25,6 +27,7 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
       this.getRequests();
+      this.getFNumber();
       if (this.pltr.is('desktop')) {
           this.tab1Service.getSession().subscribe(session =>{
               // @ts-ignore
@@ -71,6 +74,21 @@ export class HomePage implements OnInit {
             this.tab1Service.getRequests2().then( data => {
                 data = JSON.parse(data.data);
                 this.requests = data;
+            } )
+        }
+    }
+
+    getFNumber(){
+        if (this.pltr.is('desktop')) {
+            this.tab1Service.getFormNumber().subscribe( data => {
+                this.forms = data;
+                this.formNum = this.forms.length;
+            });
+        } else {
+            this.tab1Service.getFormNumber2().then( data => {
+                data = JSON.parse(data.data);
+                this.forms = data;
+                this.formNum = this.forms.length;
             } )
         }
     }

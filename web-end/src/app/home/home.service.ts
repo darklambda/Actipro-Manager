@@ -29,6 +29,14 @@ export class HomeService {
         return this.http2.get('http://168.232.165.150:3000/comentario/requests/all', {}, {withCredentials: 'true'})
     }
 
+    getFormNumber(){
+        return this.http.get('http://localhost:3000/eform/forms/all/month',{withCredentials: true})
+    }
+
+    getFormNumber2(){
+        return this.http2.get('http://168.232.165.150:3000/eform/forms/all/month', {}, {withCredentials: 'true'})
+    }
+
     logout(){
         return this.http.get('http://localhost:3000/logout',{withCredentials: true})
     }

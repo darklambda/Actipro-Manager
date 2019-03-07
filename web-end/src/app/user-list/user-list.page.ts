@@ -13,6 +13,7 @@ export class UserListPage implements OnInit {
     public level: any;
     public users: any;
 
+
     constructor(private userlistService: UserListService,
                 public pltr: Platform,
                 private navCtrl: NavController) { }

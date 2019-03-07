@@ -69,6 +69,16 @@ export class RequestsPage implements OnInit {
       }
   }
 
+  checkRequest(id){
+      if (this.pltr.is('desktop')) {
+          this.requestService.checkRequests(id).subscribe( data => {
+          });
+      } else {
+          this.requestService.checkRequests2(id).then( data => {
+          } )
+      }
+  }
+
     logout(){
         if (this.pltr.is('desktop')){
             this.requestService.logout().subscribe( () => {

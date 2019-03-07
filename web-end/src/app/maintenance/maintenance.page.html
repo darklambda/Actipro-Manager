@@ -78,10 +78,10 @@
           {{form.s_name}}
         </ion-col>
         <ion-col class="border">
-          prox ren
+          {{form.ven.getDate() + '/' + (form.ven.getMonth() + 1) + '/' + form.ven.getFullYear()}}
         </ion-col>
         <ion-col class="border">
-          tiempo restante
+          {{form.restante}} Dias
         </ion-col>
         <ion-col class="border">
           <ion-button (click)="editForm(form.id)">

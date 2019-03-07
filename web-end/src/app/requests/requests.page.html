@@ -49,6 +49,9 @@
         <ion-col>
           Fecha
         </ion-col>
+        <ion-col>
+
+        </ion-col>
       </ion-row>
 
       <ion-row *ngFor="let req of requests" >
@@ -67,6 +70,12 @@
         </ion-col>
         <ion-col class="border">
           {{req.date.substring(8,10)}}/{{req.date.substring(5,7)}}/{{req.date.substring(0,4)}}
+        </ion-col>
+
+        <ion-col class="border">
+          <ion-button (click)="checkRequest(req.id)" color="danger">
+            Eliminar Ficha
+          </ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>

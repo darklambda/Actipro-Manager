@@ -11,11 +11,14 @@ import { Platform} from "@ionic/angular";
 })
 export class UserRegPage implements OnInit {
 
+    public Enterprises: any;
+
   constructor(private userService: UserRegService,
               private navCtrl: NavController,
               public pltr: Platform) { }
 
   ngOnInit() {
+      this.getEnterprises();
       if (this.pltr.is('desktop')){
           this.userService.getSession().subscribe(session =>{
               // @ts-ignore
@@ -37,6 +40,20 @@ export class UserRegPage implements OnInit {
           });
       }
   }
+
+    getEnterprises(){
+        if (this.pltr.is('desktop')) {
+            this.userService.getEnterpriseAll().subscribe( data => {
+                this.Enterprises = data;
+                console.log(data);
+            })
+        } else {
+            this.userService.getEnterpriseAll2().then( data => {
+                data.data = JSON.parse(data.data);
+                this.Enterprises = data.data;
+            })
+        }
+    }
 
     registerUser(user){
         let name = user.target.elements[0].value;

@@ -5,6 +5,8 @@
 </ion-header>
 
 <ion-content padding>
+  <div *ngIf="Enterprises">
+    <div *ngIf="Enterprises.length !== 0">
   <form (submit)="registerUser($event)" >
     <ion-row>
       <ion-col>
@@ -37,7 +39,9 @@
             </ion-select>
           </ion-item>
           <ion-item>
-            <ion-input type="text" placeholder="Empresa" name="enterprise" value0="" required></ion-input>
+            <ion-select placeholder="Empresa" name="enterprise" *ngFor="let ent of Enterprises">
+              <ion-select-option value="{{ent.name}}">{{ent.name}}</ion-select-option>
+            </ion-select>
           </ion-item>
 
         </ion-list>
@@ -55,4 +59,11 @@
     </ion-row>
 
   </form>
+    </div>
+
+    <div *ngIf="Enterprises.length === 0">
+       No se encuentran empresas registradas para ingresar nuevos usuarios.
+    </div>
+  </div>
+
 </ion-content>

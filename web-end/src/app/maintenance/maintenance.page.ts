@@ -56,11 +56,20 @@ export class MaintenancePage implements OnInit {
   }
 
     getForms(){
-        console.log("getting data");
         if (this.pltr.is('desktop')) {
             this.maintenanceService.getForms().subscribe( data => {
                 this.forms = data;
-                console.log(data);
+                for(let i = 0; i < this.forms.length; i++){
+                    this.forms[i].fecha = new Date(this.forms[i].createdAt);
+                    let vencY = this.forms[i].fecha.getFullYear()+1;
+                    let vencm = this.forms[i].fecha.getMonth();
+                    let vencd = this.forms[i].fecha.getDate();
+                    let today = new Date();
+                    this.forms[i].ven = new Date(vencY, vencm, vencd);
+                    console.log(this.forms[i].fecha,'||||',this.forms[i].ven);
+                    let timeDiff = Math.abs(this.forms[i].ven.getTime() - today.getTime());
+                    this.forms[i].restante = Math.ceil(timeDiff / (1000 * 3600 * 24));
+                }
             });
         } else {
             this.maintenanceService.getForms2().then( data => {
