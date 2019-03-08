@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NavController, Platform} from "@ionic/angular";
+import {AlertController, MenuController, NavController, Platform} from "@ionic/angular";
 import {EntListService} from "./ent-list.service";
 
 @Component({
@@ -15,7 +15,8 @@ export class EntListPage implements OnInit {
 
   constructor(private pltr: Platform,
               private entListService: EntListService,
-              private navCtrl: NavController) { }
+              private navCtrl: NavController,
+              private menu: MenuController) { }
 
   ngOnInit() {
       this.getEnterprises();
@@ -83,6 +84,20 @@ export class EntListPage implements OnInit {
                 .then( res => {
                     this.getEnterprises();
                 })
+        }
+    }
+
+    logout(){
+        this.menu.enable(true,"content");
+        if (this.pltr.is('desktop')){
+            this.entListService.logout().subscribe( () => {
+                console.log("henlo?");
+                this.navCtrl.navigateBack("/menu/login");
+            })
+        } else {
+            this.entListService.logout2().then( () => {
+                this.navCtrl.navigateBack("/menu/login");
+            })
         }
     }
 

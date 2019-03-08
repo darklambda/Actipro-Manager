@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Platform} from "@ionic/angular";
+import {MenuController, Platform} from "@ionic/angular";
 import { FormListService} from "./form-list.service";
 import { NavController} from "@ionic/angular";
 import { ActivatedRoute} from "@angular/router";
@@ -21,7 +21,8 @@ export class FormListPage implements OnInit {
               private formlistService: FormListService,
               private navCtrl: NavController,
               private route: ActivatedRoute,
-              private alertController: AlertController) { }
+              private alertController: AlertController,
+              private menu: MenuController) { }
 
   ngOnInit() {
       let serial = this.route.snapshot.paramMap.get('serial');
@@ -111,5 +112,18 @@ export class FormListPage implements OnInit {
         this.navCtrl.navigateForward(['/menu/eform-edit/'+id]);
     }
 
+    logout(){
+        this.menu.enable(true,"content");
+        if (this.pltr.is('desktop')){
+            this.formlistService.logout().subscribe( () => {
+                console.log("henlo?");
+                this.navCtrl.navigateBack("/menu/login");
+            })
+        } else {
+            this.formlistService.logout2().then( () => {
+                this.navCtrl.navigateBack("/menu/login");
+            })
+        }
+    }
 
 }

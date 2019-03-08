@@ -27,3 +27,31 @@
 ion-header::after {
   background-image: none;
 }
+
+.rounded{
+  margin-top: 70px;
+  margin-left: 70px;
+  border-radius: 100px;
+  background: #e4e4e4;
+  padding: 4px;
+  width: 500px;
+  height: 100px;
+}
+
+.responsive {
+  vertical-align: middle;
+  width: 70px;
+  height: 70px;
+}
+
+.centered{
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+}
+
+.user{
+  margin-top: 70px;
+  margin-left: 70px;
+}

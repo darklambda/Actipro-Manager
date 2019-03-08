@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NavController, Platform} from "@ionic/angular";
+import {MenuController, NavController, Platform} from "@ionic/angular";
 import {UserListService} from "./user-list.service";
 
 @Component({
@@ -16,7 +16,8 @@ export class UserListPage implements OnInit {
 
     constructor(private userlistService: UserListService,
                 public pltr: Platform,
-                private navCtrl: NavController) { }
+                private navCtrl: NavController,
+                private menu: MenuController) { }
   ngOnInit() {
       this.getUsers();
       if (this.pltr.is('desktop')) {
@@ -75,6 +76,7 @@ export class UserListPage implements OnInit {
 
 
     logout(){
+        this.menu.enable(true,"content");
         if (this.pltr.is('desktop')){
             this.userlistService.logout().subscribe( () => {
                 console.log("henlo?");

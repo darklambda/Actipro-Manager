@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NavController, Platform} from "@ionic/angular";
+import {MenuController, NavController, Platform} from "@ionic/angular";
 import {RequestService} from "./request.service";
 
 @Component({
@@ -15,7 +15,8 @@ export class RequestsPage implements OnInit {
 
   constructor(private requestService: RequestService,
               public pltr: Platform,
-              private navCtrl: NavController) { }
+              private navCtrl: NavController,
+              private menu: MenuController) { }
 
   ngOnInit() {
       this.getRequests();
@@ -80,6 +81,7 @@ export class RequestsPage implements OnInit {
   }
 
     logout(){
+        this.menu.enable(true,"content");
         if (this.pltr.is('desktop')){
             this.requestService.logout().subscribe( () => {
                 console.log("henlo?");

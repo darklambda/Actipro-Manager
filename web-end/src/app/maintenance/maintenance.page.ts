@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MaintenanceService} from "./maintenance.service";
-import {AlertController, NavController, Platform} from "@ionic/angular";
+import {AlertController, MenuController, NavController, Platform} from "@ionic/angular";
 
 @Component({
   selector: 'app-maintenance',
@@ -16,7 +16,8 @@ export class MaintenancePage implements OnInit {
   constructor(private maintenanceService: MaintenanceService,
               public pltr: Platform,
               private navCtrl: NavController,
-              public alertController: AlertController) { }
+              public alertController: AlertController,
+              private menu: MenuController) { }
 
   ngOnInit() {
       this.getForms();
@@ -111,6 +112,7 @@ export class MaintenancePage implements OnInit {
     }
 
     logout(){
+        this.menu.enable(true,"content");
         if (this.pltr.is('desktop')){
             this.maintenanceService.logout().subscribe( () => {
                 console.log("henlo?");

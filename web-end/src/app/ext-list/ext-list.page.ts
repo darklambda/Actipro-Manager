@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Platform} from "@ionic/angular";
+import {AlertController, MenuController, Platform} from "@ionic/angular";
 import { ExtListService} from "./ext-list.service";
 import { NavController} from "@ionic/angular";
 
@@ -16,11 +16,13 @@ export class ExtListPage implements OnInit {
 
   constructor(private pltr: Platform,
               private extListService: ExtListService,
-              private navCtrl: NavController) { }
+              private navCtrl: NavController,
+              private menu: MenuController) {
+
+  }
 
   ngOnInit() {
-    this.getExtinguishers();
-    console.log(this.Extinguishers);
+      this.getExtinguishers();
       if (this.pltr.is('desktop')) {
           this.extListService.getSession().subscribe(session =>{
               // @ts-ignore
@@ -58,12 +60,13 @@ export class ExtListPage implements OnInit {
       if (this.pltr.is('desktop')) {
         this.extListService.getExtinguishersAll1().subscribe( data => {
           this.Extinguishers = data;
-          console.log(data);
+            this.items = this.Extinguishers;
         })
       } else {
           this.extListService.getExtinguishersAll2().then( data => {
               data.data = JSON.parse(data.data);
               this.Extinguishers = data.data;
+              this.items = this.Extinguishers;
           })
       }
   }
@@ -87,6 +90,19 @@ export class ExtListPage implements OnInit {
                 .then( res => {
                     this.getExtinguishers();
                 })
+        }
+    }
+    logout(){
+        this.menu.enable(true,"content");
+        if (this.pltr.is('desktop')){
+            this.extListService.logout().subscribe( () => {
+                console.log("henlo?");
+                this.navCtrl.navigateBack("/menu/login");
+            })
+        } else {
+            this.extListService.logout2().then( () => {
+                this.navCtrl.navigateBack("/menu/login");
+            })
         }
     }
 

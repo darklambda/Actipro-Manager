@@ -26,7 +26,17 @@
 
 <ion-content padding>
 
-  <h3>  Administrar Extintores </h3>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h3>  Administrar Extintores </h3>
+      </ion-col>
+      <ion-col>
+         <ion-searchbar (input)="getItems($event)"></ion-searchbar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 
 
 

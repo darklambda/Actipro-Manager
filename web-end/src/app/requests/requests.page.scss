@@ -13,4 +13,6 @@ ion-header::after {
 
 .border {
   border-top: 1px solid;
+  display: flex;
+  align-items: center;
 }

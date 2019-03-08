@@ -18,6 +18,7 @@ export class HomePage implements OnInit {
     public requests: any;
     public forms: any;
     public formNum: any;
+    public formNum2: any;
 
   constructor(private navCtrl: NavController,
               private tab1Service: HomeService,
@@ -84,12 +85,48 @@ export class HomePage implements OnInit {
                 this.forms = data;
                 this.formNum = this.forms.length;
             });
+            this.tab1Service.getForms().subscribe( data => {
+                this.forms = data;
+                let tmp = 0;
+                for(let i = 0; i < this.forms.length; i++){
+                    this.forms[i].fecha = new Date(this.forms[i].createdAt);
+                    let vencY = this.forms[i].fecha.getFullYear()+1;
+                    let vencm = this.forms[i].fecha.getMonth();
+                    let vencd = this.forms[i].fecha.getDate();
+                    let today = new Date();
+                    this.forms[i].ven = new Date(vencY, vencm, vencd);
+                    if (this.forms[i].ven === today){
+                        tmp++
+                    }
+                this.formNum2 = tmp;
+                console.log(this.formNum2);
+                }
+
+            });
         } else {
             this.tab1Service.getFormNumber2().then( data => {
                 data = JSON.parse(data.data);
                 this.forms = data;
                 this.formNum = this.forms.length;
-            } )
+            });
+            this.tab1Service.getForms2().then( data => {
+                data = JSON.parse(data.data);
+                this.forms = data;
+                let tmp = 0;
+                for(let i = 0; i < this.forms.length; i++){
+                    this.forms[i].fecha = new Date(this.forms[i].createdAt);
+                    let vencY = this.forms[i].fecha.getFullYear()+1;
+                    let vencm = this.forms[i].fecha.getMonth();
+                    let vencd = this.forms[i].fecha.getDate();
+                    let today = new Date();
+                    this.forms[i].ven = new Date(vencY, vencm, vencd);
+                    if (this.forms[i].ven.getMonth() === today.getMonth()){
+                        tmp++
+                    }
+                    this.formNum2 = tmp;
+                }
+
+            });
         }
     }
 
@@ -119,6 +156,7 @@ export class HomePage implements OnInit {
     }
 
     logout(){
+        this.menu.enable(true,"content");
         if (this.pltr.is('desktop')){
             this.tab1Service.logout().subscribe( () => {
               console.log("henlo?");
