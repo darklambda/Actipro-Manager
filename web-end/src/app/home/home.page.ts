@@ -78,7 +78,6 @@ export class HomePage implements OnInit {
     }
 
     getFNumber(){
-        if (this.pltr.is('desktop')) {
             this.tab1Service.getFormNumber().subscribe( data => {
                 this.forms = data;
                 this.formNum = this.forms.length;
@@ -101,31 +100,6 @@ export class HomePage implements OnInit {
                 }
 
             });
-        } else {
-            this.tab1Service.getFormNumber2().then( data => {
-                data = JSON.parse(data.data);
-                this.forms = data;
-                this.formNum = this.forms.length;
-            });
-            this.tab1Service.getForms2().then( data => {
-                data = JSON.parse(data.data);
-                this.forms = data;
-                let tmp = 0;
-                for(let i = 0; i < this.forms.length; i++){
-                    this.forms[i].fecha = new Date(this.forms[i].createdAt);
-                    let vencY = this.forms[i].fecha.getFullYear()+1;
-                    let vencm = this.forms[i].fecha.getMonth();
-                    let vencd = this.forms[i].fecha.getDate();
-                    let today = new Date();
-                    this.forms[i].ven = new Date(vencY, vencm, vencd);
-                    if (this.forms[i].ven.getMonth() === today.getMonth()){
-                        tmp++
-                    }
-                    this.formNum2 = tmp;
-                }
-
-            });
-        }
     }
 
     async getQr(){
