@@ -29,7 +29,6 @@ export class HomePage implements OnInit {
   ngOnInit() {
       this.getRequests();
       this.getFNumber();
-      console.log("am i getting forms number?");
       if (this.pltr.is('desktop')) {
           this.tab1Service.getSession().subscribe(session =>{
               // @ts-ignore
@@ -81,13 +80,12 @@ export class HomePage implements OnInit {
     getFNumber(){
             this.tab1Service.getFormNumber().subscribe( data => {
                 this.forms = data;
-                console.log(data);
                 this.formNum = this.forms.length;
             });
             this.tab1Service.getForms().subscribe( data => {
                 this.forms = data;
-                console.log(data);
                 let tmp = 0;
+                console.log(tmp, "numero0?");
                 for(let i = 0; i < this.forms.length; i++){
                     this.forms[i].fecha = new Date(this.forms[i].createdAt);
                     let vencY = this.forms[i].fecha.getFullYear()+1;
@@ -96,10 +94,10 @@ export class HomePage implements OnInit {
                     let today = new Date();
                     this.forms[i].ven = new Date(vencY, vencm, vencd);
                     if (this.forms[i].ven === today){
-                        tmp++
+                        tmp++;
                     }
                 this.formNum2 = tmp;
-                console.log(this.formNum2);
+                console.log(this.formNum2, "numero?");
                 }
 
             });
