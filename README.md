@@ -76,6 +76,11 @@ Also, every service/page as their own getSession method, which gets the user
 that's already connected in the app. If a user is not connected and tries to
 enter one of the views that are not "login", the app will redirect to this view.
 
+### Conexión al VPS:
+
+    ssh root@168.232.165.150 -p22222
+    then password.
+
 ### Observaciones:
 
 Niveles

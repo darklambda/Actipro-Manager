@@ -60,14 +60,12 @@ export class ExtListPage implements OnInit {
       if (this.pltr.is('desktop')) {
         this.extListService.getExtinguishersAll1().subscribe( data => {
           this.Extinguishers = data;
-            this.items = this.Extinguishers;
-        })
+        });
       } else {
           this.extListService.getExtinguishersAll2().then( data => {
               data.data = JSON.parse(data.data);
               this.Extinguishers = data.data;
-              this.items = this.Extinguishers;
-          })
+          });
       }
   }
 
@@ -84,16 +82,16 @@ export class ExtListPage implements OnInit {
             this.extListService.deleteExtinguisher(serial)
                 .subscribe( res => {
                     this.getExtinguishers();
-                })
+                });
         } else {
             this.extListService.deleteExtinguisher2(serial)
                 .then( res => {
                     this.getExtinguishers();
-                })
+                });
         }
     }
     logout(){
-        this.menu.enable(true,"content");
+        this.menu.enable(true, "content" );
         if (this.pltr.is('desktop')){
             this.extListService.logout().subscribe( () => {
                 console.log("henlo?");
