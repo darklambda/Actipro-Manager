@@ -11,7 +11,7 @@ export class EntListService {
               private http2: HTTP) { }
 
     deleteEnterprise(id){
-        return this.http.delete('http://localhost:3000/enterprise/delete/'+id, {withCredentials: true});
+        return this.http.delete('http://168.232.165.150:3000/enterprise/delete/'+id, {withCredentials: true});
     }
 
     deleteEnterprise2(id){
@@ -19,7 +19,7 @@ export class EntListService {
     }
 
     getEnterpriseAll(){
-        return this.http.get('http://localhost:3000/enterprise/getAll', {withCredentials: true})
+        return this.http.get('http://168.232.165.150:3000/enterprise/getAll', {withCredentials: true})
     }
 
     getEnterpriseAll2(){
@@ -27,15 +27,15 @@ export class EntListService {
     }
 
     getSession(){
-        return this.http.get('http://localhost:3000/session',{withCredentials: true})
+        return this.http.get('http://168.232.165.150:3000/session',{withCredentials: true})
     }
 
     getSession2(){
-        return this.http2.get('http://localhost:3000/session', {}, {withCredentials: 'true'})
+        return this.http2.get('http://168.232.165.150:3000/session', {}, {withCredentials: 'true'})
     }
 
     logout(){
-        return this.http.get('http://localhost:3000/logout',{withCredentials: true})
+        return this.http.get('http://168.232.165.150:3000/logout',{withCredentials: true})
     }
 
     logout2(){

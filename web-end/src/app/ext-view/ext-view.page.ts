@@ -32,7 +32,7 @@ export class ExtViewPage implements OnInit {
           this.extViewService.getSession().subscribe(session =>{
               // @ts-ignore
               if ((session === null)) {
-                  this.navCtrl.navigateForward(['/menu/login']);
+                  this.navCtrl.navigateForward(['/menu/admin-login']);
               } else {
                   this.User = session;
                   if (this.User.access == "admin"){
@@ -46,7 +46,7 @@ export class ExtViewPage implements OnInit {
           this.extViewService.getSession2().then(session =>{
               session.data = JSON.parse(session.data);
               if ((session.data === '')) {
-                  this.navCtrl.navigateForward(['/menu/login']);
+                  this.navCtrl.navigateForward(['/menu/admin-login']);
               } else {
                   this.User = session.data;
                   if (this.User.access == "admin"){
@@ -68,14 +68,12 @@ export class ExtViewPage implements OnInit {
           this.extViewService.getForms(serial)
               .subscribe(
                   res =>{
-                      this.Forms = res[0];
-                      console.log(this.Forms);});
+                      this.Forms = res[0];});
           this.extViewService.getComments(serial)
               .subscribe(
                   res =>{
 
                       this.Comments = res;
-                      console.log(this.Comments)
                   }
               )
       } else {
@@ -88,14 +86,12 @@ export class ExtViewPage implements OnInit {
               .then(
                   res =>{
                       res.data = JSON.parse(res.data);
-                      this.Forms = res.data[0];
-                      console.log(this.Forms);});
+                      this.Forms = res.data[0];});
           this.extViewService.getComments2(serial)
               .then(
                   res =>{
                       res.data = JSON.parse(res.data);
                       this.Comments = res.data;
-                      console.log(this.Comments)
                   }
               )
       }

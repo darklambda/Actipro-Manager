@@ -22,14 +22,14 @@ export class EntRegPage implements OnInit {
           this.enterpriseService.getSession().subscribe(session =>{
               // @ts-ignore
               if ((session === null)) {
-                  this.navCtrl.navigateForward(['/menu/login']);
+                  this.navCtrl.navigateForward(['/menu/admin-login']);
               }
           });
       } if (this.pltr.is('android')){
           this.enterpriseService.getSession2().then(session =>{
               // @ts-ignore
               if (session.data === ''){
-                  this.navCtrl.navigateForward(['/menu/login']);
+                  this.navCtrl.navigateForward(['/menu/admin-login']);
               }
           });
       }
@@ -52,7 +52,6 @@ export class EntRegPage implements OnInit {
         let address = form.target.elements[3].value;
         let phone =  form.target.elements[4].value;
         let modelo = new Enterprise(rut, name, email, address, phone);
-        console.log(modelo);
         if (this.pltr.is('desktop')){
             this.enterpriseService.postEnterprise(modelo).subscribe(
                 data => {
@@ -71,12 +70,11 @@ export class EntRegPage implements OnInit {
     logout(){
         if (this.pltr.is('desktop')){
             this.enterpriseService.logout().subscribe( () => {
-                console.log("henlo?");
-                this.navCtrl.navigateBack("/menu/login");
+                this.navCtrl.navigateBack("/menu/admin-login");
             })
         } else {
             this.enterpriseService.logout2().then( () => {
-                this.navCtrl.navigateBack("/menu/login");
+                this.navCtrl.navigateBack("/menu/admin-login");
             })
         }
     }

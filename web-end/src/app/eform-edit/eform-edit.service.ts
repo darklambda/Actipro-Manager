@@ -12,7 +12,7 @@ export class EFormEditService {
 
 
     putEForm(form,id){
-        return this.http.put('http://localhost:3000/eform/edit/'+id, form, {withCredentials: true})
+        return this.http.put('http://168.232.165.150:3000/eform/edit/'+id, form, {withCredentials: true})
     }
 
     putEForm2(form,id){
@@ -20,7 +20,7 @@ export class EFormEditService {
     }
 
     getFormId(id){
-        return this.http.get('http://localhost:3000/eform/id/'+id,{withCredentials: true})
+        return this.http.get('http://168.232.165.150:3000/eform/id/'+id,{withCredentials: true})
     }
 
     getFormId2(id){
@@ -28,7 +28,7 @@ export class EFormEditService {
     }
 
     getSession(){
-        return this.http.get('http://localhost:3000/session',{withCredentials: true})
+        return this.http.get('http://168.232.165.150:3000/session',{withCredentials: true})
     }
 
     getSession2(){

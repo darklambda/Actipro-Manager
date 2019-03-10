@@ -13,7 +13,7 @@ export class ExtListService {
 
 
     deleteExtinguisher(serial){
-        return this.http.delete('http://localhost:3000/extinguisher/delete/'+serial, {withCredentials: true});
+        return this.http.delete('http://168.232.165.150:3000/extinguisher/delete/'+serial, {withCredentials: true});
     }
 
     deleteExtinguisher2(serial){
@@ -21,7 +21,7 @@ export class ExtListService {
     }
 
     getExtinguishersAll1(){
-        return this.http.get('http://localhost:3000/extinguisher/get/All', {withCredentials: true})
+        return this.http.get('http://168.232.165.150:3000/extinguisher/get/All', {withCredentials: true})
     }
 
     getExtinguishersAll2(){
@@ -29,15 +29,15 @@ export class ExtListService {
     }
 
     getSession(){
-        return this.http.get('http://localhost:3000/session',{withCredentials: true})
+        return this.http.get('http://168.232.165.150:3000/session',{withCredentials: true})
     }
 
     getSession2(){
-        return this.http2.get('http://localhost:3000/session', {}, {withCredentials: 'true'})
+        return this.http2.get('http://168.232.165.150:3000/session', {}, {withCredentials: 'true'})
     }
 
     logout(){
-        return this.http.get('http://localhost:3000/logout',{withCredentials: true})
+        return this.http.get('http://168.232.165.150:3000/logout',{withCredentials: true})
     }
 
     logout2(){

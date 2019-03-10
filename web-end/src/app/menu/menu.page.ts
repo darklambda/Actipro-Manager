@@ -90,7 +90,7 @@ export class MenuPage implements OnInit {
             })
         }
         this.menu.enable(false, "content");
-        this.navCtrl.navigateBack("/menu/login");
+        this.navCtrl.navigateBack("/menu/admin-login");
     }
 
     toggleCollapsible() {

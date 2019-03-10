@@ -27,14 +27,14 @@ export class ComentRegPage implements OnInit {
           this.commentService.getSession().subscribe(session =>{
               // @ts-ignore
               if ((session === null)) {
-                  this.navCtrl.navigateForward(['/menu/login']);
+                  this.navCtrl.navigateForward(['/menu/admin-login']);
               }
           });
-      } if (this.pltr.is('android')){
+      } else {
           this.commentService.getSession2().then(session =>{
               // @ts-ignore
               if (session.data === ''){
-                  this.navCtrl.navigateForward(['/menu/login']);
+                  this.navCtrl.navigateForward(['/menu/admin-login']);
               }
           });
       }
@@ -55,11 +55,9 @@ export class ComentRegPage implements OnInit {
         let comentario = comment.target.elements[0].value;
         let number = this.route.snapshot.paramMap.get('serial');
         let modelo = new Comment( number, comentario);
-        console.log(modelo);
         if (this.pltr.is('desktop')){
             this.commentService.postComment(modelo).subscribe(
                 data => {
-                    console.log(data);
                     alert("Solicitud Enviada");
                 });
         } else {

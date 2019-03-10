@@ -33,7 +33,7 @@ export class MaintenancePage implements OnInit {
                       this.level = 4;
                   } else {
                       this.level = this.User.user.permission;
-                      this.navCtrl.navigateRoot('/');
+                      this.navCtrl.navigateRoot('/menu/admin-login');
                   }
               }
           });
@@ -49,7 +49,7 @@ export class MaintenancePage implements OnInit {
                       this.level = 4;
                   } else {
                       this.level = this.User.user.permission;
-                      this.navCtrl.navigateForward('/');
+                      this.navCtrl.navigateForward('/menu/admin-login');
                   }
               }
           });
@@ -67,7 +67,6 @@ export class MaintenancePage implements OnInit {
                     let vencd = this.forms[i].fecha.getDate();
                     let today = new Date();
                     this.forms[i].ven = new Date(vencY, vencm, vencd);
-                    console.log(this.forms[i].fecha,'||||',this.forms[i].ven);
                     let timeDiff = Math.abs(this.forms[i].ven.getTime() - today.getTime());
                     this.forms[i].restante = Math.ceil(timeDiff / (1000 * 3600 * 24));
                 }
@@ -116,11 +115,11 @@ export class MaintenancePage implements OnInit {
         if (this.pltr.is('desktop')){
             this.maintenanceService.logout().subscribe( () => {
                 console.log("henlo?");
-                this.navCtrl.navigateBack("/menu/login");
+                this.navCtrl.navigateBack("/menu/admin-login");
             })
         } else {
             this.maintenanceService.logout2().then( () => {
-                this.navCtrl.navigateBack("/menu/login");
+                this.navCtrl.navigateBack("/menu/admin-login");
             })
         }
     }

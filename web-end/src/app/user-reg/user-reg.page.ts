@@ -23,7 +23,7 @@ export class UserRegPage implements OnInit {
           this.userService.getSession().subscribe(session =>{
               // @ts-ignore
               if ((session === null) || (session.access !== "admin")) {
-                  this.navCtrl.navigateForward(['/']);
+                  this.navCtrl.navigateForward(['/menu/admin-login']);
               }
           });
       } else {
@@ -34,7 +34,7 @@ export class UserRegPage implements OnInit {
               } else {
                   session.data = JSON.parse(session.data);
                   if (session.data.access !== "admin"){
-                      this.navCtrl.navigateForward(['/']);
+                      this.navCtrl.navigateForward(['//menu/admin-login']);
                   }
               }
           });

@@ -14,7 +14,7 @@ export class HomeService {
 
 
     getSession(){
-        return this.http.get('http://localhost:3000/session',{withCredentials: true})
+        return this.http.get('http://168.232.165.150:3000/session',{withCredentials: true})
     }
 
     getSession2(){
@@ -22,7 +22,7 @@ export class HomeService {
     }
 
     getRequests(){
-        return this.http.get('http://localhost:3000/comentario/requests/all',{withCredentials: true})
+        return this.http.get('http://168.232.165.150:3000/comentario/requests/all',{withCredentials: true})
     }
 
     getRequests2(){
@@ -30,7 +30,7 @@ export class HomeService {
     }
 
     getFormNumber(){
-        return this.http.get('http://localhost:3000/eform/forms/all/month',{withCredentials: true})
+        return this.http.get('http://168.232.165.150:3000/eform/forms/all/month',{withCredentials: true})
     }
 
     getFormNumber2(){
@@ -38,7 +38,7 @@ export class HomeService {
     }
 
     getForms(){
-        return this.http.get('http://localhost:3000/eform/forms/all',{withCredentials: true})
+        return this.http.get('http://168.232.165.150:3000/eform/forms/all',{withCredentials: true})
     }
 
     getForms2(){

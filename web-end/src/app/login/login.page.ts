@@ -23,7 +23,7 @@ export class LoginPage implements OnInit {
       if (this.pltr.is('desktop')){
           this.loginService.getSession().subscribe(session =>{
               // @ts-ignore
-              if ((session.access == "user") || (session.access == "admin")) {
+              if ((session.access == "admin")) {
                   this.navCtrl.navigateForward(['/menu/home']);
               }
           });
@@ -32,7 +32,7 @@ export class LoginPage implements OnInit {
               // @ts-ignore
               if (session.data !== ''){
                   session.data = JSON.parse(session.data);
-                  if ((session.data.access == "user") || (session.data.access == "admin")) {
+                  if ((session.data.access == "admin")) {
                       this.navCtrl.navigateForward(['/menu/home']);
                   }
               }

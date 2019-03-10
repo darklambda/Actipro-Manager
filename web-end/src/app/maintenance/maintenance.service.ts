@@ -11,7 +11,7 @@ export class MaintenanceService {
               private http2: HTTP) { }
 
     getSession(){
-        return this.http.get('http://localhost:3000/session',{withCredentials: true})
+        return this.http.get('http://168.232.165.150:3000/session',{withCredentials: true})
     }
 
     getSession2(){
@@ -19,7 +19,7 @@ export class MaintenanceService {
     }
 
     getForms(){
-        return this.http.get('http://localhost:3000/eform/forms/all',{withCredentials: true})
+        return this.http.get('http://168.232.165.150:3000/eform/forms/all',{withCredentials: true})
     }
 
     getForms2(){
@@ -27,7 +27,7 @@ export class MaintenanceService {
     }
 
     logout(){
-        return this.http.get('http://localhost:3000/logout',{withCredentials: true})
+        return this.http.get('http://168.232.165.150:3000/logout',{withCredentials: true})
     }
 
     logout2(){
@@ -35,7 +35,7 @@ export class MaintenanceService {
     }
 
     deleteForm(id){
-        return this.http.delete('http://localhost:3000/eform/delete/'+id,{withCredentials: true} )
+        return this.http.delete('http://168.232.165.150:3000/eform/delete/'+id,{withCredentials: true} )
     }
 
     deleteForm2(id){

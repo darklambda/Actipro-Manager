@@ -31,7 +31,7 @@ export class FormListPage implements OnInit {
           this.formlistService.getSession().subscribe(session =>{
               // @ts-ignore
               if ((session === null)) {
-                  this.navCtrl.navigateForward(['/menu/login']);
+                  this.navCtrl.navigateForward(['/menu/admin-login']);
               } else {
                   this.User = session;
                   if (this.User.access == "admin"){
@@ -45,7 +45,7 @@ export class FormListPage implements OnInit {
           this.formlistService.getSession2().then(session =>{
               session.data = JSON.parse(session.data);
               if ((session.data === '')) {
-                  this.navCtrl.navigateForward(['/menu/login']);
+                  this.navCtrl.navigateForward(['/menu/admin-login']);
               } else {
                   this.User = session.data;
                   if (this.User.access == "admin"){
@@ -116,12 +116,11 @@ export class FormListPage implements OnInit {
         this.menu.enable(true,"content");
         if (this.pltr.is('desktop')){
             this.formlistService.logout().subscribe( () => {
-                console.log("henlo?");
-                this.navCtrl.navigateBack("/menu/login");
+                this.navCtrl.navigateBack("/menu/admin-login");
             })
         } else {
             this.formlistService.logout2().then( () => {
-                this.navCtrl.navigateBack("/menu/login");
+                this.navCtrl.navigateBack("/menu/admin-login");
             })
         }
     }

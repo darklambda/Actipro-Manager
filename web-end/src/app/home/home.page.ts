@@ -33,7 +33,7 @@ export class HomePage implements OnInit {
           this.tab1Service.getSession().subscribe(session =>{
               // @ts-ignore
               if ((session === null)) {
-                  this.navCtrl.navigateForward(['/menu/login']);
+                  this.navCtrl.navigateForward(['/menu/admin-login']);
               } else {
                   this.User = session;
                   if (this.User.access == "admin"){
@@ -41,7 +41,7 @@ export class HomePage implements OnInit {
                       this.level = 4;
                   } else {
                       this.level = this.User.user.permission;
-                      this.navCtrl.navigateRoot('/');
+                      this.navCtrl.navigateRoot('/menu/admin-login');
                   }
               }
           });
@@ -57,7 +57,7 @@ export class HomePage implements OnInit {
                       this.level = 4;
                   } else {
                       this.level = this.User.user.permission;
-                      this.navCtrl.navigateForward('/');
+                      this.navCtrl.navigateForward('/menu/admin-login');
                   }
               }
           });
@@ -65,11 +65,9 @@ export class HomePage implements OnInit {
   }
 
     getRequests(){
-        console.log("getting data");
         if (this.pltr.is('desktop')) {
             this.tab1Service.getRequests().subscribe( data => {
                 this.requests = data;
-                console.log(data);
             });
         } else {
             this.tab1Service.getRequests2().then( data => {
@@ -159,12 +157,11 @@ export class HomePage implements OnInit {
         this.menu.enable(true,"content");
         if (this.pltr.is('desktop')){
             this.tab1Service.logout().subscribe( () => {
-              console.log("henlo?");
-                this.navCtrl.navigateBack("/menu/login");
+                this.navCtrl.navigateBack("/menu/admin-login");
             })
         } else {
             this.tab1Service.logout2().then( () => {
-                this.navCtrl.navigateBack("/menu/login");
+                this.navCtrl.navigateBack("/menu/admin-login");
             })
         }
     }

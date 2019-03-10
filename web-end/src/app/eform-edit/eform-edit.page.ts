@@ -31,7 +31,7 @@ export class EFormEditPage implements OnInit {
           this.eformEditService.getSession().subscribe(session =>{
               // @ts-ignore
               if ((session === null)) {
-                  this.navCtrl.navigateForward(['/menu/login']);
+                  this.navCtrl.navigateForward(['/menu/admin-login']);
               } else {
                   this.User = session;
                   if (this.User.access == "admin"){
@@ -45,7 +45,7 @@ export class EFormEditPage implements OnInit {
           this.eformEditService.getSession2().then(session =>{
               session.data = JSON.parse(session.data);
               if ((session.data === '')) {
-                  this.navCtrl.navigateForward(['/menu/login']);
+                  this.navCtrl.navigateForward(['/menu/admin-login']);
               } else {
                   this.User = session.data;
                   if (this.User.access == "admin"){
@@ -97,7 +97,6 @@ export class EFormEditPage implements OnInit {
       if (this.pltr.is('desktop')){
           this.eformEditService.putEForm(modelo, id).subscribe(
               data => {
-                  console.log(data, "objeto enviado");
                   alert('Forma Editada');
               });
       } else {
@@ -106,6 +105,6 @@ export class EFormEditPage implements OnInit {
                   this.presentAlert()
               });
       }
-      this.navCtrl.navigateRoot('/');
+      this.navCtrl.navigateRoot('/menu/home');
   }
 }

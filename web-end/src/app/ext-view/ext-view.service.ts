@@ -14,7 +14,7 @@ export class ExtViewService {
 
 
     deleteComment(id){
-        return this.http.delete('http://localhost:3000/comentario/delete/'+id, {withCredentials: true});
+        return this.http.delete('http://168.232.165.150:3000/comentario/delete/'+id, {withCredentials: true});
     }
 
     deleteComment2(id){
@@ -22,7 +22,7 @@ export class ExtViewService {
     }
 
     deleteExtinguisher(serial){
-        return this.http.delete('http://localhost:3000/extinguisher/delete/'+serial, {withCredentials: true});
+        return this.http.delete('http://168.232.165.150:3000/extinguisher/delete/'+serial, {withCredentials: true});
     }
 
     deleteExtinguisher2(serial){
@@ -30,7 +30,7 @@ export class ExtViewService {
     }
 
     getExtinguisher(serial){
-        return this.http.get('http://localhost:3000/extinguisher/'+serial, {withCredentials: true});
+        return this.http.get('http://168.232.165.150:3000/extinguisher/'+serial, {withCredentials: true});
     }
 
     getExtinguisher2(serial){
@@ -38,7 +38,7 @@ export class ExtViewService {
     }
 
     getForms(serial){
-        return this.http.get('http://localhost:3000/eform/'+serial, {withCredentials: true});
+        return this.http.get('http://168.232.165.150:3000/eform/'+serial, {withCredentials: true});
     }
 
     getForms2(serial){

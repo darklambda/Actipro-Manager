@@ -11,7 +11,7 @@ export class RequestService {
               private http2: HTTP) { }
 
     getSession(){
-        return this.http.get('http://localhost:3000/session',{withCredentials: true})
+        return this.http.get('http://168.232.165.150:3000/session',{withCredentials: true})
     }
 
     getSession2(){
@@ -19,7 +19,7 @@ export class RequestService {
     }
 
     getRequests(){
-        return this.http.get('http://localhost:3000/comentario/requests/all',{withCredentials: true})
+        return this.http.get('http://168.232.165.150:3000/comentario/requests/all',{withCredentials: true})
     }
 
     getRequests2(){
@@ -27,7 +27,7 @@ export class RequestService {
     }
 
     checkRequests(id){
-        return this.http.put('http://localhost:3000/comentario/requestCheck/'+id,{withCredentials: true})
+        return this.http.put('http://168.232.165.150:3000/comentario/requestCheck/'+id,{withCredentials: true})
     }
 
     checkRequests2(id){
@@ -35,7 +35,7 @@ export class RequestService {
     }
 
     logout(){
-        return this.http.get('http://localhost:3000/logout',{withCredentials: true})
+        return this.http.get('http://168.232.165.150:3000/logout',{withCredentials: true})
     }
 
     logout2(){

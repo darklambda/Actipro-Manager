@@ -32,7 +32,7 @@ export class UserListPage implements OnInit {
                       this.level = 4;
                   } else {
                       this.level = this.User.user.permission;
-                      this.navCtrl.navigateRoot('/');
+                      this.navCtrl.navigateRoot('/menu/admin-login');
                   }
               }
           });
@@ -48,7 +48,7 @@ export class UserListPage implements OnInit {
                       this.level = 4;
                   } else {
                       this.level = this.User.user.permission;
-                      this.navCtrl.navigateForward('/');
+                      this.navCtrl.navigateForward('/menu/admin-login');
                   }
               }
           });

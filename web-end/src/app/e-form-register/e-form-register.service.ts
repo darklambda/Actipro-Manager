@@ -13,7 +13,7 @@ export class EFormRegisterService {
               private http2: HTTP) { }
 
     postEForm(eform){
-        return this.http.post('http://localhost:3000/eform', eform, {withCredentials: true});
+        return this.http.post('http://168.232.165.150:3000/eform', eform, {withCredentials: true});
     }
 
     postEForm2(eform){
@@ -21,7 +21,7 @@ export class EFormRegisterService {
     }
 
     getSession(){
-        return this.http.get('http://localhost:3000/session',{withCredentials: true})
+        return this.http.get('http://168.232.165.150:3000/session',{withCredentials: true})
     }
 
     getSession2(){

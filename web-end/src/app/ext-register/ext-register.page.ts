@@ -33,7 +33,7 @@ export class ExtRegisterPage implements OnInit {
           this.extinguisherService.getSession().subscribe(session =>{
               // @ts-ignore
               if ((session === null) ) {
-                  this.navCtrl.navigateForward(['/menu/login']);
+                  this.navCtrl.navigateForward(['/menu/admin-login']);
               } else {
                   this.User = session;
                   this.name = this.User.user.name;
@@ -43,7 +43,7 @@ export class ExtRegisterPage implements OnInit {
           this.extinguisherService.getSession2().then(session =>{
               // @ts-ignore
               if ((session.data === '') ) {
-                  this.navCtrl.navigateForward(['/menu/login']);
+                  this.navCtrl.navigateForward(['/menu/admin-login']);
               } else {
                   this.User = session.data;
                   this.name = this.User.user.name;
@@ -78,19 +78,17 @@ export class ExtRegisterPage implements OnInit {
           con_tel);
       console.log(modelo);
       if (this.pltr.is('desktop')){
-          console.log("hola?");
           this.extinguisherService.postExtinguisher(modelo).subscribe(
               data => {
                   alert('Extintor Registrado');
               });
       } else {
-          console.log("hola!");
           this.extinguisherService.postExtinguisher2(modelo).then(
               data => {
                   this.presentAlert()
               });
       }
-      this.navCtrl.navigateRoot('/');
+      this.navCtrl.navigateRoot('/menu/home');
   }
 
 }

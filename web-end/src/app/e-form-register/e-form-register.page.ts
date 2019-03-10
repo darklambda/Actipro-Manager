@@ -30,7 +30,7 @@ export class EFormRegisterPage implements OnInit {
               // @ts-ignore
               console.log(session);
               if ((session === null)) {
-                  this.navCtrl.navigateForward(['/menu/login']);
+                  this.navCtrl.navigateForward(['/menu/admin-login']);
               } else {
                   this.User = session;
                   if (this.User.access == "admin"){
@@ -44,7 +44,7 @@ export class EFormRegisterPage implements OnInit {
           this.eformService.getSession2().then(session =>{
               // @ts-ignore
               if ((session.data === '')) {
-                  this.navCtrl.navigateForward(['/menu/login']);
+                  this.navCtrl.navigateForward(['/menu/admin-login']);
               } else {
                   this.User = session.data;
                   if (this.User.access == "admin"){
@@ -79,7 +79,6 @@ export class EFormRegisterPage implements OnInit {
       if (this.pltr.is('desktop')){
           this.eformService.postEForm(modelo).subscribe(
               data => {
-                  console.log(data, "objeto enviado");
                   alert('Forma Actualizada');
               });
       } else {

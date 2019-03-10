@@ -24,7 +24,7 @@ export class EntListPage implements OnInit {
           this.entListService.getSession().subscribe(session =>{
               // @ts-ignore
               if ((session === null)) {
-                  this.navCtrl.navigateForward(['/menu/login']);
+                  this.navCtrl.navigateForward(['/menu/admin-login']);
               } else {
                   this.User = session;
                   if (this.User.access == "admin"){
@@ -39,7 +39,7 @@ export class EntListPage implements OnInit {
           this.entListService.getSession2().then(session =>{
               session.data = JSON.parse(session.data);
               if ((session.data === '')) {
-                  this.navCtrl.navigateForward(['/menu/login']);
+                  this.navCtrl.navigateForward(['/menu/admin-login']);
               } else {
                   this.User = session.data;
                   if (this.User.access == "admin"){
@@ -58,7 +58,6 @@ export class EntListPage implements OnInit {
         if (this.pltr.is('desktop')) {
             this.entListService.getEnterpriseAll().subscribe( data => {
                 this.Enterprises = data;
-                console.log(data);
             })
         } else {
             this.entListService.getEnterpriseAll2().then( data => {
@@ -91,12 +90,11 @@ export class EntListPage implements OnInit {
         this.menu.enable(true,"content");
         if (this.pltr.is('desktop')){
             this.entListService.logout().subscribe( () => {
-                console.log("henlo?");
-                this.navCtrl.navigateBack("/menu/login");
+                this.navCtrl.navigateBack("/menu/admin-login");
             })
         } else {
             this.entListService.logout2().then( () => {
-                this.navCtrl.navigateBack("/menu/login");
+                this.navCtrl.navigateBack("/menu/admin-login");
             })
         }
     }

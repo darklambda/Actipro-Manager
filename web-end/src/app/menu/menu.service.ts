@@ -11,7 +11,7 @@ export class MenuService {
               private http2: HTTP) { }
 
     getSession(){
-        return this.http.get('http://localhost:3000/session',{withCredentials: true})
+        return this.http.get('http://168.232.165.150:3000/session',{withCredentials: true})
     }
 
     getSession2(){
@@ -19,7 +19,7 @@ export class MenuService {
     }
 
     logout(){
-        return this.http.get('http://localhost:3000/logout',{withCredentials: true})
+        return this.http.get('http://168.232.165.150:3000/logout',{withCredentials: true})
     }
 
     logout2(){

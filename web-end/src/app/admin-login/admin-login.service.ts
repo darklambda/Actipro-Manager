@@ -13,7 +13,7 @@ export class AdminLoginService {
               private http2: HTTP) { }
 
     login(admin){
-          return this.http.post('http://localhost:3000/adminlogin', admin, {withCredentials: true});
+          return this.http.post('http://168.232.165.150:3000/adminlogin', admin, {withCredentials: true});
 
     }
 
@@ -22,7 +22,7 @@ export class AdminLoginService {
     }
 
     getSession(){
-        return this.http.get('http://localhost:3000/session',{withCredentials: true});
+        return this.http.get('http://168.232.165.150:3000/session',{withCredentials: true});
 
     }
 

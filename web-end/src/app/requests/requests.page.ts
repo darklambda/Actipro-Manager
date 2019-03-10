@@ -32,7 +32,7 @@ export class RequestsPage implements OnInit {
                       this.level = 4;
                   } else {
                       this.level = this.User.user.permission;
-                      this.navCtrl.navigateRoot('/');
+                      this.navCtrl.navigateRoot('/menu/admin-login');
                   }
               }
           });
@@ -48,7 +48,7 @@ export class RequestsPage implements OnInit {
                       this.level = 4;
                   } else {
                       this.level = this.User.user.permission;
-                      this.navCtrl.navigateForward('/');
+                      this.navCtrl.navigateForward('/menu/admin-login');
                   }
               }
           });
@@ -60,7 +60,6 @@ export class RequestsPage implements OnInit {
       if (this.pltr.is('desktop')) {
          this.requestService.getRequests().subscribe( data => {
            this.requests = data;
-           console.log(data);
          });
       } else {
         this.requestService.getRequests2().then( data => {
@@ -84,12 +83,11 @@ export class RequestsPage implements OnInit {
         this.menu.enable(true,"content");
         if (this.pltr.is('desktop')){
             this.requestService.logout().subscribe( () => {
-                console.log("henlo?");
-                this.navCtrl.navigateBack("/menu/login");
+                this.navCtrl.navigateBack("/menu/admin-login");
             })
         } else {
             this.requestService.logout2().then( () => {
-                this.navCtrl.navigateBack("/menu/login");
+                this.navCtrl.navigateBack("/menu/admin-login");
             })
         }
     }

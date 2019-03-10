@@ -13,7 +13,7 @@ export class LoginService {
               private http2: HTTP) { }
 
     login(user){
-    return this.http.post('http://localhost:3000/login', user, {withCredentials: true});
+    return this.http.post('http://168.232.165.150:3000/login', user, {withCredentials: true});
     }
 
     login2(user){
@@ -21,7 +21,7 @@ export class LoginService {
     }
 
     getSession(){
-    return this.http.get('http://localhost:3000/session',{withCredentials: true})
+    return this.http.get('http://168.232.165.150:3000/session',{withCredentials: true})
     }
 
     getSession2(){

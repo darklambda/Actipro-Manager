@@ -27,14 +27,14 @@ export class ExtListPage implements OnInit {
           this.extListService.getSession().subscribe(session =>{
               // @ts-ignore
               if ((session === null)) {
-                  this.navCtrl.navigateForward(['/menu/login']);
+                  this.navCtrl.navigateForward(['/menu/admin-login']);
               } else {
                   this.User = session;
                   if (this.User.access == "admin"){
                       this.level = 4;
                   } else {
                       this.level = this.User.user.permission;
-                      this.navCtrl.navigateForward('/');
+                      this.navCtrl.navigateForward('/menu/home');
                   }
               }
           });
@@ -42,14 +42,14 @@ export class ExtListPage implements OnInit {
           this.extListService.getSession2().then(session =>{
               session.data = JSON.parse(session.data);
               if ((session.data === '')) {
-                  this.navCtrl.navigateForward(['/menu/login']);
+                  this.navCtrl.navigateForward(['/menu/admin-login']);
               } else {
                   this.User = session.data;
                   if (this.User.access == "admin"){
                       this.level = 4;
                   } else {
                       this.level = this.User.user.permission;
-                      this.navCtrl.navigateForward('/');
+                      this.navCtrl.navigateForward('/menu/home');
                   }
               }
           });
@@ -94,12 +94,11 @@ export class ExtListPage implements OnInit {
         this.menu.enable(true, "content" );
         if (this.pltr.is('desktop')){
             this.extListService.logout().subscribe( () => {
-                console.log("henlo?");
-                this.navCtrl.navigateBack("/menu/login");
+                this.navCtrl.navigateBack("/menu/admin-login");
             })
         } else {
             this.extListService.logout2().then( () => {
-                this.navCtrl.navigateBack("/menu/login");
+                this.navCtrl.navigateBack("/menu/admin-login");
             })
         }
     }
