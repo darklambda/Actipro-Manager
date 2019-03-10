@@ -21,6 +21,7 @@ export class MaintenancePage implements OnInit {
 
   ngOnInit() {
       this.getForms();
+      console.log("did i get forms?");
       if (this.pltr.is('desktop')) {
           this.maintenanceService.getSession().subscribe(session =>{
               // @ts-ignore
@@ -57,8 +58,9 @@ export class MaintenancePage implements OnInit {
   }
 
     getForms(){
-        if (this.pltr.is('desktop')) {
+      console.log("i am getting forms!");
             this.maintenanceService.getForms().subscribe( data => {
+                console.log(data);
                 this.forms = data;
                 for(let i = 0; i < this.forms.length; i++){
                     this.forms[i].fecha = new Date(this.forms[i].createdAt);
@@ -71,12 +73,6 @@ export class MaintenancePage implements OnInit {
                     this.forms[i].restante = Math.ceil(timeDiff / (1000 * 3600 * 24));
                 }
             });
-        } else {
-            this.maintenanceService.getForms2().then( data => {
-                data = JSON.parse(data.data);
-                this.forms = data;
-            } )
-        }
     }
 
     async presentAlert() {

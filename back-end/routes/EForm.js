@@ -11,12 +11,12 @@ let getAllFormsController = require('../controllers/getAllFormsController');
 let getFormMonthController = require('../controllers/getFormMonthController');
 
 router.post('/', createEFormController.post);
+router.get('/forms/all', getAllFormsController.get);
+router.get('/forms/all/month', getFormMonthController.get);
 router.get('/:serial', getEFormController.get);
 router.get('/id/:id', getEFormIdController.get);
 router.delete('/delete/:id', deleteEFormController.delete);
 router.put('/edit/:id', editEFormController.put);
-router.get('/forms/all', getAllFormsController.get);
-router.get('/forms/all/month', getFormMonthController.get);
 
 
 module.exports = router;
