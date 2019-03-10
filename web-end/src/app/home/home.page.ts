@@ -85,7 +85,6 @@ export class HomePage implements OnInit {
             this.tab1Service.getForms().subscribe( data => {
                 this.forms = data;
                 let tmp = 0;
-                console.log(tmp, "numero0?");
                 for(let i = 0; i < this.forms.length; i++){
                     this.forms[i].fecha = new Date(this.forms[i].createdAt);
                     let vencY = this.forms[i].fecha.getFullYear()+1;
@@ -96,8 +95,11 @@ export class HomePage implements OnInit {
                     if (this.forms[i].ven === today){
                         tmp++;
                     }
-                this.formNum2 = tmp;
-                console.log(this.formNum2, "numero?");
+                if (tmp === 0){
+                    this.formNum2 = 0;
+                } else {
+                    this.formNum2 = tmp;
+                }
                 }
 
             });

@@ -64,7 +64,8 @@
           <ion-img src="/assets/3.png" class="responsive"></ion-img>
         </ion-col>
         <ion-col class="centered">
-          <div>{{formNum2}} Exintores Expiran este Mes</div>
+          <div *ngIf="formNum2===0"> 0 Exintores Expiran este Mes</div>
+          <div *ngIf="formNum2!==0"> {{formNum2}} Exintores Expiran este Mes</div>
         </ion-col>
       </ion-row>
     </ion-grid>
