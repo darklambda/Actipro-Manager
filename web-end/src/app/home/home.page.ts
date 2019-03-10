@@ -18,7 +18,7 @@ export class HomePage implements OnInit {
     public requests: any;
     public forms: any;
     public formNum: any;
-    public formNum2: any;
+    public formNum2: number;
 
   constructor(private navCtrl: NavController,
               private tab1Service: HomeService,
