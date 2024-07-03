@@ -69,13 +69,9 @@ enter one of the views that are not allowed, the app will redirect to the login 
 
 
 ### TODO
-[ ] Add done button.
-[ ] Add user edit and delete view. 
-[ ] Add company creation view.
-[ ] Add company edit and delete view. 
-
-Agrear a Eform, calcular proxima renovacon y tiempo restante.
-
-Estetica.
-
-Montaje.
+- [ ] Add done button.
+- [ ] Add user edit and delete view. 
+- [ ] Add company creation view.
+- [ ] Add company edit and delete view.
+- [ ] Calculate and add time left for next maintenance.
+- [ ] Improve aesthetics
